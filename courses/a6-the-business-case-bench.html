@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 6 of 6. The business case bench: every tool in one engine, five rungs computed live in your browser. The base case, the sponsor's case that quintuples the NPV without one new fact, the charged case, the optimism uplift, and a break button that proves the range comes from the inputs. Then one sentence a CFO can sign. Keelson Mutual, constructed.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The business case bench - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 6 of 6. NPV, IRR, tornado, switching values and 5,000 seeded draws in one bench, five rungs, one break button.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a6-the-business-case-bench.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The business case bench - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 6 of 6. Five rungs, one break button, one sentence.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 6 · The business case bench - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 6 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 6 of 6</div>
+    <h1>The business case <span class="accent">bench</span></h1>
+    <p class="sub">Five sessions built five tools: the incremental cash flow, discounting, the three verdicts, the tornado with its switching values, and the seeded range. Tonight they run in one engine, and the bench walks a ladder of five versions of the same case. One rung is the honest base case. One is what a sponsor produces without inventing a single fact. One charges costs that do not belong. One applies an optimism uplift. The last one breaks the machine on purpose, to prove it measures what it claims. Then the part that matters most: one sentence Ines Carvalho can sign. Keelson Mutual is constructed; every number is computed in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The ladder, the break, the sentence</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: run the bench</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Bring your cash-flow table from Analyst session 1 and your tornado from Analyst session 4. The bench is the same engine every widget in the track has used: nine constructed inputs for Keelson's claims fast-track triage (CFT), each with a low, a base and a high; three toggles for the costs that may or may not belong; and 5,000 draws from a fixed seed, so your numbers match the ones on this page exactly. Everything moves together: change one slider and the point estimate, the range, the tornado, the switching values and the ladder all recompute.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> The five rungs run and read, one rung you added yourself, and a single recommendation sentence with a range, the chance of loss and the one assumption that would break the case, ready to go on the first page from Leader session 1.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers reading the ladder</span>
+      <h2>Five rungs, one case</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Each rung changes one thing and leaves the rest alone, so every difference between rungs has a single cause. Read across the ladder, not down a column: the lesson is in how far one change moves the answer.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five hand-drawn horizontal ranges on one NPV axis from minus 450 to plus 620 thousand, with a red line at zero. Rung 1, base case: P10 minus 141.5, P50 plus 20.5, P90 plus 189.9, point estimate plus 111.7. Rung 2, the sponsor's case: P10 minus 40.6 to P90 plus 371.5, point plus 606.4, far to the right. Rung 3, sunk cost and CDQ charged: P10 minus 446.5 to P90 minus 115.1, entirely below zero. Rung 4, optimism uplift of 25 percent on build: P10 minus 238.0 to P90 plus 96.8, point plus 21.7. Rung 5, every input held certain: a single dot at plus 111.7. Rung 2 is drawn in brass.">
+        <defs>
+          <filter id="a6aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a6aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a6aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a6aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a6aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a6aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a6aB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a6aR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a6aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a6aH" x="30" y="28">THE LADDER ON ONE AXIS</text>
+        <text class="a6aS" x="210" y="28">bar = P10 to P90 of 5,000 draws · dot = point estimate · thousands · constructed inputs</text>
+
+        <g filter="url(#a6aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M240 300 L850 300"/>
+          <path d="M496 56 L496 300" stroke="#991B1B"/>
+          <rect x="415" y="66" width="188" height="20" rx="6" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <circle cx="560" cy="76" r="6" fill="#4A1A5C"/>
+          <rect x="473" y="114" width="236" height="20" rx="6" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <circle cx="842" cy="124" r="6" fill="#7D5A0E"/>
+          <rect x="243" y="162" width="188" height="20" rx="6" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <circle cx="388" cy="172" r="6" fill="#991B1B"/>
+          <rect x="360" y="210" width="191" height="20" rx="6" fill="url(#a6aHc)"/>
+          <circle cx="508" cy="220" r="6" fill="#4A1A5C"/>
+          <circle cx="560" cy="268" r="7" fill="#2F0F3B"/>
+        </g>
+
+        <text class="a6aL" x="30" y="80">1 · Base case</text>
+        <text class="a6aS" x="30" y="94">point +111.7k · 44.1% loss</text>
+        <text class="a6aB" x="30" y="128">2 · The sponsor's case</text>
+        <text class="a6aS" x="30" y="142">point +606.4k · 15.3% loss</text>
+        <text class="a6aL" x="30" y="176">3 · Sunk and CDQ charged</text>
+        <text class="a6aS" x="30" y="190">point -193.3k · 98.1% loss</text>
+        <text class="a6aL" x="30" y="224">4 · Uplift +25% on build</text>
+        <text class="a6aS" x="30" y="238">point +21.7k · 71.9% loss</text>
+        <text class="a6aL" x="30" y="272">5 · Held certain (break)</text>
+        <text class="a6aS" x="30" y="286">one value, +111.7k</text>
+
+        <text class="a6aR" x="502" y="52">NPV 0</text>
+        <text class="a6aS" x="240" y="318">-450</text>
+        <text class="a6aS" x="820" y="318">+620</text>
+        <text class="a6aN" x="30" y="344">Rung 2 moved no fact, only where each estimate sits in its own range. The point dot ran off to +606.4k.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the honest case straddles zero; the sponsor's case is the same inputs read at their best</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What each rung teaches<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>1 · Base case.</strong> NPV +111.7k, IRR 18.4%, but the middle draw is only +20.5k and the chance of loss is 44.1%. The point estimate sits far above the middle because the ranges are skewed against the plan: the build is more likely to overrun than to come in under, and leakage more likely to rise than fall. Analyst session 5 showed why.</p>
+        <p><strong>2 · The sponsor's case.</strong> Saving 16, share 65%, build 330, six years: every value is inside the range Keelson's own teams gave, set at its most hopeful end. NPV +606.4k, IRR 49.1%, chance of loss 15.3%. Nothing was invented. That is why ranges have to be agreed with their owners before anyone sees the result.</p>
+        <p><strong>3 · Sunk and CDQ charged.</strong> NPV -193.3k and a 98.1% chance of loss: the Analyst session 1 errors, both at once. A good project killed by the accounting.</p>
+        <p><strong>4 · Optimism uplift +25% on build.</strong> The build cost raised by a quarter, the correction Leader session 3 discussed. NPV falls to +21.7k and the chance of loss rises to 71.9%. One honest adjustment to an input with one of the smallest tornado bars, but the clearest record of overruns, changes the recommendation.</p>
+        <p><strong>5 · Every input held certain.</strong> The break rung, in Part 2.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the rungs change one thing at a time<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A ladder that changed two things per rung would leave you unable to say which one moved the answer. The same discipline applies to your own case: when a reviewer asks "what if the saving is lower and the build overruns?", run the two as separate rungs first, then together, and report all three. The difference between "together" and the sum of the two separate effects tells you whether the inputs interact; in CFT they do, because the saving and the share multiply each other.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the break test</span>
+      <h2>Break it, to prove it measures something</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A simulation can produce a confident-looking range from almost anything. The test that it measures the inputs and not its own machinery is to remove the uncertainty and check the range disappears. Hold every input at its base value and the bench should give one number, the point estimate, 5,000 times. If it gives anything else, the range was coming from a bug.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn histograms. Left, the base case: 5,000 draws spread from about minus 360 to plus 660 thousand, with the bars below zero shaded red, 44.1 percent of draws. Right, after the break button holds every input certain: one single bar at plus 111.7 thousand, the point estimate, with the label no uncertainty in, no range out. An arrow labelled break runs from left to right. The right panel is filled in brass.">
+        <defs>
+          <filter id="a6bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a6bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a6bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a6bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a6bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a6bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a6bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a6bW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a6bX { font: 800 16px Inter, sans-serif; fill: #FFFFFF; }
+          .a6bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a6bH" x="30" y="28">THE SAME BENCH, BEFORE AND AFTER THE BREAK BUTTON</text>
+
+        <g filter="url(#a6bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="380" height="200" rx="12" transform="rotate(-0.4 220 148)" fill="#FFFFFF"/>
+          <path d="M50 220 L390 220"/>
+          <path d="M60 220 L60 210 L80 210 L80 196 L100 196 L100 176 L120 176 L120 150 L140 150 L140 132" stroke="#991B1B"/>
+          <path d="M140 132 L160 120 L180 108 L200 102 L220 104 L240 114 L260 130 L280 148 L300 166 L320 182 L340 196 L360 206 L380 214" stroke="#4A1A5C"/>
+          <path d="M150 90 L150 224" stroke="#991B1B" stroke-dasharray="4 4"/>
+          <path d="M420 148 L462 148" marker-end="url(#a6bAr)"/>
+          <rect x="470" y="48" width="380" height="200" rx="12" transform="rotate(0.4 660 148)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <path d="M490 220 L830 220" stroke="#FFFFFF"/>
+          <rect x="652" y="80" width="16" height="140" fill="#FFFFFF" stroke="#FFFFFF"/>
+        </g>
+
+        <text class="a6bL" x="46" y="72">Base case: 5,000 draws</text>
+        <text class="a6bR" x="46" y="90">44.1% below zero</text>
+        <text class="a6bS" x="156" y="240">NPV 0</text>
+        <text class="a6bS" x="290" y="240">P50 +20.5k</text>
+        <text class="a6bS" x="430" y="138">break</text>
+        <text class="a6bW" x="486" y="72">Every input held certain</text>
+        <text class="a6bX" x="686" y="140">+111.7k</text>
+        <text class="a6bW" x="686" y="160">5,000 times</text>
+        <text class="a6bW" x="486" y="240">no uncertainty in, no range out</text>
+
+        <text class="a6bN" x="30" y="280">A bench that still showed a range here would be measuring its own noise. This one collapses to the point.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the break proves every bit of the left histogram's spread came from the input ranges</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Three checks a bench must pass<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>It collapses when the inputs do.</strong> Rung 5: every input certain, every draw +111.7k, P10 = P50 = P90. Passed.</p>
+        <p><strong>It can report a worse number.</strong> Rung 3 drives the chance of loss to 98.1%. A tool that can only ever make a case look good is a brochure.</p>
+        <p><strong>It agrees with an independent build.</strong> The engine behind every widget here was written twice, once in the browser and once in Python, and the two agree on every number including all 5,000 draws; a planted error of one part in a thousand is caught. Your own spreadsheet deserves the same test: rebuild the base case NPV by hand once, as in Analyst session 2.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the bench still assumes<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each input is drawn independently, from a triangle. In reality the share fast-tracked and the leakage probably move together: route more claims past review and more of them will be the doubtful ones. Positive correlation between a benefit and its dis-benefit narrows the range; correlation between two benefits widens it. The triangle is a convention, chosen because owners can give a low, a likely and a high; it has thin tails, so it understates the chance of a very bad outcome. Say both assumptions in the case. The evidence on how far real projects overrun, which argues for fatter tails, is in Leader session 3.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the recommendation sentence</span>
+      <h2>From the bench to one sentence</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The bench produces two dozen numbers. The CFO needs one sentence: what you recommend, the range, how likely a loss is, and the single assumption that decides it, with the person who owns that assumption. Everything else is the appendix.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn sentence built from four bench outputs. Box one, the recommendation: pilot one region first. Box two, the range: P10 minus 141.5 to P90 plus 189.9 thousand, base case plus 111.7. Box three, the chance of loss: 44.1 percent. Box four, the assumption that decides it: the saving per fast-tracked claim, which breaks the case at 12.50, 10.7 percent below base, owned by claims operations. Arrows join the four boxes into one sentence at the bottom, which is filled in brass.">
+        <defs>
+          <filter id="a6cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a6cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a6cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a6cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a6cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a6cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a6cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a6cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a6cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a6cH" x="30" y="28">FOUR OUTPUTS, ONE SENTENCE</text>
+
+        <g filter="url(#a6cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="190" height="100" rx="10" transform="rotate(-1 125 98)" fill="#FFFFFF"/>
+          <rect x="240" y="48" width="190" height="100" rx="10" transform="rotate(0.8 335 98)" fill="#FFFFFF"/>
+          <rect x="450" y="48" width="190" height="100" rx="10" transform="rotate(-0.8 545 98)" fill="#FFFFFF"/>
+          <rect x="660" y="48" width="190" height="100" rx="10" transform="rotate(1 755 98)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M125 152 L300 196 M335 152 L390 196 M545 152 L500 196 M755 152 L590 196" marker-end="url(#a6cAr)"/>
+          <rect x="30" y="200" width="820" height="62" rx="12" transform="rotate(-0.3 440 231)" fill="#7D5A0E" stroke="#7D5A0E"/>
+        </g>
+
+        <text class="a6cS" x="46" y="72">recommendation</text>
+        <text class="a6cV" x="46" y="98">pilot first</text>
+        <text class="a6cS" x="46" y="120">one region, one year</text>
+        <text class="a6cS" x="256" y="72">range, P10 to P90</text>
+        <text class="a6cV" x="256" y="98">-141.5k to +189.9k</text>
+        <text class="a6cS" x="256" y="120">base case +111.7k</text>
+        <text class="a6cS" x="466" y="72">chance of loss</text>
+        <text class="a6cV" x="466" y="98">44.1%</text>
+        <text class="a6cS" x="466" y="120">of 5,000 draws</text>
+        <text class="a6cS" x="676" y="72">the assumption</text>
+        <text class="a6cV" x="676" y="98">saving per claim</text>
+        <text class="a6cS" x="676" y="120">breaks at 12.50 (-10.7%)</text>
+
+        <text class="a6cW" x="48" y="226">Pilot one region first: CFT's NPV runs from -141.5k to +189.9k with a 44.1% chance of loss,</text>
+        <text class="a6cW" x="48" y="246">and it breaks if claims operations' saving per claim lands below 12.50 instead of 14.</text>
+
+        <text class="a6cN" x="30" y="288">Each number in the sentence is one the bench prints. The recommendation is a judgement, labelled as one.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four outputs and an owner; everything else on the bench is the appendix</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why the recommendation is a judgement, not an output<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The bench does not say "pilot". At Keelson's 55 percent confidence that the saving comes in high, Analyst session 5 found that piloting costs 8.9 thousand of expected value against committing now, while cutting the worst case from -111.5k to -79.8k. Whether that trade is worth it depends on how much a loss of 111.5 thousand would hurt Keelson this year, which is a question about the company's risk appetite, not about the model. Saying "the model recommends" hides the judgement; saying "we recommend, because a 44.1 percent chance of a loss is more than this budget can carry" owns it.</p>
+        <p>A team with a stronger balance sheet, or a cheaper pilot, could read the same bench and commit now. Both readings are defensible when they are stated as judgements next to the numbers.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The appendix a reviewer will want<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Behind the sentence: the cash-flow table with the in and out reasons from Analyst session 1; the discount rate and who set it; the four verdicts side by side; the tornado and the switching-value table; the input ranges with each owner's name; the seed and the number of draws; the ladder; and the stated assumptions (independence, triangles, no terminal value, before tax). A reviewer who can rerun your bench from the appendix will usually trust the sentence. Leader session 4 adds what happens after approval: the benefits register and the dates you will check each assumption against reality.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The sentence Ines signed.</strong> Maya's final page led with the pilot sentence above, and her appendix held the ladder. Ines asked one question: "who owns the 14?" The claims operations lead put his name next to it and agreed to report the pilot region's actual saving per claim after six months. That was the condition of approval, and it is exactly the switching value from Analyst session 4 turned into a management action. Constructed Keelson Mutual example; every number is printed by the bench below.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Run the bench, rung by rung</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Pick a rung to set the sliders and toggles, then move anything you like: every panel recomputes, including the ladder table at the bottom. Work the five steps and write down what the bench prints. The seed is fixed, so your numbers match these.</p>
+
+    <div class="bcr-widget" data-mode="bench"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the bench. A rung picker and nine input sliders feed one engine together with three toggles: sunk discovery, CDQ charge and the optimism uplift, plus a hold every input certain switch. The engine feeds five panels in order: the point estimate, the range, the tornado, the switching values and the ladder table. The engine box is filled in brass.">
+        <defs>
+          <filter id="a6dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a6dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a6dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a6dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a6dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a6dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a6dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a6dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a6dH" x="30" y="28">WHAT THE BENCH COMPUTES</text>
+
+        <g filter="url(#a6dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="200" height="56" rx="10" transform="rotate(-0.8 130 76)" fill="#FFFFFF"/>
+          <rect x="30" y="122" width="200" height="56" rx="10" transform="rotate(0.8 130 150)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <path d="M234 76 L294 104 M234 150 L294 122" marker-end="url(#a6dAr)"/>
+          <rect x="298" y="76" width="170" height="74" rx="10" transform="rotate(-0.4 383 113)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <path d="M472 113 L530 113" marker-end="url(#a6dAr)"/>
+          <rect x="536" y="44" width="314" height="148" rx="10" transform="rotate(0.3 693 118)" fill="#F5EEF8" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a6dL" x="44" y="72">rung picker + 9 sliders</text>
+        <text class="a6dS" x="44" y="90">each from its low to its high</text>
+        <text class="a6dL" x="44" y="146">sunk · CDQ · uplift</text>
+        <text class="a6dS" x="44" y="164">and hold every input certain</text>
+        <text class="a6dW" x="312" y="106">one engine</text>
+        <text class="a6dW" x="312" y="126">5,000 draws, seed fixed</text>
+        <text class="a6dL" x="552" y="70">1 · point estimate: NPV, IRR, paybacks</text>
+        <text class="a6dL" x="552" y="96">2 · range: P10, P50, P90, chance of loss</text>
+        <text class="a6dL" x="552" y="122">3 · tornado around the current point</text>
+        <text class="a6dL" x="552" y="148">4 · switching values</text>
+        <text class="a6dL" x="552" y="174">5 · the ladder, every rung</text>
+
+        <text class="a6dB" x="30" y="226">The ladder table never changes when you move a slider: it always shows the five rungs as defined.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one engine, five panels; the sliders move the top four, the ladder stays fixed for comparison</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Rung 1, the base case.</strong> Read the point estimate and the range. Write the gap between the point estimate and the middle draw.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the bench prints</span>NPV +111.7k · IRR 18.4% · payback 3.3 years · discounted payback 3.9 years
+P10 -141.5k · P50 +20.5k · P90 +189.9k · chance NPV below zero 44.1%
+gap, point minus middle draw: 91.1k</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Rung 2, the sponsor's case.</strong> Note how far the point moved and how little the P10 did. Then read the tornado: the bars are now arranged around +606.4k.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · the sponsor's case</span>NPV +606.4k · IRR 49.1% · P10 -40.6k · P50 +163.7k · P90 +371.5k
+chance NPV below zero 15.3%
+inputs changed: saving 16, share 65%, build 330, 6 years. Facts changed: none.</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Rungs 3 and 4.</strong> Compare the charged case and the uplift. Write which one you would defend in front of Ines, and why the other is an error rather than a judgement.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · charged and uplifted</span>3 sunk and CDQ charged:  NPV -193.3k · chance of loss 98.1%
+4 uplift +25% on build:  NPV +21.7k  · chance of loss 71.9%
+defensible: ____   error: ____   because ________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Rung 5, then break it yourself.</strong> Pick rung 5 and confirm one value. Then pick rung 1, untick nothing, and drag the saving per claim slider down until the point estimate reaches zero: compare with the switching value table.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the break and the switch</span>rung 5: P10 = P50 = P90 = +111.7k, chance of loss 0.0%
+saving per claim where the point NPV crosses zero: between 12.50 and 12.00 on the slider
+switching value table: 12.50 per claim (-10.7%)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Add your rung and write the sentence.</strong> Change one thing you think the reviewer will ask about, write the result, then fill the sentence from Part 3 with the bench's numbers.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your rung and your sentence</span>my rung changes: ____________   NPV ____   P50 ____   chance of loss ____
+We recommend ____________: NPV runs from ____ to ____ (P10 to P90) with a ____
+chance of loss, and it breaks if ____________ (owned by ____) moves past ____.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Your numbers will differ on your own case.</strong> On Keelson's they will not: the seed is fixed at 20261030 and the draws are the same 5,000 every time, which is what lets a reviewer reproduce the range you quote.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>After the bench</h2>
+      <span class="tag exercise">45 min</span>
+    </div>
+    <ol>
+      <li><strong>Agree your ranges.</strong> For the three inputs at the top of your tornado, get the owner to write down a low, a likely and a high before they see any result.</li>
+      <li><strong>Build your ladder.</strong> Base case, the sponsor's case (every input at its hopeful end), one error rung, an uplift rung and a break rung, for your own project.</li>
+      <li><strong>Write your sentence.</strong> Recommendation, range, chance of loss, the deciding assumption and its owner. Read it to someone outside the project.</li>
+      <li><strong>Hand over to Leader session 4.</strong> Turn the deciding assumption into a review date: when will you know its real value, and who will report it?</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 6 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · The sponsor's case raises NPV from +111.7k to +606.4k. What new facts did it use?</p>
+      <button class="qopt" type="button">A · A better vendor quote</button>
+      <button class="qopt" type="button">B · A lower discount rate</button>
+      <button class="qopt" type="button">C · None: it read four inputs at the hopeful end of ranges the teams had already given</button>
+      <button class="qopt" type="button">D · A pilot result</button>
+      <p class="qwhy">Every value sits inside its agreed range. Choosing where in each range to stand is enough to quintuple the answer, which is why ranges are agreed before results are seen.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · With every input held certain, the bench reports P10 = P50 = P90 = +111.7k. What does that prove?</p>
+      <button class="qopt" type="button">A · The spread in the base case comes from the input ranges, not from the simulation's own machinery</button>
+      <button class="qopt" type="button">B · The case has no risk</button>
+      <button class="qopt" type="button">C · The simulation is broken</button>
+      <button class="qopt" type="button">D · The base case is the most likely outcome</button>
+      <p class="qwhy">No uncertainty in, no range out. A range that survived the break would be noise from the tool.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Which line belongs in the recommendation sentence?</p>
+      <button class="qopt" type="button">A · The full tornado, all nine bars</button>
+      <button class="qopt" type="button">B · The IRR to three decimal places</button>
+      <button class="qopt" type="button">C · The number of draws and the seed</button>
+      <button class="qopt" type="button">D · The one assumption that breaks the case, its switching value and who owns it</button>
+      <p class="qwhy">The sentence carries the decision, the range, the chance of loss and the deciding assumption with an owner. The rest is appendix, where a reviewer can rerun it.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Sensitivity analysis and switching values as part of appraisal</span><span class="note">HM Treasury, The Green Book (2026), paras 6.101-6.104; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">NPV, IRR, payback and discounted payback</span><span class="note">Aswath Damodaran, Applied Corporate Finance (chapter 5) and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Triangular inputs and Monte Carlo simulation of a case</span><span class="note">A standard risk-analysis convention; the assumptions are stated on the page</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The five rungs: +111.7k, +606.4k, -193.3k, +21.7k and the break; every P10, P50, P90 and chance of loss</span><span class="note">Constructed and labelled; computed by the engine in your browser and matched by an independent Python run</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>One change per rung</b><span>So every difference between rungs has one cause.</span></div>
+      <div class="cheat-item"><b>The sponsor's case</b><span>No new fact, every input at its hopeful end: +606.4k.</span></div>
+      <div class="cheat-item"><b>Break it</b><span>Hold every input certain; the range must collapse to the point.</span></div>
+      <div class="cheat-item"><b>It must report worse</b><span>A bench that only flatters is a brochure.</span></div>
+      <div class="cheat-item"><b>The sentence</b><span>Recommendation, range, chance of loss, the deciding assumption and its owner.</span></div>
+      <div class="cheat-item"><b>Own the judgement</b><span>The bench gives numbers; risk appetite gives the recommendation.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>That is the Analyst track. If you have not taken the Leader track, Leader session 4 picks up where the sentence ends: who owns each benefit after the yes, the baseline you measure it against, and the review that checks the 14 per claim against what actually happened.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 6 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a5-the-range-and-the-option-to-wait.html">← Prev: The range and the option to wait</a> &nbsp;·&nbsp; <a href="../index.html">Course home</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

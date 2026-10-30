@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Leader session 3 of 4. The assumption doing the work: why every estimate leans optimistic and how the outside view corrects it, how to read a tornado in thirty seconds, and how a switching value and a range turn one NPV into a sentence a board can hold. Keelson Mutual, a constructed insurer, rewrites its claims fast-track triage headline.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The assumption doing the work - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Leader session 3 of 4. Optimism bias and the outside view, reading a tornado, and the switching value as the sentence a board can hold.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/b3-the-assumption-doing-the-work.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The assumption doing the work - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Leader session 3 of 4. Optimism bias, the tornado, the switching value.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Leader session 3 · The assumption doing the work - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Leader session 3 of 4</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Leader session 3 of 4</div>
+    <h1>The assumption <span class="accent">doing the work</span></h1>
+    <p class="sub">Every business case has one number on the front page and nine assumptions underneath it, and usually one of the nine is carrying the whole thing. A board that knows which one can ask the right person the right question. A board that only sees the headline argues about the discount rate. Tonight: why estimates lean optimistic and how the outside view corrects them, how to read a tornado in thirty seconds, and how a switching value and a range turn one NPV into a sentence a board can hold. Keelson Mutual and its people are constructed for teaching.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Leader</span>
+      <span class="chip audience">Data and AI leaders who need an investment signed, and the analysts who model it</span>
+      <span class="chip audience">No code</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Optimism, the tornado, switching values</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: rewrite Keelson's headline</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">In Leader session 2 Ines Carvalho, Keelson's CFO, read the claims fast-track triage (CFT) case the way a finance team does: NPV +111.7k at Keelson's 9.0% hurdle, IRR 18.4%, payback 3.3 years. Those numbers answer "is it worth it if the plan comes true?". Tonight's question is the one she asks next: how likely is the plan to come true, and if it does not, which part fails first? Maya Okafor, the chief data officer, has to answer it before the board meets, and Tom Reyes, the COO and sponsor, would rather she did not. Every Keelson person and number is invented; every Keelson number on this page is one the engine prints.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone works it through</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A rewritten headline for a case of your own: the range instead of the point, the one assumption that would break it, the person who owns that assumption, and the outside-view check you would run on it before anyone signs. It is the sentence Leader session 4 hands to the benefit owner after the yes.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers optimism bias and reference classes</span>
+      <h2>Every estimate leans the same way</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Errors in project estimates are not random. If they were, half of all projects would come in under budget. They lean one way: costs higher, durations longer, benefits lower than the plan said. The fix is not a better plan. It is a second view from outside the plan: how did projects like this one actually turn out?</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn panels. Left, the inside view: Keelson's CFT plan, a build of 360 thousand estimated from a task list, which assumes the plan goes to plan. Right, the outside view: a sketched histogram of cost overruns across 1,471 IT projects, bunched near zero with an average of 27 percent and a long tail where one project in six overran by 200 percent on average. Keelson's estimate is a brass line at zero overrun, on the optimistic edge of the distribution.">
+        <defs>
+          <filter id="b3aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="31" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b3aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b3aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b3aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b3aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b3aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b3aB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .b3aA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .b3aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b3aH" x="30" y="28">INSIDE VIEW AGAINST OUTSIDE VIEW</text>
+        <text class="b3aS" x="290" y="28">left: built from your own plan · right: how comparable past projects turned out</text>
+
+        <g filter="url(#b3aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="50" width="250" height="230" rx="12" transform="rotate(-0.4 155 165)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="330" y="50" width="520" height="230" rx="12" transform="rotate(0.3 590 165)" fill="#FFFFFF"/>
+          <path d="M288 165 L322 165" marker-end="url(#b3aAr)"/>
+          <!-- the distribution of past overruns, shape only -->
+          <path d="M360 240 L830 240"/>
+          <rect x="370" y="226" width="18" height="14" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="390" y="190" width="18" height="50" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="410" y="160" width="18" height="80" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="430" y="168" width="18" height="72" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="450" y="192" width="18" height="48" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="470" y="212" width="18" height="28" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="490" y="226" width="18" height="14" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="540" y="232" width="18" height="8" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="620" y="232" width="18" height="8" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="690" y="226" width="18" height="14" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="710" y="222" width="18" height="18" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <rect x="730" y="230" width="18" height="10" fill="url(#b3aHc)" stroke="#4A1A5C"/>
+          <path d="M443 146 L443 240" stroke="#2F0F3B" stroke-dasharray="5 5"/>
+          <path d="M400 118 L400 240" stroke="#7D5A0E" stroke-width="3"/>
+          <!-- doodle: a ticked task list inside the plan -->
+          <rect x="48" y="228" width="12" height="12" rx="2" stroke="#4A1A5C"/>
+          <rect x="48" y="250" width="12" height="12" rx="2" stroke="#4A1A5C"/>
+          <path d="M50 234 L54 238 L60 229 M50 256 L54 260 L60 251" stroke="#4A1A5C"/>
+          <path d="M68 234 L140 234 M68 256 L124 256" stroke="#CDC5D1"/>
+        </g>
+
+        <text class="b3aH" x="46" y="76">INSIDE VIEW</text>
+        <text class="b3aL" x="46" y="102">Keelson's CFT plan</text>
+        <text class="b3aS" x="46" y="120">build 360k, from a task list</text>
+        <text class="b3aS" x="46" y="138">each task estimated by its team</text>
+        <text class="b3aS" x="46" y="156">assumes the plan goes to plan</text>
+        <text class="b3aL" x="46" y="190">the question it asks:</text>
+        <text class="b3aS" x="46" y="208">how long will our tasks take?</text>
+
+        <text class="b3aH" x="346" y="76">OUTSIDE VIEW</text>
+        <text class="b3aS" x="346" y="94">1,471 IT projects, cost overrun against their estimate</text>
+        <text class="b3aB" x="346" y="112">your estimate: on budget</text>
+        <text class="b3aA" x="450" y="140">average +27%</text>
+        <text class="b3aL" x="620" y="190">one in six: a black swan</text>
+        <text class="b3aS" x="620" y="206">average cost overrun +200%</text>
+        <text class="b3aS" x="394" y="256">0%</text>
+        <text class="b3aS" x="545" y="256">+100%</text>
+        <text class="b3aS" x="705" y="256">+200%</text>
+        <text class="b3aA" x="346" y="272">cost overrun against the original estimate</text>
+
+        <text class="b3aN" x="30" y="310">Shape sketched from Flyvbjerg and Budzier (2011); their sample was mostly public agencies and US-based.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the brass line is where a plan puts itself; the distribution is where plans like it actually landed</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why every estimate leans the same way<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The inside view.</strong> A plan is built from the inside: list the tasks, ask each team how long and how much, add it up. Each estimate is honest, and each assumes its task goes roughly as intended. Nobody budgets for the vendor that slips or the integration nobody listed, because nobody can name them yet. Daniel Kahneman and Amos Tversky (1979) named this the planning fallacy, and with it the remedy, the outside view; Kahneman and Dan Lovallo (1993) developed the inside view as the thing being corrected.</p>
+        <p><strong>The outside view.</strong> Ignore the details of your plan for a moment and ask how projects like it actually turned out. Bent Flyvbjerg turned that question into a forecasting method, reference class forecasting (Flyvbjerg 2006, Project Management Journal), in three steps: identify a class of comparable past projects, establish the distribution of their outcomes, and place your project in it.</p>
+        <p><strong>What it does to a case.</strong> The inside view gives you a point. The outside view tells you where that point usually lands. If comparable projects overran by a quarter on average, a plan that assumes no overrun is not a base case, it is the best case.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Using your own organisation's history first<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>HM Treasury, The Green Book (2026) says appraisers must account for optimism bias with explicit adjustments at the outset: raise the cost and duration estimates and lower the benefits. It then sets an order of preference. Use your own organisation's historical forecast errors first, because your projects, your vendors and your estimators are the best reference class you will ever have. Fall back on generic values only when you have no history of your own.</p>
+        <p>The generic values sit in HM Treasury's Supplementary Green Book Guidance on Optimism Bias. For Equipment/Development projects (equipment, ICT, software and systems development) the capital cost upper bound is 200% and the lower bound 10%; the duration upper bound is 54% and the lower bound 10%. The upper bound is a starting point at outline business case stage, to be reduced as the causes of optimism are mitigated. Two honest caveats: the values come from a Mott MacDonald review published in 2002, so the data is old, and the guidance gives no sound bounds for operating costs or benefit shortfalls; for those it points you to sensitivity analysis and switching values, which is Parts 2 and 3.</p>
+        <p>The 25% uplift on build in tonight's widget is a teaching choice for Keelson, well inside that 200% upper bound, not a figure from the guidance. To build your own reference class, pull the last five to ten projects your organisation approved, and for each put the approved cost next to the actual cost. Your numbers will differ, and they will be more persuasive to your CFO than any national table.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the AI failure headlines actually measured<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two figures turn up in almost every AI investment debate, and neither is a measured failure rate for AI projects in general. Treat them as contested evidence and know what each one counted.</p>
+        <p><strong>MIT NANDA, "The GenAI Divide: State of AI in Business 2025" (July 2025, preliminary).</strong> The headline is that 95% of organisations get zero return. The body measures something narrower: custom enterprise generative AI tools that reached production with sustained profit-and-loss or productivity impact, checked six months after the pilot. The evidence is 52 interviews, 153 conference surveys and more than 300 public initiatives. The report lists its own limits, selection bias and a short window, and critics call the sample small and non-random and the definition of success narrow.</p>
+        <p><strong>RAND RR-A2680-1 (August 2024).</strong> The often-quoted "more than 80% of AI projects fail" is, as reported, a figure RAND attributes to "by some estimates": an outside estimate RAND cites rather than one it measured.</p>
+        <p><strong>How to use them in a case.</strong> Do not put either number in as your probability of failure. Use them as a prompt to build a real reference class: which of your own organisation's AI pilots reached production, and which still deliver value a year later? If you cannot answer, that gap is itself a finding to put in the case.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>1,471 IT projects.</strong> Bent Flyvbjerg and Alexander Budzier, "Why Your IT Project May Be Riskier than You Think", Harvard Business Review, September 2011, studied 1,471 IT projects. The average cost overrun was 27%, which sounds survivable. The finding that matters is the tail: one project in six was a black swan, with an average cost overrun of 200% and a schedule overrun of almost 70%. The sample was mostly public agencies (92%) and US-based (83%), so it is a reference class to argue with, not a law of nature. Its lesson for any board still holds: the average overrun is not the risk; the one-in-six tail is.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers reading a tornado</span>
+      <h2>Thirty seconds with a tornado</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A tornado chart answers one question: which assumption moves the answer most? Each input in turn goes to its low and its high while every other input stays at base, and the NPV at each end becomes a bar. Sort the bars longest first and the chart looks like a funnel. You read it from the top, and you usually stop after three.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn tornado of Keelson's CFT NPV, nine bars sorted by swing around a base line at plus 111.7 thousand, with the zero line in red. Saving per claim, the top bar in brass, runs from minus 111.5 to plus 260.5 thousand. Then share fast-tracked, minus 23.6 to plus 246.9; leakage per claim, plus 223.3 to minus 37.1; years of benefit, plus 7.0 to plus 207.7; run cost, plus 150.6 to minus 5.0; year-1 adoption, plus 34.4 to plus 188.9; simple claims, plus 40.8 to plus 182.5; build cost, plus 141.7 to plus 11.7; and the discount rate, the shortest bar, plus 141.7 to plus 84.1. The top three bars are bracketed as per-claim economics owned by claims operations.">
+        <defs>
+          <filter id="b3bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="37" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b3bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b3bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b3bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b3bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b3bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b3bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .b3bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .b3bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .b3bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b3bH" x="30" y="24">KEELSON'S TORNADO: NINE INPUTS, LOW TO HIGH</text>
+        <text class="b3bR" x="486" y="50">NPV 0</text>
+        <text class="b3bA" x="612" y="50">base +111.7k</text>
+        <text class="b3bS" x="30" y="50">NPV at the input's low to its high, thousands · constructed</text>
+
+        <g filter="url(#b3bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="370" y="62" width="447" height="16" rx="3" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="476" y="88" width="324" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="460" y="114" width="312" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="512" y="140" width="241" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="498" y="166" width="187" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="545" y="192" width="186" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="553" y="218" width="170" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="518" y="244" width="156" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="605" y="270" width="69" height="16" rx="3" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M504 56 L504 294" stroke="#991B1B" stroke-width="2.4"/>
+          <path d="M638 56 L638 294" stroke="#2F0F3B" stroke-dasharray="5 5"/>
+          <path d="M832 62 L842 62 L842 130 L832 130"/>
+          <!-- doodle: a magnifying glass on the short bar -->
+          <circle cx="702" cy="278" r="10" stroke="#4A1A5C"/>
+          <path d="M709 285 L720 296" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="b3bL" x="30" y="74">Saving per claim</text>
+        <text class="b3bS" x="200" y="74">-111.5k to +260.5k</text>
+        <text class="b3bL" x="30" y="100">Share fast-tracked</text>
+        <text class="b3bS" x="200" y="100">-23.6k to +246.9k</text>
+        <text class="b3bL" x="30" y="126">Leakage per claim</text>
+        <text class="b3bS" x="200" y="126">+223.3k to -37.1k</text>
+        <text class="b3bL" x="30" y="152">Years of benefit</text>
+        <text class="b3bS" x="200" y="152">+7.0k to +207.7k</text>
+        <text class="b3bL" x="30" y="178">Run cost per year</text>
+        <text class="b3bS" x="200" y="178">+150.6k to -5.0k</text>
+        <text class="b3bL" x="30" y="204">Year-1 adoption</text>
+        <text class="b3bS" x="200" y="204">+34.4k to +188.9k</text>
+        <text class="b3bL" x="30" y="230">Simple claims per year</text>
+        <text class="b3bS" x="200" y="230">+40.8k to +182.5k</text>
+        <text class="b3bL" x="30" y="256">Build cost (year 0)</text>
+        <text class="b3bS" x="200" y="256">+141.7k to +11.7k</text>
+        <text class="b3bL" x="30" y="282">Discount rate</text>
+        <text class="b3bS" x="200" y="282">+141.7k to +84.1k</text>
+
+        <text class="b3bB" x="30" y="316">Top three bars: per-claim economics, owned by claims operations (the bracket on the right).</text>
+        <text class="b3bN" x="30" y="336">The discount rate everyone argues about is the shortest bar of the nine.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - read from the top: the brass bar is the assumption doing the work, the red line is where the case loses money</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Thirty seconds with a tornado<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Ten seconds: the top bar.</strong> Saving per fast-tracked claim, from -111.5k at its low of 11 to +260.5k at its high of 16. It is the longest bar, and its low end sits furthest below the red line. That is the assumption doing the work.</p>
+        <p><strong>Ten seconds: which bars cross zero.</strong> A bar that crosses the red line means that input alone, at the edge of its range, can make the case lose money. At Keelson four of the nine do: saving per claim, share fast-tracked, leakage per claim and, only just, run cost. The other five stay positive whatever happens to them on their own.</p>
+        <p><strong>Ten seconds: who owns the top three.</strong> Saving per claim, share fast-tracked and leakage per claim are all per-claim economics, and none of them is the data team's number. They belong to the claims operations lead, who knows what a claim costs to handle, how many are genuinely simple and how often an unchecked claim is overpaid. The tornado has just told Maya whose signature the case needs.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the argument is usually about the wrong bar<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Finance teams love to argue about the discount rate: is the hurdle 7%, 9% or 11%? At Keelson that whole argument moves the NPV from +141.7k to +84.1k, and the case stays positive at both ends. It is the shortest bar on the chart. Meanwhile the saving per claim, an operational fact somebody could go and measure, swings it by 372 thousand across its range of 11 to 16. The discount rate gets the airtime because it is the one number finance owns and can debate from a desk.</p>
+        <p>Two cautions keep the chart honest. First, each bar moves one input while holding the rest at base, so it hides interactions: a low share fast-tracked and a low saving together are worse than either bar shows, and Analyst session 5 handles that by drawing all inputs at once. Second, a bar is only as long as the range somebody gave for it. A narrow range set by the sponsor makes an input look safe. Ask who set each low and high before you trust the order. The analyst's version of this chart, with the full method, is in <a href="a4-swing-every-assumption.html">Analyst session 4</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Forty minutes on the shortest bar.</strong> At the first review of the CFT case, Keelson's finance committee spent most of the meeting on whether the hurdle should be 9% or 11%. Maya put the tornado on the screen and pointed at the bottom bar: at 11% the NPV is still +84.1k. Then she pointed at the top one: if the saving per claim is 11 rather than 14, the NPV is -111.5k. The next question in the room was the first useful one all meeting: who knows what a simple claim really costs us to handle? Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers switching values and ranges as the board sentence</span>
+      <h2>The sentence a board can hold</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A board cannot hold nine bars in its head, and should not have to. It can hold one sentence: the case breaks if this one thing turns out this much worse than we planned, and this person owns that number. Add the range, so nobody mistakes the base case for a promise, and the headline is done.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four hand-drawn cards left to right with arrows between them. Card 1, a point: NPV plus 111.7 thousand at 9 percent, silent on how sure. Card 2, a range: P10 minus 141.5, P50 plus 20.5, P90 plus 189.9 thousand, a 44.1 percent chance of loss. Card 3, filled in brass, the one assumption: the saving per claim breaks the case at 12.50, a 10.7 percent fall from 14. Card 4, its owner: the claims operations lead, who signs the 14 and tests it.">
+        <defs>
+          <filter id="b3cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b3cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b3cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b3cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b3cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b3cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b3cV { font: 800 18px Inter, sans-serif; fill: #2F0F3B; }
+          .b3cR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .b3cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .b3cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b3cH" x="30" y="28">FROM A POINT ESTIMATE TO A SENTENCE</text>
+        <text class="b3cS" x="330" y="28">each card adds one thing the board can hold · constructed, printed by the engine</text>
+
+        <g filter="url(#b3cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="56" width="180" height="150" rx="10" transform="rotate(-0.6 120 131)" fill="#FFFFFF"/>
+          <rect x="245" y="56" width="180" height="150" rx="10" transform="rotate(0.5 335 131)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="460" y="56" width="180" height="150" rx="10" transform="rotate(-0.5 550 131)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="675" y="56" width="180" height="150" rx="10" transform="rotate(0.6 765 131)" fill="#FFFFFF"/>
+          <path d="M214 131 L240 131" marker-end="url(#b3cAr)"/>
+          <path d="M429 131 L455 131" marker-end="url(#b3cAr)"/>
+          <path d="M644 131 L670 131" marker-end="url(#b3cAr)"/>
+          <!-- doodle: a signature squiggle on the owner card -->
+          <path d="M690 186 Q700 172 708 186 T726 186 T744 184 L790 184" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="b3cH" x="46" y="82">1 · A POINT</text>
+        <text class="b3cV" x="46" y="114">+111.7k</text>
+        <text class="b3cS" x="46" y="138">NPV at 9%, base case</text>
+        <text class="b3cR" x="46" y="160">silent on how sure</text>
+
+        <text class="b3cH" x="261" y="82">2 · A RANGE</text>
+        <text class="b3cL" x="261" y="108">P10 -141.5k</text>
+        <text class="b3cL" x="261" y="128">P50 +20.5k</text>
+        <text class="b3cL" x="261" y="148">P90 +189.9k</text>
+        <text class="b3cR" x="261" y="172">44.1% chance of loss</text>
+
+        <text class="b3cW" x="476" y="82">3 · ONE ASSUMPTION</text>
+        <text class="b3cW" x="476" y="108">saving per claim</text>
+        <text class="b3cW" x="476" y="128">breaks at 12.50</text>
+        <text class="b3cW" x="476" y="148">a 10.7% fall from 14</text>
+
+        <text class="b3cH" x="691" y="82">4 · ITS OWNER</text>
+        <text class="b3cL" x="691" y="108">claims operations lead</text>
+        <text class="b3cS" x="691" y="128">signs the 14</text>
+        <text class="b3cS" x="691" y="148">and says how to test it</text>
+
+        <text class="b3cN" x="30" y="238">The point is still true. It is just no longer the whole headline.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the brass card is the switching value: the sentence that tells the board what to watch</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The sentence a board can hold<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The switching value.</strong> HM Treasury, The Green Book (2026) defines it as the value a key variable would need to change to for the option to stop being value for money, and asks for it, at a minimum, for the preferred option. In private-sector words: how far can this input move before the NPV hits zero?</p>
+        <p><strong>Keelson's sentence.</strong> "The case breaks if the saving per fast-tracked claim falls 10.7 percent, from 14 to 12.50." Check the percentage by hand: (14 - 12.50) / 14 = 1.50 / 14 = 0.107, so 10.7%. Two other inputs break the case at a 15.0% fall: simple claims per year and the share fast-tracked. All three are within 20% of base, and all three are per-claim economics.</p>
+        <p><strong>Why it beats the tornado for a board.</strong> A tornado shows what happens at the edges of ranges somebody chose. A switching value needs no range at all: it tells the board the distance to the cliff, and leaves the owner of the input to say whether a 10.7% miss is likely. That is a question a claims operations lead can answer from experience.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the base case is not the middle<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Analyst session 5 draws every input at once, 5,000 seeded draws, each from a low, base and high triangle. The result for CFT: P10 -141.5k, P50 +20.5k, P90 +189.9k, and a 44.1% chance that the NPV is below zero. The base case, +111.7k, sits well above the middle draw. That is not a bug. The ranges are skewed against the plan: build cost can rise further than it can fall (330 to 460 around 360), leakage can rise further than it can fall, and the saving per claim is capped close to its base. When most of the surprises available are bad ones, the plan sits near the good end of what can happen.</p>
+        <p>This is optimism bias seen from the other side. The Green Book's answer is an explicit uplift; Keelson's widget lets you apply a 25% uplift on build, which brings the NPV down to +21.7k, close to the middle draw. The honest headline carries both: the base case, so the reader knows what the plan assumes, and the range, so the reader knows the plan is not the median outcome.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Maya rewrites the headline.</strong> The first board paper said "CFT: NPV +111.7k". Ines asked Maya to rewrite it before it went out. The new version read: "CFT's base case is +111.7k, but the range across 5,000 draws runs from -141.5k (P10) to +189.9k (P90), with a 44.1% chance of loss. The case breaks if the saving per claim falls 10.7 percent, from 14 to 12.50; the claims operations lead owns that number." Tom thought it read like a confession. Ines said it read like a case her team could sign, and that the next question was obvious: can a pilot tell us the saving per claim before we spend the full 360? Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Rewrite Keelson's headline, then yours</h2>
+      <span class="tag demo">★ 22 min · everyone works it through</span>
+    </div>
+    <p class="lede">No code. The widget below is read-only: it runs Keelson's constructed case through the same engine the Analyst track uses and shows NPV at the hurdle rate, IRR, both paybacks and the tornado. Its one control is a checkbox that applies a 25% optimism uplift to the build cost. Work steps 1 to 4 together on Keelson, then step 5 in pairs on your own case.</p>
+
+    <div class="bcr-widget" data-mode="tornado" data-switch="off"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the headline rewrite. On the left, in a red panel, the old headline: CFT NPV plus 111.7 thousand, IRR 18.4 percent, payback 3.3 years; one point, no range, no owner. An arrow leads to three stacked lines on the right. Line 1: the range, P10 minus 141.5 to P90 plus 189.9 thousand, middle draw plus 20.5, 44.1 percent chance of loss. Line 2: with a 25 percent optimism uplift on build, NPV plus 21.7 thousand. Line 3, filled in brass: breaks if the saving per claim falls 10.7 percent, from 14 to 12.50, owned by the claims operations lead.">
+        <defs>
+          <filter id="b3dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b3dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b3dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b3dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b3dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b3dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b3dR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .b3dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .b3dN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b3dH" x="30" y="28">THE HEADLINE REWRITE</text>
+        <text class="b3dS" x="210" y="28">old headline on the left · the three lines that replace it on the right · constructed</text>
+
+        <g filter="url(#b3dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="50" width="300" height="180" rx="12" transform="rotate(-0.5 180 140)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="390" y="50" width="460" height="48" rx="10" transform="rotate(0.4 620 74)" fill="#FFFFFF"/>
+          <rect x="390" y="108" width="460" height="48" rx="10" transform="rotate(-0.4 620 132)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="390" y="166" width="460" height="64" rx="10" transform="rotate(0.3 620 198)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <path d="M338 140 L382 140" marker-end="url(#b3dAr)"/>
+          <!-- doodle: a pencil on the old headline -->
+          <path d="M262 196 L304 170 L310 178 L268 204 Z" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="b3dR" x="48" y="76">THE OLD HEADLINE</text>
+        <text class="b3dL" x="48" y="106">CFT: NPV +111.7k</text>
+        <text class="b3dS" x="48" y="126">IRR 18.4%, payback 3.3 years</text>
+        <text class="b3dR" x="48" y="160">one point, no range, no owner</text>
+
+        <text class="b3dL" x="406" y="72">1 · Range: P10 -141.5k to P90 +189.9k</text>
+        <text class="b3dS" x="406" y="88">middle draw +20.5k · 44.1% chance of loss</text>
+        <text class="b3dL" x="406" y="130">2 · With a 25% optimism uplift on build: NPV +21.7k</text>
+        <text class="b3dS" x="406" y="146">the base case shrinks to about a fifth</text>
+        <text class="b3dW" x="406" y="192">3 · Breaks if saving per claim falls 10.7%, from 14 to 12.50</text>
+        <text class="b3dW" x="406" y="212">owner: the claims operations lead</text>
+
+        <text class="b3dN" x="30" y="268">Line 3 is the one the board remembers. Lines 1 and 2 stop anyone treating +111.7k as a promise.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three lines replace one number; the brass line is the switching sentence</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the top three bars and name their owners.</strong> In the widget, read the first three rows of the tornado and the NPV each end prints. For each, write who in Keelson would know the true value. Hint: it is the same person three times.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · the top three</span>1 saving per fast-tracked claim:  -111.5k to +260.5k   owner: ____________
+2 share fast-tracked:             -23.6k to +246.9k    owner: ____________
+3 leakage per fast-tracked claim: +223.3k to -37.1k    owner: ____________
+shortest bar: discount rate, +141.7k to +84.1k</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Tick the uplift.</strong> Tick "Apply a 25% optimism uplift to the build cost". Read the new NPV at the hurdle rate and IRR, and watch both paybacks lengthen. Then untick it. Write one sentence on what the uplift says about the base case.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · the uplift</span>base case:          NPV +111.7k   IRR 18.4%
+with 25% on build:  NPV +21.7k    IRR 10.6%
+what this says about the base case: ______________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Write the switching sentence.</strong> The saving per claim breaks the case at 12.50. Turn that into one sentence a board member could repeat in the corridor, with the percentage worked out by hand.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the switching value</span>(14 - 12.50) / 14 = ______ %
+"The case breaks if the saving per fast-tracked claim falls ____ %,
+ from 14 to 12.50. The ____________________ owns that number."</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Rewrite Keelson's headline.</strong> Replace "CFT: NPV +111.7k" with three lines: the range from Analyst session 5, the uplifted NPV, and the switching sentence from step 3.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the new headline</span>range:      P10 ______  to  P90 ______   middle draw ______
+            chance of loss ______
+uplifted:   with a 25% optimism uplift on build, NPV ______
+breaks if:  ______________________________ (owner: ____________)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own case.</strong> Take the case from your Leader session 1 page. You probably have no tornado for it, and do not need one tonight: name the assumption you think is doing the work, its owner, and the outside-view check you would run before anyone signs. Your numbers will differ from Keelson's.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your assumption</span>the assumption doing the work: ______________________________
+its owner (not the data team):  ______________________________
+roughly how far it can fall before the case breaks: ______ %
+outside-view check: the last ____ comparable projects in ____________,
+                    planned vs actual for this number</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Test the top bar, not the hurdle.</strong> If your top bar is something a small trial could measure, the cheapest risk reduction is to measure it before you build. A controlled test of a benefit is its own craft, covered in <a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">Experimentation ↗</a>; Leader session 4 puts a value on running a pilot first.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Leader session 4</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Build a small reference class.</strong> Find three to five past projects in your organisation like yours. For each, write the approved cost and the actual cost side by side. Your numbers will differ; the direction of the gap is what you are looking for.</li>
+      <li><strong>Ask the owner of your top assumption.</strong> Show the person who owns it the number your case uses and ask one question: what value would surprise you? Their answer is a better low than the one you have.</li>
+      <li><strong>Write your switching sentence.</strong> "The case breaks if ______ falls ____ percent, from ____ to ____." If you cannot work out the percentage, ask whoever built the model; if nobody can, that is the first thing to fix.</li>
+      <li><strong>Check one AI headline in your own deck.</strong> If any slide you own quotes an AI failure rate, find what that study actually measured and rewrite the line to say so.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Leader session 3 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · What did Flyvbjerg and Budzier find across 1,471 IT projects?</p>
+      <button class="qopt" type="button">A · Overruns were random, so half the projects came in under budget</button>
+      <button class="qopt" type="button">B · The average cost overrun was 27%, and one project in six was a black swan with an average cost overrun of 200%</button>
+      <button class="qopt" type="button">C · 95% of the projects returned nothing</button>
+      <button class="qopt" type="button">D · Private-sector projects never overran</button>
+      <p class="qwhy">The average hides the risk; the one-in-six tail is what sinks a budget. The sample was mostly public agencies and US-based, which is worth saying when you use it.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · Which bar tops Keelson's tornado for CFT?</p>
+      <button class="qopt" type="button">A · The discount rate</button>
+      <button class="qopt" type="button">B · Build cost in year 0</button>
+      <button class="qopt" type="button">C · Year-1 adoption</button>
+      <button class="qopt" type="button">D · Saving per fast-tracked claim, from -111.5k to +260.5k</button>
+      <p class="qwhy">The top three bars are per-claim economics owned by claims operations. The discount rate, the usual argument, is the shortest bar.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · What does a switching value tell a board?</p>
+      <button class="qopt" type="button">A · How far one input can move before the option stops being value for money, such as the saving per claim falling 10.7 percent</button>
+      <button class="qopt" type="button">B · The probability that the project fails</button>
+      <button class="qopt" type="button">C · Which discount rate to use</button>
+      <button class="qopt" type="button">D · The best case for the project</button>
+      <p class="qwhy">It is the distance to the cliff for one input. The owner of that input then says whether a miss that large is likely.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">IT project overruns: average 27%, one in six a black swan at +200% cost and almost +70% schedule</span><span class="note">Flyvbjerg and Budzier, "Why Your IT Project May Be Riskier than You Think", Harvard Business Review, September 2011; read at source via the authors' manuscript</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Reference class forecasting: the outside view in three steps</span><span class="note">Flyvbjerg 2006, Project Management Journal; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Optimism bias adjustments at the outset, own history first; switching values for the preferred option</span><span class="note">HM Treasury, The Green Book (2026), paras 6.78-6.80 and 6.101-6.104; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Equipment/Development bounds: capex 200% / 10%, duration 54% / 10%</span><span class="note">Supplementary Green Book Guidance, Optimism Bias; read at source; values from Mott MacDonald 2002, old data</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">AI failure headlines: MIT NANDA 2025 (95%) and RAND 2024 (80%, "by some estimates")</span><span class="note">MIT NANDA read at source via a mirror, preliminary and contested; RAND RR-A2680-1 reported; neither is a measured failure rate</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's tornado, switching values, range and uplift: +111.7k, -111.5k to +260.5k, 12.50 (-10.7%), P10 -141.5k to P90 +189.9k, +21.7k</span><span class="note">Constructed and labelled; every value printed by the engine in Analyst sessions 4 and 5</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Estimates lean one way</b><span>Costs up, durations longer, benefits lower. Adjust at the outset.</span></div>
+      <div class="cheat-item"><b>Outside view</b><span>Comparable past projects, their distribution, your project placed in it.</span></div>
+      <div class="cheat-item"><b>Own history first</b><span>Your organisation's planned versus actual beats any generic table.</span></div>
+      <div class="cheat-item"><b>Read the tornado top down</b><span>Top bar, which bars cross zero, who owns the top three.</span></div>
+      <div class="cheat-item"><b>The switching sentence</b><span>"Breaks if X falls N percent, from A to B; this person owns it."</span></div>
+      <div class="cheat-item"><b>Range, not point</b><span>P10 to P90 and the chance of loss next to the base case.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>You know which assumption does the work and who owns it. Leader session 4 is about after the yes: giving each benefit an owner and a baseline, the benefits register, stage gates, and whether a pilot that measures the saving per claim first is worth the wait.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Leader session 3 of 4 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b2-reading-a-case-like-a-cfo.html">← Prev: Reading a case like a CFO</a> &nbsp;·&nbsp; <a href="b4-after-the-yes.html">Next: After the yes →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

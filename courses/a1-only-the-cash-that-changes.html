@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 1 of 6. Only the cash that changes: incremental cash flows with versus without the project, sunk costs left out, opportunity costs and dis-benefits put in, and the shared-cost question that can flip a case from plus 111.7 thousand to minus 148.3 thousand. Keelson Mutual's claims fast-track triage, constructed, computed in your browser.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Only the cash that changes - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 1 of 6. Incremental cash flows, sunk costs, dis-benefits and the shared-cost question, computed live.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a1-only-the-cash-that-changes.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Only the cash that changes - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 1 of 6. Incremental cash flows, computed live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 1 · Only the cash that changes - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 1 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 1 of 6</div>
+    <h1>Only the cash <span class="accent">that changes</span></h1>
+    <p class="sub">A business case model is not a budget. A budget lists everything the company will spend; a case counts only the cash that is different because the project happens. Get that rule right and the rest of the track is arithmetic. Get it wrong and no discount rate or simulation can rescue the answer. Tonight: building the incremental cash flow for Keelson Mutual's claims fast-track triage, the costs that stay out, the ones that go in, and the shared cost that decides whether this project is worth doing at all. Keelson is constructed; the arithmetic runs in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · With and without, what stays out, shared costs</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: Keelson's cash flows</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The Analyst track is for the people who build the numbers the Leader track defends. Six sessions: tonight, the incremental cash flow; then time value and the hurdle rate; NPV, IRR and payback side by side; swinging every assumption; the range and the option to wait; and the business case bench, where every rung runs at once. Every widget runs the same engine in your browser, and the numbers on these pages are the ones it prints. The running case is Keelson Mutual, a constructed insurer: claims fast-track triage (CFT) routes simple claims past a full adjuster review, saving handling cost on each one and leaking a little through claims nobody checked. Every Keelson input is invented, in thousands, before tax.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A year-by-year incremental cash flow for a project, with every line passing the "would this change if we said no?" test, a written list of what you left out and why, and an answer to the shared-cost question for your own case. Analyst session 2 discounts the cash flow you build tonight.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers incremental cash flows</span>
+      <h2>Cash with the project, minus cash without it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Every line in the model answers one question: is this cash different because we do the project? Cash, not accounting profit, because a business can only reinvest money it actually has. Different, not total, because the case is a comparison with the counterfactual from Leader session 1. For CFT the difference is small enough to write as one formula.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn formula tree for one year of CFT's net cash. Simple claims per year, 42,000, times the share fast-tracked, 55 percent, times the year's adoption, 50 percent in year 1, gives 11,550 claims fast-tracked. Each one saves 14 in handling cost and leaks 4 through overpayment, a net of 10. That is 115.5 thousand, minus the 70 thousand run cost, giving plus 45.5 thousand in year 1. The leakage branch is drawn in red as the dis-benefit. The year 1 result box is filled in brass.">
+        <defs>
+          <filter id="a1aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a1aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a1aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a1aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a1aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a1aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a1aV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a1aR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a1aW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a1aX { font: 800 18px Inter, sans-serif; fill: #FFFFFF; }
+          .a1aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a1aH" x="30" y="28">ONE YEAR OF CFT'S NET CASH, YEAR 1</text>
+        <text class="a1aS" x="300" y="28">constructed Keelson inputs · thousands · the engine in your browser does the same sum</text>
+
+        <g filter="url(#a1aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="52" width="170" height="56" rx="10" transform="rotate(-1 115 80)" fill="#FFFFFF"/>
+          <rect x="30" y="126" width="170" height="56" rx="10" transform="rotate(0.8 115 154)" fill="#FFFFFF"/>
+          <rect x="30" y="200" width="170" height="56" rx="10" transform="rotate(-0.8 115 228)" fill="#FFFFFF"/>
+          <path d="M204 80 L260 140 M204 154 L260 154 M204 228 L260 168"/>
+          <rect x="262" y="118" width="170" height="70" rx="10" transform="rotate(0.6 347 153)" fill="url(#a1aHc)"/>
+          <rect x="470" y="52" width="160" height="56" rx="10" transform="rotate(1 550 80)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="470" y="200" width="160" height="56" rx="10" transform="rotate(-1 550 228)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <path d="M436 140 L466 90 M436 166 L466 220"/>
+          <path d="M634 80 L676 136 M634 228 L676 172"/>
+          <rect x="680" y="118" width="170" height="70" rx="10" transform="rotate(-0.6 765 153)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: a stack of claim forms -->
+          <path d="M790 228 L834 228 L834 262 L790 262 Z M796 222 L840 222 L840 256" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a1aS" x="44" y="74">simple claims per year</text>
+        <text class="a1aV" x="44" y="96">42,000</text>
+        <text class="a1aS" x="44" y="148">share fast-tracked</text>
+        <text class="a1aV" x="44" y="170">55%</text>
+        <text class="a1aS" x="44" y="222">adoption, year 1</text>
+        <text class="a1aV" x="44" y="244">50%</text>
+
+        <rect x="272" y="128" width="150" height="50" rx="6" fill="#FFFFFF"/>
+        <text class="a1aS" x="282" y="148">claims fast-tracked</text>
+        <text class="a1aV" x="282" y="170">11,550</text>
+
+        <text class="a1aS" x="484" y="74">saving per claim</text>
+        <text class="a1aV" x="484" y="96">x 14</text>
+        <text class="a1aR" x="484" y="222">leakage per claim</text>
+        <text class="a1aV" x="484" y="244">x -4</text>
+
+        <text class="a1aW" x="694" y="140">115.5k - 70.0k run</text>
+        <text class="a1aX" x="694" y="168">+45.5k</text>
+        <text class="a1aS" x="680" y="210">year 1 net cash</text>
+
+        <text class="a1aN" x="30" y="290">Years 2 to 5 use adoption 75%, then 100%: +103.3k, then +161.0k a year. Year 0 is the build: -360.0k.</text>
+        <text class="a1aN" x="30" y="312">The red box is a dis-benefit. It belongs in the model even though nobody will put it on a slide.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three volumes multiply into claims, two per-claim values net into cash, and the run cost comes off every year</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The one test every line must pass<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Would this cash be different if the answer were no?</strong> If yes, it goes in, at the amount by which it differs. If no, it stays out, however large it is. The adjusters' salaries are Keelson's biggest claims cost, and they are not in the CFT model; only the handling cost avoided on fast-tracked claims is, because that is the part that changes.</p>
+        <p><strong>Cash, in the year it moves.</strong> A licence paid upfront is year-0 cash even if accounting spreads it over three years. Depreciation is not cash; it only matters through tax, which these pages leave out by keeping everything before tax.</p>
+        <p><strong>Same units everywhere.</strong> Keelson's model is in thousands, nominal (with inflation in it), before tax. Analyst session 2 shows why the discount rate must be in the same units: a nominal rate on nominal cash.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why a dis-benefit is a line, not a footnote<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Leakage is the overpayment on claims that skip the full review: the adjuster who would have spotted an inflated repair estimate never sees it. Keelson's claims team estimates 4 per fast-tracked claim against a saving of 14, so the net value of each claim is 10, not 14. Leave the leakage out and year 1 would read 161.7 thousand of benefit instead of 115.5, and the case would be wrong by about 40 percent before anyone argued about anything. Analyst session 4 shows that leakage is the third most powerful input in the whole model. A side effect that lands in another team's budget is still cash the company loses.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The salary line that was not.</strong> Keelson's first draft counted the full cost of the four adjusters who handle simple claims as the saving, because "the model will do their work". Claims operations had no plan to let anyone go; the adjusters would move to complex claims, where Keelson was short of staff. The cash that changes is the handling cost avoided per fast-tracked claim (overtime, outsourced reviews, hours released to the backlog), which the claims team priced at 14 per claim. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers sunk, opportunity and allocated costs</span>
+      <h2>What stays out, and what sneaks in</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Three kinds of cost break the test in opposite directions. Money already spent feels like it belongs in the case and does not. Staff and assets the company already has feel free and are not. Overhead allocated by a formula feels like a cost of the project and usually is not. Each one has a clean rule.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn cards. Card one, sunk cost: the 45 thousand already spent on discovery is out, because no decision today can get it back; wrongly adding it moves NPV from plus 111.7 to plus 66.7 thousand. Card two, opportunity cost: a team or asset moved from other paid work is in, at the value of what it would otherwise do. Card three, allocated overhead: in only for the part that grows because of the project. Card one is filled in brass.">
+        <defs>
+          <filter id="a1bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="17" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a1bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a1bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a1bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a1bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a1bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a1bV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a1bW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a1bX { font: 800 16px Inter, sans-serif; fill: #FFFFFF; }
+          .a1bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a1bH" x="30" y="28">THREE COSTS, THREE RULES</text>
+
+        <g filter="url(#a1bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="260" height="210" rx="12" transform="rotate(-0.8 160 153)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="310" y="48" width="260" height="210" rx="12" transform="rotate(0.6 440 153)" fill="#FFFFFF"/>
+          <rect x="590" y="48" width="260" height="210" rx="12" transform="rotate(-0.6 720 153)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- doodle: a padlock on the sunk card -->
+          <rect x="242" y="214" width="26" height="20" rx="3" stroke="#FFFFFF"/>
+          <path d="M248 214 L248 206 Q255 196 262 206 L262 214" stroke="#FFFFFF"/>
+        </g>
+
+        <text class="a1bW" x="48" y="76">SUNK COST · OUT</text>
+        <text class="a1bX" x="48" y="104">45k discovery</text>
+        <text class="a1bW" x="48" y="132">already spent, whatever</text>
+        <text class="a1bW" x="48" y="150">the answer is today</text>
+        <text class="a1bW" x="48" y="186">wrongly added:</text>
+        <text class="a1bW" x="48" y="204">+111.7k becomes +66.7k</text>
+
+        <text class="a1bH" x="328" y="76">OPPORTUNITY COST · IN</text>
+        <text class="a1bV" x="328" y="104">what it gives up</text>
+        <text class="a1bL" x="328" y="132">a team moved off paid work</text>
+        <text class="a1bL" x="328" y="150">costs what that work earned</text>
+        <text class="a1bS" x="328" y="186">"we already have the people"</text>
+        <text class="a1bS" x="328" y="204">is not the same as free</text>
+
+        <text class="a1bH" x="608" y="76">ALLOCATED OVERHEAD</text>
+        <text class="a1bV" x="608" y="104">only what grows</text>
+        <text class="a1bL" x="608" y="132">a share of rent by headcount</text>
+        <text class="a1bL" x="608" y="150">changes nothing: out</text>
+        <text class="a1bS" x="608" y="186">extra cloud spend because</text>
+        <text class="a1bS" x="608" y="204">of the model: in</text>
+
+        <text class="a1bN" x="30" y="290">Each rule is the same test from Part 1, applied to a cost that feels like it belongs on one side.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the brass card is the one that goes wrong in both directions</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Sunk costs, both ways round<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Adding it in.</strong> Keelson has spent 45 thousand on discovery. Putting it in year 0 makes CFT look worse (NPV 66.7 thousand instead of 111.7) and could kill a good project for a reason no decision can change. Toggle it in the build-along.</p>
+        <p><strong>Arguing from it.</strong> The more common error runs the other way: "we have already spent 45 thousand, so we must finish". The spent money is gone either way. The only question is whether the cash still to come is worth the cash still to spend. That makes the sunk-cost rule the most useful sentence in a review meeting about a project that is going badly.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Opportunity cost when the team is already paid<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Keelson's data team had 24 team-months for the year, and CFT uses 8 of them. Those salaries are paid whether CFT happens or not, so a narrow cash view says they are free. They are not free if the same 8 months would otherwise deliver another bet with its own value; in Data Strategy, session 3, the portfolio was chosen precisely because capacity was the binding limit. The clean ways to handle it: charge the team at the value of the next-best use of its time, or appraise the portfolio together so the trade is explicit. Pretending capacity is free is how a data team ends up with twelve approved projects and time for four. The constructed CFT model on these pages does not charge for team time; say so on your own case if yours does not either.</p>
+      </div>
+    </details>
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Overhead: the incremental rule, and its honest limit<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Aswath Damodaran's rule for allocated costs is that only the incremental part belongs in a project's analysis: a share of head-office cost charged by formula would be paid whether or not the project goes ahead. He adds a caution worth keeping: the company still has to pay for its headquarters, and if every project ignores overhead, nothing ever covers it. His suggestion is that a fixed charge for shared costs can be reasonable. So the honest practice is to run the case on incremental costs, then show what it looks like with the company's standard overhead charge, and let the funder see both.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers shared costs and dependencies</span>
+      <h2>The cost that belongs to someone else, or doesn't</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">CFT cannot work until the claims data quality fix (CDQ) is live, because fast-track rules read the intake record CDQ cleans up. CDQ costs 260 thousand. Whether that belongs in CFT's case is the biggest single modelling decision on the page: it moves the NPV from plus 111.7 thousand to minus 148.3 thousand. The answer comes from the same test, asked about CDQ.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn decision tree. The question at the top: would CDQ happen without CFT? Yes branch: CDQ is in CDQ's own case, funded centrally as a foundation, and CFT's case leaves it out, NPV plus 111.7 thousand. No branch: CDQ happens only because of CFT, so it is CFT's incremental cost, NPV minus 148.3 thousand, and the honest move is to appraise CDQ and CFT together as one project. The yes branch is the Keelson answer and is filled in brass.">
+        <defs>
+          <filter id="a1cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="23" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a1cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a1cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a1cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a1cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a1cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a1cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a1cR { font: 800 16px Inter, sans-serif; fill: #991B1B; }
+          .a1cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a1cX { font: 800 16px Inter, sans-serif; fill: #FFFFFF; }
+          .a1cA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a1cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a1cH" x="30" y="28">DOES CDQ'S 260k BELONG IN CFT'S CASE?</text>
+
+        <g filter="url(#a1cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="280" y="44" width="320" height="52" rx="12" transform="rotate(-0.5 440 70)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M360 100 L210 146" marker-end="url(#a1cAr)"/>
+          <path d="M520 100 L670 146" marker-end="url(#a1cAr)"/>
+          <rect x="40" y="150" width="370" height="116" rx="12" transform="rotate(0.5 225 208)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="470" y="150" width="370" height="116" rx="12" transform="rotate(-0.5 655 208)" fill="#FFFFFF"/>
+          <!-- doodle: a wrench on the data-fix question -->
+          <path d="M612 54 L636 78 M606 50 Q600 60 612 62 Q622 62 616 50" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a1cH" x="300" y="66">Would CDQ happen without CFT?</text>
+        <text class="a1cS" x="300" y="84">ask whoever funds CDQ, not CFT's sponsor</text>
+        <text class="a1cA" x="236" y="122">yes</text>
+        <text class="a1cA" x="610" y="122">no</text>
+
+        <text class="a1cW" x="58" y="176">CDQ HAS ITS OWN CASE</text>
+        <text class="a1cW" x="58" y="196">a foundation, funded centrally, that</text>
+        <text class="a1cW" x="58" y="214">serves several bets. Leave it out.</text>
+        <text class="a1cX" x="58" y="248">CFT NPV +111.7k</text>
+
+        <text class="a1cH" x="488" y="176">CDQ IS CFT'S COST</text>
+        <text class="a1cL" x="488" y="196">charge it, or better, appraise</text>
+        <text class="a1cL" x="488" y="214">CDQ and CFT as one project</text>
+        <text class="a1cR" x="488" y="248">CFT NPV -148.3k</text>
+
+        <text class="a1cN" x="30" y="296">At Keelson, CDQ was chosen in its own right in session 3 of Data Strategy: the yes branch. Constructed example.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the answer depends on a fact about CDQ, not on how much anyone wants CFT</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Three honest answers to a shared cost<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>It happens anyway: leave it out.</strong> At Keelson, CDQ was selected on its own merits as a foundation for several bets and is funded centrally. It is in CDQ's case. Charging it again to CFT would count the same 260 thousand twice across the portfolio.</p>
+        <p><strong>It happens only because of this project: put it in.</strong> If CDQ existed only to make CFT possible, it is CFT's cost, and CFT on its own is a project that loses 148.3 thousand. That is not a reason to give up; it is a reason to appraise the pair together, and to ask whether a cheaper slice of CDQ would do.</p>
+        <p><strong>It is brought forward: charge the timing.</strong> A middle case: CDQ would happen in two years anyway, and CFT makes it happen now. Then CFT carries the cost of doing it early, roughly the difference in present value between paying now and paying later, not the whole 260 thousand. Analyst session 2 gives you the tool to compute that.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why "allocate it fairly" is not an answer<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Splitting CDQ's cost across the three bets that use it (a third each, or by usage) is good management accounting, and it is the wrong question for a single go or no-go decision. An allocation tells you how to share a cost that is already incurred; a case asks what changes if this one project says yes. The two can coexist: the portfolio view in <a href="https://phoebefu6.github.io/learn-data-strategy-with-phoebe/courses/03-the-first-three-bets.html">Data Strategy, session 3 ↗</a> carries the shared foundation, and each bet's case carries only what is different because of that bet.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Two answers to one question.</strong> Keelson's head of claims argued CDQ should be charged to CFT, "because CFT is the only reason I care about data quality". The CDO pointed to the board paper that funded CDQ for regulatory reporting and fraud triage as well. The fact settled it: CDQ was going ahead without CFT, so CFT's case leaves it out. Had the board paper said otherwise, the same test would have put all 260 thousand in. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Build Keelson's cash flows, then break them</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">The widget holds CFT's constructed inputs and computes the cash flows, NPV, IRR and both paybacks in your browser every time you toggle a line. Work the five steps, write down what it prints, and check one year by hand. The inputs are invented, so the lesson is the rule, not the totals.</p>
+
+    <div class="bcr-widget" data-mode="cashflow"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the widget. Two toggles, add the 45 thousand sunk discovery and charge the 260 thousand CDQ fix, feed year 0. The constructed inputs feed years 1 to 5. The cash-flow table feeds four results: NPV at the 9 percent hurdle, IRR, payback and discounted payback. A toggled year-0 row turns red in the widget.">
+        <defs>
+          <filter id="a1dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="31" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a1dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a1dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a1dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a1dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a1dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a1dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a1dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a1dH" x="30" y="28">WHAT THE WIDGET COMPUTES</text>
+
+        <g filter="url(#a1dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="200" height="60" rx="10" transform="rotate(-0.8 130 78)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="30" y="128" width="200" height="60" rx="10" transform="rotate(0.8 130 158)" fill="#FFFFFF"/>
+          <path d="M234 78 L300 110 M234 158 L300 126" marker-end="url(#a1dAr)"/>
+          <rect x="304" y="78" width="230" height="80" rx="10" transform="rotate(-0.4 419 118)" fill="url(#a1dHc)"/>
+          <path d="M538 118 L600 118" marker-end="url(#a1dAr)"/>
+          <rect x="606" y="56" width="244" height="124" rx="10" transform="rotate(0.4 728 118)" fill="#7D5A0E" stroke="#7D5A0E"/>
+        </g>
+
+        <rect x="316" y="92" width="206" height="52" rx="6" fill="#FFFFFF"/>
+
+        <text class="a1dL" x="44" y="74">two toggles: sunk, CDQ</text>
+        <text class="a1dS" x="44" y="92">both change year 0 only</text>
+        <text class="a1dL" x="44" y="154">constructed inputs</text>
+        <text class="a1dS" x="44" y="172">claims, share, saving, leakage</text>
+        <text class="a1dL" x="328" y="112">cash-flow table, years 0-5</text>
+        <text class="a1dS" x="328" y="130">one row per year, net cash</text>
+        <text class="a1dW" x="622" y="84">NPV at 9%</text>
+        <text class="a1dW" x="622" y="108">IRR</text>
+        <text class="a1dW" x="622" y="132">payback</text>
+        <text class="a1dW" x="622" y="156">discounted payback</text>
+
+        <text class="a1dB" x="30" y="226">A toggled year-0 row turns red: the warning that the line failed the Part 1 test.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - only year 0 moves when you toggle, and that is enough to flip the sign of the case</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the base case.</strong> Both toggles off. Write down the six net cash figures and the four results.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the widget prints</span>Year 0 -360.0k · Year 1 +45.5k · Year 2 +103.3k · Years 3-5 +161.0k
+NPV +111.7k · IRR 18.4% · payback 3.3 years · discounted payback 3.9 years</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Check year 2 by hand.</strong> Adoption in year 2 is halfway between year 1 and full: 75 percent. Multiply it out with the Part 1 formula and confirm the widget's row.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · year 2 by hand</span>42,000 x 55% x 75% = 17,325 claims fast-tracked
+17,325 x (14 - 4) / 1000 = 173.25k
+173.25k - 70k run = +103.3k   (the widget's year 2)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Add the sunk cost.</strong> Tick the 45k discovery toggle. Write the new NPV, then untick it and say in one sentence why it should never have been there.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the sunk-cost error</span>with the 45k discovery:   NPV +66.7k
+why it is out: ____________________________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Charge CDQ.</strong> Tick the 260k CDQ toggle alone, then both. Write the two NPVs and the sentence you would send the head of claims.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the shared-cost decision</span>CDQ charged:          NPV -148.3k
+sunk and CDQ charged: NPV -193.3k
+the fact that decides it: would CDQ happen without CFT? ______</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own with-and-without table.</strong> For your own project, list every cash line you can think of, then mark each one with the Part 1 test. Keep the struck lines with a reason: a reviewer will ask about them.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your incremental cash</span>line                         changes if we say no?   in / out   reason
+build or licence             ____                    ____       ________
+run cost per year            ____                    ____       ________
+saving per unit x volume     ____                    ____       ________
+dis-benefit                  ____                    ____       ________
+shared cost                  ____                    ____       ________
+spent already                no                      out        sunk</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the table.</strong> Analyst session 2 discounts it, and Analyst session 4 swings every line to see which one does the work. A line you could not decide on is the first candidate for a range.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Analyst session 2</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Find the dis-benefit.</strong> For your own project, name one cost it causes in another team's budget, and estimate it per unit, however roughly.</li>
+      <li><strong>Settle one shared cost.</strong> Ask the owner of a shared platform or data fix whether it would happen without your project. Write the answer and who gave it.</li>
+      <li><strong>Price the team time.</strong> How many team-months does your project take, and what would that team deliver otherwise?</li>
+      <li><strong>Ask finance one question.</strong> Does your company appraise cases before or after tax, and in nominal or real terms? You need both answers next session.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 1 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Keelson has spent 45 thousand on discovery for CFT. Where does it go in the case?</p>
+      <button class="qopt" type="button">A · In year 0, because it was spent on CFT</button>
+      <button class="qopt" type="button">B · Nowhere: it is sunk, and no decision today changes it</button>
+      <button class="qopt" type="button">C · Spread over the five years of benefit</button>
+      <button class="qopt" type="button">D · Added to the run cost</button>
+      <p class="qwhy">The case compares what changes from here. Money already spent is the same whatever the answer is, so it cannot be a reason for or against.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">2 · CDQ, a 260 thousand data fix CFT depends on, was approved for its own reasons and is funded centrally. What does CFT's case do with it?</p>
+      <button class="qopt" type="button">A · Charges all 260 thousand to CFT</button>
+      <button class="qopt" type="button">B · Charges a third, because three bets use it</button>
+      <button class="qopt" type="button">C · Ignores the dependency entirely</button>
+      <button class="qopt" type="button">D · Leaves the cost out, because CDQ happens anyway, and notes the dependency as a risk to CFT's timing</button>
+      <p class="qwhy">The cost is not incremental to CFT, so it stays in CDQ's case. The dependency still matters: if CDQ slips, CFT's benefits start later.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Why is leakage a line in the model and not a footnote?</p>
+      <button class="qopt" type="button">A · It is cash the company loses because of the project, so it changes with the decision like any other line</button>
+      <button class="qopt" type="button">B · Because finance always asks for it</button>
+      <button class="qopt" type="button">C · It is too small to matter, but should be listed</button>
+      <button class="qopt" type="button">D · It only applies to insurers</button>
+      <p class="qwhy">A dis-benefit is cash that moves because of the yes. At Keelson it cuts each claim's value from 14 to 10.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Incremental cash flows: sunk costs out, opportunity costs in, allocated costs only when they grow</span><span class="note">Aswath Damodaran, Applied Corporate Finance (chapters 5 and 6) and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Dis-benefits as part of the benefits picture</span><span class="note">Programme-management practice such as MSP (reported); Leader session 4 develops it</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's CFT cash flows, NPV +111.7k, +66.7k with sunk cost, -148.3k with CDQ, -193.3k with both</span><span class="note">Constructed and labelled; computed by the engine in your browser and checked against an independent Python run</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The one test</b><span>Would this cash be different if the answer were no? In if yes, out if no.</span></div>
+      <div class="cheat-item"><b>Cash, not profit</b><span>In the year it moves. Depreciation only matters through tax.</span></div>
+      <div class="cheat-item"><b>Sunk is out</b><span>Both ways: not in the model, and never an argument to continue.</span></div>
+      <div class="cheat-item"><b>Capacity is not free</b><span>Team time costs what it would otherwise deliver.</span></div>
+      <div class="cheat-item"><b>Dis-benefits are lines</b><span>Leakage cut each claim's value from 14 to 10.</span></div>
+      <div class="cheat-item"><b>Shared cost</b><span>Ask whether it happens anyway. The fact decides, not the sponsor.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>You have six numbers, one per year. Analyst session 2 asks what they are worth today: discount factors, present values, the NPV profile from 0 to 20 percent, and why the UK Treasury's public-sector rate of 3.0 percent and Keelson's 9 percent hurdle answer different questions.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 1 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="b4-after-the-yes.html">← Prev: After the yes</a> &nbsp;·&nbsp; <a href="a2-time-value-and-the-hurdle-rate.html">Next: Time value and the hurdle rate →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 4 of 6. Swing every assumption: nine inputs, each with a low, base and high agreed with its owner, moved one at a time into a tornado, then switching values that say how far each input can move before the case breaks, and an optimism uplift on the build that takes the NPV from plus 111.7 thousand to plus 21.7 thousand. Keelson Mutual's claims fast-track triage, constructed, computed in your browser.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Swing every assumption - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 4 of 6. One-at-a-time sensitivity, the tornado, switching values and the optimism uplift, computed live.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a4-swing-every-assumption.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Swing every assumption - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 4 of 6. The tornado and switching values, computed live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 4 · Swing every assumption - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 4 of 6</div>
+    <h1>Swing every <span class="accent">assumption</span></h1>
+    <p class="sub">A single NPV is one guess about nine inputs at once. Before anyone argues about whether +111.7 thousand is good enough, the model has to say which of those nine guesses the answer leans on, and how far each one can move before the case stops paying. Tonight: a low, base and high for every input in Keelson Mutual's claims fast-track triage, the tornado that sorts them, the switching value that turns each one into a sentence, and the optimism uplift that history says belongs on the build. Keelson is constructed; the arithmetic runs in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Ranges, the tornado, switching values</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: Keelson's tornado</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">By now you have CFT's incremental cash flow (Analyst session 1), its present value at Keelson's 9 percent hurdle (Analyst session 2), and a base case that reads NPV +111.7k, IRR 18.4%, payback 3.3 years (Analyst session 3). Every one of those numbers rests on nine inputs somebody wrote down as a single value. Tonight each input gets a range, moves on its own, and reports how much of the answer it controls. The method is old, cheap and mechanical, and it is the one a funder reads first: HM Treasury's Green Book asks for switching values on the preferred option as a minimum. Every Keelson input is constructed, in thousands, before tax.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A low, base and high for every input in your own case, each with a named owner; the three inputs that do the most work, sorted by swing; a switching value for each of them written as one sentence a board can hold; and an honest optimism adjustment on your build cost. Analyst session 5 draws all the ranges at once.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers one-at-a-time sensitivity and the input ranges</span>
+      <h2>A low, a base and a high for every input</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">One-at-a-time sensitivity is the simplest honest test a model can run: take one input to its low, recompute, take it to its high, recompute, put it back, and do the same for the next. The other eight stay pinned at base, so whatever moves the NPV is that input alone. The test is only as good as the ranges, so they come first, and they come from the people who own each number.</p>
+
+    <div class="tablescroll">
+      <table class="clean">
+        <thead>
+          <tr><th>Input</th><th>Low</th><th>Base</th><th>High</th><th>Who owns the range</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Build cost, year 0</td><td>330</td><td>360</td><td>460</td><td>Maya's delivery lead, skewed up from history</td></tr>
+          <tr><td>Run cost per year</td><td>60</td><td>70</td><td>100</td><td>Maya's platform team</td></tr>
+          <tr><td>Simple claims per year</td><td>38,000</td><td>42,000</td><td>46,000</td><td>Claims operations lead</td></tr>
+          <tr><td>Share fast-tracked at steady state</td><td>45%</td><td>55%</td><td>65%</td><td>Claims operations lead</td></tr>
+          <tr><td>Saving per fast-tracked claim</td><td>11</td><td>14</td><td>16</td><td>Claims operations lead</td></tr>
+          <tr><td>Leakage per fast-tracked claim</td><td>2.5</td><td>4</td><td>6</td><td>Claims operations lead, with the claims auditors</td></tr>
+          <tr><td>Year-1 adoption</td><td>25%</td><td>50%</td><td>75%</td><td>Tom Reyes, the sponsor</td></tr>
+          <tr><td>Discount rate (Keelson's hurdle)</td><td>7%</td><td>9%</td><td>11%</td><td>Ines Carvalho, the CFO</td></tr>
+          <tr><td>Years of benefit</td><td>4</td><td>5</td><td>6</td><td>Maya, with the claims operations lead</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 324" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn slider for one input, the saving per fast-tracked claim. At its low of 11 the NPV is minus 111.5 thousand; at the base of 14 it is plus 111.7 thousand; at its high of 16 it is plus 260.5 thousand. A red tick on the track marks 12.50, where the NPV crosses zero. Below the slider, the other eight inputs sit pinned at base: build 360, run 70, claims 42,000, share 55 percent, leakage 4, adoption 50 percent, rate 9 percent, years 5. The slider knob at the base is filled in brass.">
+        <defs>
+          <filter id="a4aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a4aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a4aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a4aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a4aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a4aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a4aV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a4aR { font: 800 16px Inter, sans-serif; fill: #991B1B; }
+          .a4aRs { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a4aA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a4aB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a4aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a4aH" x="30" y="28">ONE INPUT MOVES, EIGHT STAY PINNED</text>
+        <text class="a4aS" x="300" y="28">saving per fast-tracked claim · constructed Keelson inputs · thousands</text>
+
+        <g filter="url(#a4aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="50" y="48" width="140" height="62" rx="10" transform="rotate(-1.2 120 79)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="434" y="48" width="140" height="62" rx="10" transform="rotate(0.8 504 79)" fill="#FFFFFF"/>
+          <rect x="690" y="48" width="140" height="62" rx="10" transform="rotate(-0.8 760 79)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M120 114 L120 164" marker-end="url(#a4aAr)"/>
+          <path d="M504 114 L504 162" marker-end="url(#a4aAr)"/>
+          <path d="M760 114 L760 164" marker-end="url(#a4aAr)"/>
+          <path d="M120 180 L760 180" stroke-width="4" stroke="#63307A"/>
+          <circle cx="120" cy="180" r="7" fill="#FFFFFF"/>
+          <circle cx="760" cy="180" r="7" fill="#FFFFFF"/>
+          <path d="M312 168 L312 192" stroke="#991B1B"/>
+          <circle cx="504" cy="180" r="11" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="30" y="234" width="92" height="42" rx="8" transform="rotate(-0.8 76 255)" fill="url(#a4aHc)"/>
+          <rect x="128" y="234" width="92" height="42" rx="8" transform="rotate(0.6 174 255)" fill="url(#a4aHc)"/>
+          <rect x="226" y="234" width="92" height="42" rx="8" transform="rotate(-0.6 272 255)" fill="url(#a4aHc)"/>
+          <rect x="324" y="234" width="92" height="42" rx="8" transform="rotate(0.8 370 255)" fill="url(#a4aHc)"/>
+          <rect x="422" y="234" width="92" height="42" rx="8" transform="rotate(-0.6 468 255)" fill="url(#a4aHc)"/>
+          <rect x="520" y="234" width="92" height="42" rx="8" transform="rotate(0.6 566 255)" fill="url(#a4aHc)"/>
+          <rect x="618" y="234" width="92" height="42" rx="8" transform="rotate(-0.8 664 255)" fill="url(#a4aHc)"/>
+          <rect x="716" y="234" width="92" height="42" rx="8" transform="rotate(0.6 762 255)" fill="url(#a4aHc)"/>
+          <!-- doodle: a pushpin holding the pinned row -->
+          <circle cx="838" cy="240" r="7" stroke="#4A1A5C"/>
+          <path d="M838 247 L838 270" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a4aS" x="62" y="70">at the low, 11</text>
+        <text class="a4aR" x="62" y="96">-111.5k</text>
+        <text class="a4aS" x="446" y="70">at the base, 14</text>
+        <text class="a4aV" x="446" y="96">+111.7k</text>
+        <text class="a4aS" x="702" y="70">at the high, 16</text>
+        <text class="a4aV" x="702" y="96">+260.5k</text>
+
+        <text class="a4aA" x="120" y="210" text-anchor="middle">11 · low</text>
+        <text class="a4aRs" x="312" y="210" text-anchor="middle">NPV 0 at 12.50</text>
+        <text class="a4aB" x="504" y="210" text-anchor="middle">14 · base</text>
+        <text class="a4aA" x="760" y="210" text-anchor="middle">16 · high</text>
+
+        <rect x="36" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="134" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="232" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="330" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="428" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="526" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="624" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <rect x="722" y="240" width="80" height="30" rx="4" fill="#FFFFFF"/>
+        <text class="a4aS" x="42" y="252">build</text><text class="a4aL" x="42" y="266">360</text>
+        <text class="a4aS" x="140" y="252">run</text><text class="a4aL" x="140" y="266">70</text>
+        <text class="a4aS" x="238" y="252">claims</text><text class="a4aL" x="238" y="266">42,000</text>
+        <text class="a4aS" x="336" y="252">share</text><text class="a4aL" x="336" y="266">55%</text>
+        <text class="a4aS" x="434" y="252">leakage</text><text class="a4aL" x="434" y="266">4</text>
+        <text class="a4aS" x="532" y="252">adoption, yr 1</text><text class="a4aL" x="532" y="266">50%</text>
+        <text class="a4aS" x="630" y="252">rate</text><text class="a4aL" x="630" y="266">9%</text>
+        <text class="a4aS" x="728" y="252">years</text><text class="a4aL" x="728" y="266">5</text>
+
+        <text class="a4aN" x="30" y="304">Only the saving moves. Its swing, -111.5k to +260.5k, becomes the top bar of the tornado in Part 2.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one input on its slider, the rest pinned: the NPV at each end is that input's whole effect</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Who owns each range<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The analyst owns the method, not the numbers.</strong> A range written by the model builder alone is a guess with error bars drawn on. Each of Keelson's nine ranges was written down by the person who would be blamed if it turned out wrong: the claims operations lead for volumes, saving and leakage, Maya's team for build and run, Tom for how fast adjusters adopt the triage, Ines for the hurdle.</p>
+        <p><strong>Agreed before anyone sees a result.</strong> Once an owner has seen the tornado, every range drifts toward the answer they would like. So the ranges are signed off first, in a short meeting with a table like the one above and no NPV on the screen. If an owner later wants to move a bound, that is allowed, with a reason written next to it.</p>
+        <p><strong>Low and high mean plausible, not possible.</strong> Ask for the value they would be surprised to fall below, and the one they would be surprised to exceed. Not the catastrophe and not the dream; those belong in a scenario, which Part 3 separates out.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the ranges are not symmetric<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Look at the build cost: 30 below base, 100 above. That is deliberate. Technology projects overrun far more often and far further than they underrun, so a range centred on the plan quietly assumes the plan is unbiased. Keelson's delivery lead skewed it up from the team's own past builds, which is the order HM Treasury's Green Book (2026) recommends: the organisation's own historical forecast errors first, generic values only without them.</p>
+        <p>The same reasoning skews leakage up (1.5 below base, 2 above: nobody yet knows how many inflated claims will slip through) and caps the saving close to base (only 2 above, 3 below), because the claims team already priced the handling cost and has little reason to expect a windfall. A symmetric range is a claim too: it says the error could fall either way with equal force. Write down why, whichever shape you choose.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The range meeting with no results on the screen.</strong> Maya booked a short meeting with the claims operations lead, her delivery lead and Ines's analyst, with one rule: the model stays closed. The claims lead's first answer for the saving per claim was "14, give or take". Asked what would surprise her on the downside, she said 11, because overtime rates were already falling; on the upside, 16 at most. The delivery lead's high for the build, 460, came from the team's own recent platform projects, which had run late. Everyone initialled the table before the tornado was run. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the tornado</span>
+      <h2>Nine swings, sorted, around one line</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Run the slider from Part 1 for all nine inputs and you get nine pairs of NPVs. Draw each pair as a horizontal bar around the base case, sort the longest to the top, and the picture looks like a funnel cloud: a tornado diagram. It answers one question at a glance: which assumption is doing the work? For CFT the answer is uncomfortable for the data team, because the top three bars are not data-team numbers at all.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 384" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn tornado of nine bars around the base NPV of plus 111.7 thousand, with a line at NPV zero. From the top: saving per claim from minus 111.5 to plus 260.5 thousand; share fast-tracked from minus 23.6 to plus 246.9; leakage per claim from plus 223.3 to minus 37.1; years of benefit from plus 7.0 to plus 207.7; run cost from plus 150.6 to minus 5.0; year-1 adoption from plus 34.4 to plus 188.9; simple claims from plus 40.8 to plus 182.5; build cost from plus 141.7 to plus 11.7; discount rate from plus 141.7 to plus 84.1. The top bar is filled in brass. The discount rate is the shortest bar.">
+        <defs>
+          <filter id="a4bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a4bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a4bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a4bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a4bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a4bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a4bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a4bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a4bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a4bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a4bH" x="30" y="24">CFT'S TORNADO · NPV AT EACH INPUT'S LOW, THEN ITS HIGH</text>
+        <text class="a4bR" x="379" y="46" text-anchor="middle">NPV 0</text>
+        <text class="a4bA" x="508" y="46" text-anchor="middle">base +111.7k</text>
+
+        <g filter="url(#a4bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="251" y="62" width="428" height="16" rx="3" transform="rotate(-0.3 465 70)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="352" y="92" width="311" height="16" rx="3" transform="rotate(0.3 507 100)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="337" y="122" width="299" height="16" rx="3" transform="rotate(-0.3 487 130)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="388" y="152" width="230" height="16" rx="3" transform="rotate(0.3 503 160)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="374" y="182" width="179" height="16" rx="3" transform="rotate(-0.3 463 190)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="419" y="212" width="178" height="16" rx="3" transform="rotate(0.3 508 220)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="426" y="242" width="163" height="16" rx="3" transform="rotate(-0.3 508 250)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="393" y="272" width="150" height="16" rx="3" transform="rotate(0.3 468 280)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="476" y="302" width="67" height="16" rx="3" transform="rotate(-0.3 509 310)" fill="#FFFFFF" stroke="#4A1A5C"/>
+          <path d="M379 54 L379 328" stroke="#991B1B" stroke-dasharray="5 5"/>
+          <path d="M508 54 L508 328" stroke="#2F0F3B"/>
+          <!-- doodle: a small funnel cloud beside the top bar -->
+          <path d="M832 60 Q848 62 862 60 M836 70 Q848 72 858 70 M840 80 Q848 82 854 80 M844 90 L848 98" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a4bL" x="30" y="74">Saving per claim</text>
+        <text class="a4bL" x="30" y="104">Share fast-tracked</text>
+        <text class="a4bL" x="30" y="134">Leakage per claim</text>
+        <text class="a4bL" x="30" y="164">Years of benefit</text>
+        <text class="a4bL" x="30" y="194">Run cost per year</text>
+        <text class="a4bL" x="30" y="224">Year-1 adoption</text>
+        <text class="a4bL" x="30" y="254">Simple claims per year</text>
+        <text class="a4bL" x="30" y="284">Build cost (year 0)</text>
+        <text class="a4bL" x="30" y="314">Discount rate</text>
+
+        <text class="a4bB" x="700" y="74">-111.5k to +260.5k</text>
+        <text class="a4bS" x="700" y="104">-23.6k to +246.9k</text>
+        <text class="a4bS" x="700" y="134">+223.3k to -37.1k</text>
+        <text class="a4bS" x="700" y="164">+7.0k to +207.7k</text>
+        <text class="a4bS" x="700" y="194">+150.6k to -5.0k</text>
+        <text class="a4bS" x="700" y="224">+34.4k to +188.9k</text>
+        <text class="a4bS" x="700" y="254">+40.8k to +182.5k</text>
+        <text class="a4bS" x="700" y="284">+141.7k to +11.7k</text>
+        <text class="a4bS" x="700" y="314">+141.7k to +84.1k</text>
+
+        <text class="a4bN" x="30" y="350">The top three are per-claim economics owned by claims operations. The rate everyone argues about is last.</text>
+        <text class="a4bN" x="30" y="370">Four bars cross the red line: on its own, each of those inputs can sink the case inside its agreed range.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the longest bar is the assumption doing the work, and it belongs to claims operations, not the data team</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Reading a tornado in thirty seconds<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Read the top three, then stop.</strong> The bars are sorted by swing, so the first three tell you where the next hour of evidence-gathering should go. For CFT: saving per fast-tracked claim (a swing of 372.0), share fast-tracked (270.5), leakage per claim (260.4). All three are per-claim economics, and all three are owned by the claims operations lead. The data team's own numbers, build and run, sit further down.</p>
+        <p><strong>Then look at the zero line.</strong> A bar that crosses NPV 0 is an input that can sink the case on its own without leaving its agreed range. Four do: saving, share, leakage and run cost (+150.6k to -5.0k). Build cost does not, even at its high of 460: the case still reads +11.7k there.</p>
+        <p><strong>Then look at the bottom.</strong> The discount rate is the shortest bar: from 7 to 11 percent it moves the NPV only between +141.7k and +84.1k. That is the input finance meetings spend most time on, and for CFT it matters least. The direction of each bar matters too: leakage, run cost, build and the rate all lower the NPV as they rise, so their low end sits on the right.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>One at a time hides interactions<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each bar holds the other eight inputs at base, so the tornado cannot see what happens when two move together. In CFT they often would: the value of the fast track is claims x share x adoption x (saving - leakage), a product, not a sum. If the share and the saving both land low, the loss is larger than the two bars suggest added up, because each one shrinks the other's base. The same product means the two can also cancel.</p>
+        <p>So the tornado is a ranking tool, not a range. It tells you which inputs deserve better evidence; it does not tell you how wide the answer really is. Analyst session 5 draws all nine inputs together, and Analyst session 6's bench runs whole combinations side by side, including the sponsor's case where every input moves to its friendliest end at once.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Most of the meeting on the wrong bar.</strong> At the first review, Ines's analyst and Maya's team argued for most of the meeting about whether 9 percent was the right hurdle for CFT. When the tornado went on the screen, the discount rate was the shortest bar of the nine, and the saving per claim was the longest. Tom moved the next action to the claims operations lead: a sample of last quarter's simple claims, timed, to pin down the handling cost the fast track would really avoid. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers switching values and the optimism uplift</span>
+      <h2>How far each input can move before the case breaks</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The tornado ranks inputs by how much they move the NPV inside their ranges. A switching value asks the sharper question: how far would this input have to move, with everything else at base, for the NPV to reach zero? HM Treasury's Green Book (2026) defines it as the value a key variable would need to change to for the option to stop being value for money, and requires it, at a minimum, for the preferred option (paras 6.101-6.104). It turns a chart into a sentence.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 392" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn bar chart of distance to break, the percent change from base each input needs for CFT's NPV to reach zero, shortest first. Saving per claim breaks at 12.50, minus 10.7 percent. Simple claims at 35,696, minus 15.0 percent. Share fast-tracked at 46.7 percent, minus 15.0 percent. Build cost at 471.7 thousand, plus 31.0 percent. Leakage per claim at 5.50, plus 37.5 percent. Years of benefit at 3 years, minus 40.0 percent. Run cost at 98.7 thousand, plus 41.0 percent. Year-1 adoption at 13.9 percent, minus 72.2 percent. Discount rate at 18.4 percent, plus 104.7 percent, which is the IRR. A line marks 20 percent from base; the three bars inside it are filled in brass.">
+        <defs>
+          <filter id="a4cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a4cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a4cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a4cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a4cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a4cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a4cB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a4cA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a4cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a4cH" x="30" y="24">DISTANCE TO BREAK · HOW FAR EACH INPUT MUST MOVE FOR NPV TO HIT ZERO</text>
+        <text class="a4cA" x="30" y="48">input</text>
+        <text class="a4cA" x="165" y="48">breaks at</text>
+        <text class="a4cA" x="250" y="48">percent change from base, shortest first</text>
+        <text class="a4cA" x="700" y="48">change</text>
+
+        <g filter="url(#a4cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="250" y="64" width="43" height="16" rx="3" transform="rotate(-0.4 271 72)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="250" y="94" width="60" height="16" rx="3" transform="rotate(0.4 280 102)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="250" y="124" width="60" height="16" rx="3" transform="rotate(-0.4 280 132)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="250" y="154" width="124" height="16" rx="3" transform="rotate(0.3 312 162)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="250" y="184" width="150" height="16" rx="3" transform="rotate(-0.3 325 192)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="250" y="214" width="160" height="16" rx="3" transform="rotate(0.3 330 222)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="250" y="244" width="164" height="16" rx="3" transform="rotate(-0.3 332 252)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="250" y="274" width="289" height="16" rx="3" transform="rotate(0.2 394 282)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="250" y="304" width="419" height="16" rx="3" transform="rotate(-0.2 459 312)" fill="#FFFFFF" stroke="#4A1A5C"/>
+          <path d="M250 58 L250 330"/>
+          <path d="M330 58 L330 330" stroke="#7D5A0E" stroke-dasharray="5 5"/>
+          <!-- doodle: a snapped stick beside the shortest bar -->
+          <path d="M818 66 L838 74 L834 80 L856 88" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a4cL" x="30" y="76">Saving per claim</text><text class="a4cS" x="165" y="76">12.50</text>
+        <text class="a4cL" x="30" y="106">Simple claims</text><text class="a4cS" x="165" y="106">35,696</text>
+        <text class="a4cL" x="30" y="136">Share fast-tracked</text><text class="a4cS" x="165" y="136">46.7%</text>
+        <text class="a4cL" x="30" y="166">Build cost</text><text class="a4cS" x="165" y="166">471.7k</text>
+        <text class="a4cL" x="30" y="196">Leakage per claim</text><text class="a4cS" x="165" y="196">5.50</text>
+        <text class="a4cL" x="30" y="226">Years of benefit</text><text class="a4cS" x="165" y="226">3 years</text>
+        <text class="a4cL" x="30" y="256">Run cost</text><text class="a4cS" x="165" y="256">98.7k</text>
+        <text class="a4cL" x="30" y="286">Year-1 adoption</text><text class="a4cS" x="165" y="286">13.9%</text>
+        <text class="a4cL" x="30" y="316">Discount rate</text><text class="a4cS" x="165" y="316">18.4%</text>
+
+        <text class="a4cB" x="700" y="76">-10.7%</text>
+        <text class="a4cB" x="700" y="106">-15.0%</text>
+        <text class="a4cB" x="700" y="136">-15.0%</text>
+        <text class="a4cS" x="700" y="166">+31.0%</text>
+        <text class="a4cS" x="700" y="196">+37.5%</text>
+        <text class="a4cS" x="700" y="226">-40.0%</text>
+        <text class="a4cS" x="700" y="256">+41.0%</text>
+        <text class="a4cS" x="700" y="286">-72.2%</text>
+        <text class="a4cS" x="700" y="316">+104.7%, the IRR</text>
+
+        <text class="a4cB" x="330" y="348" text-anchor="middle">20% from base</text>
+        <text class="a4cN" x="30" y="374">Brass: the three inputs within 20 percent of breaking. They are the case's real risk, and the next evidence to buy.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the shorter the bar, the less room the case has: three inputs break it inside a 20 percent miss</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The switching value as a sentence<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The shape of the sentence.</strong> "The case breaks if [input] moves [percent] from [base] to [switching value]." For Keelson's top risk: the case breaks if the saving per claim falls 10.7 percent, from 14 to 12.50. A board can hold that, check it against evidence, and give it to an owner to watch.</p>
+        <p><strong>Check one by hand.</strong> NPV is a straight line in the saving: the tornado says it moves from -111.5k at 11 to +260.5k at 16, which is 372.0 over 5, or 74.4 per unit of saving. To lose the base case's 111.7, the saving must fall 111.7 / 74.4 = 1.50, from 14 to 12.50. Build cost is simpler still: every extra thousand spent in year 0 comes straight off the NPV, so the case breaks at 360 + 111.7 = 471.7, which is 31.0 percent over base.</p>
+        <p><strong>Two switching values say something extra.</strong> The discount rate's switching value, 18.4 percent, is the IRR from Analyst session 3: the rate at which NPV is zero is the definition of IRR. And years of benefit has no exact break point because it moves in whole years: at 3 years the NPV is below zero, a 40.0 percent cut.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The optimism uplift, done honestly<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The Green Book (2026) says appraisers must account for optimism bias with explicit adjustments at the outset: costs and durations raised, benefits lowered (para 6.78). Its order of evidence is the organisation's own historical forecast errors first (6.79), and generic supplementary values only where those do not exist (6.80).</p>
+        <p>HM Treasury's supplementary guidance on optimism bias draws its generic values from Mott MacDonald's 2002 review of large public procurement in the UK. For equipment and development projects, which include software and systems development, the capital cost upper bound is 200 percent and the lower bound 10 percent. The upper bound is the average historic optimism at outline business case stage, a starting point to be reduced as the causes are mitigated; the lower bound is the target by contract award. The evidence is from 2002 data on public projects, so treat it as a ceiling to argue down from, not a measurement of your project. The same guidance offers no sound bounds for running costs or benefit shortfall, and points to sensitivity and switching values for those instead.</p>
+        <p>Keelson applies a modest 25 percent uplift to the build, above the lower bound and far below the upper, because its delivery lead has the team's own history. The NPV falls to +21.7k: 25 percent of 360 is 90, and 111.7 - 90 = 21.7. At a 20 percent uplift it would be +39.7k. The case survives the uplift, with very little room left.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Scenarios are stories, sensitivities are tests<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A sensitivity moves one input and holds the rest; it is a controlled test of how much the answer depends on that input. A scenario moves several inputs together because a story ties them: "a hard winter" raises claim volumes, lowers the share simple enough to fast-track and slows adoption as adjusters are pulled onto backlogs, all at once. Scenarios catch the interactions the tornado cannot see; sensitivities tell you which inputs a scenario must get right.</p>
+        <p>Use both, and label them. A scenario without a story is just a set of inputs someone picked to reach an answer, which is exactly what the sponsor's case in Analyst session 6 turns out to be. The Green Book (2026) adds a caution worth keeping: putting probabilities on scenarios can introduce spurious accuracy. For weighing options more generally, see <a href="https://phoebefu6.github.io/learn-decision-intelligence-with-phoebe/">Learn Decision Intelligence with Phoebe ↗</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Why the build range leans up.</strong> Bent Flyvbjerg and Alexander Budzier studied 1,471 IT projects and found an average cost overrun of 27 percent; more telling, one in six was a black swan, with an average cost overrun of about 200 percent and a schedule overrun of almost 70 percent (Flyvbjerg and Budzier, "Why Your IT Project May Be Riskier than You Think", Harvard Business Review, September 2011). The sample was mostly public agencies and mostly US-based, so it is a reference class, not a forecast for any one project. It is the reason Keelson's build high sits 100 above base and its low only 30 below, and why an uplift on the build is a correction, not pessimism.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Run Keelson's tornado, then find where it breaks</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">The widget runs every input in CFT's constructed model to its low and its high, sorts the swings into a tornado, and searches for each input's switching value, all in your browser. One checkbox applies the 25 percent optimism uplift to the build and recomputes everything. Work the five steps and write down what it prints. The inputs are invented, so the lesson is the reading, not the totals.</p>
+
+    <div class="bcr-widget" data-mode="tornado"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the widget. One checkbox, apply a 25 percent optimism uplift to the build cost, feeds the engine. The engine prints four metrics: NPV at the hurdle rate, IRR, payback and discounted payback. Below them, the tornado bars, sorted by swing around the base line, and the switching table with the column Case breaks at, where rows within 20 percent of base are highlighted. The switching table is filled in brass.">
+        <defs>
+          <filter id="a4dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a4dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a4dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a4dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a4dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a4dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a4dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a4dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a4dH" x="30" y="28">WHAT THE WIDGET COMPUTES</text>
+
+        <g filter="url(#a4dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="92" width="200" height="64" rx="10" transform="rotate(-0.8 130 124)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M234 124 L296 124" marker-end="url(#a4dAr)"/>
+          <rect x="300" y="48" width="230" height="56" rx="10" transform="rotate(0.5 415 76)" fill="#FFFFFF"/>
+          <rect x="300" y="124" width="230" height="80" rx="10" transform="rotate(-0.4 415 164)" fill="url(#a4dHc)"/>
+          <path d="M534 164 L600 140" marker-end="url(#a4dAr)"/>
+          <rect x="606" y="60" width="244" height="150" rx="10" transform="rotate(0.4 728 135)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: a tick box -->
+          <rect x="44" y="104" width="14" height="14" rx="2" stroke="#4A1A5C"/>
+          <path d="M47 111 L51 115 L56 106" stroke="#4A1A5C"/>
+        </g>
+
+        <rect x="312" y="136" width="206" height="56" rx="6" fill="#FFFFFF"/>
+
+        <text class="a4dL" x="66" y="116">one checkbox</text>
+        <text class="a4dS" x="44" y="136">25% optimism uplift on build</text>
+        <text class="a4dL" x="314" y="72">four metrics</text>
+        <text class="a4dS" x="314" y="90">NPV, IRR, payback, disc. payback</text>
+        <text class="a4dL" x="324" y="158">tornado bars</text>
+        <text class="a4dS" x="324" y="176">nine swings, base line, NPV 0</text>
+        <text class="a4dW" x="622" y="88">switching table</text>
+        <text class="a4dW" x="622" y="116">Input · Base case</text>
+        <text class="a4dW" x="622" y="140">Case breaks at</text>
+        <text class="a4dW" x="622" y="164">Change from base</text>
+        <text class="a4dW" x="622" y="192">rows within 20%: highlighted</text>
+
+        <text class="a4dB" x="30" y="242">Tick the uplift and every line recomputes: the bars shift, and so does every switching value.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one checkbox drives all three outputs, so the uplift changes not just the NPV but how close each input sits to breaking</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the top three bars.</strong> Checkbox off. Write the three longest bars with their low-to-high NPVs, and next to each, the person who owns that range.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the widget prints</span>NPV +111.7k · IRR 18.4% · payback 3.3 years · discounted payback 3.9 years
+Saving per fast-tracked claim   -111.5k to +260.5k   owner: ____________
+Share fast-tracked              -23.6k to +246.9k    owner: ____________
+Leakage per fast-tracked claim  +223.3k to -37.1k    owner: ____________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Read the switching table.</strong> Find the column "Case breaks at" and name the three highlighted rows. Then find the row whose switching value is the IRR.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · the three within 20 percent</span>Simple claims per year          breaks at 35,696   -15.0%
+Share fast-tracked              breaks at 46.7%    -15.0%
+Saving per fast-tracked claim   breaks at 12.50    -10.7%
+the row that equals the IRR: Discount rate, 18.4% (+104.7%)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Tick the uplift.</strong> Apply the 25 percent optimism uplift to the build cost. Write the new NPV and IRR, check the NPV by hand, then write the new switching value for the saving per claim, which the widget recomputes.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the optimism uplift</span>with the 25% uplift on build:   NPV +21.7k · IRR 10.6%
+by hand: 360 x 25% = 90 more in year 0;  111.7 - 90 = 21.7
+saving per claim now breaks at: ________   change from base: ________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Write the switching-value sentence.</strong> Untick the uplift. Turn the saving per claim's row into the sentence from Part 3, and check the 12.50 by hand from the tornado bar.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the sentence a board can hold</span>The case breaks if the saving per claim falls 10.7 percent, from 14 to 12.50.
+check: (260.5 - (-111.5)) / (16 - 11) = 74.4 per unit of saving
+       111.7 / 74.4 = 1.50;  14 - 1.50 = 12.50</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own top three.</strong> For your own project, write the three inputs you expect at the top of your tornado, who owns each range, and how far each can move before your case breaks. Your numbers will differ; the shape of the sentence will not.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your top three and their distance to break</span>input              low / base / high      owner          breaks at    distance
+1 ______________   ____ / ____ / ____     ____________   ________     ____%
+2 ______________   ____ / ____ / ____     ____________   ________     ____%
+3 ______________   ____ / ____ / ____     ____________   ________     ____%
+The case breaks if ____________ moves ____ percent, from ____ to ____.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the three ranges you trust least.</strong> Analyst session 5 turns every range into a triangle and draws from all nine at once, so the bounds you agree tonight become the shape of the whole answer. A range nobody signed is the first one a reviewer will challenge.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Analyst session 5</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Hold the range meeting.</strong> For your own case, get each input's owner to write a low, a base and a high before anyone sees a result. Note who signed which row.</li>
+      <li><strong>Skew one range on purpose.</strong> Pick the input with the most history behind it, usually the build cost, and write down why its range leans the way it does.</li>
+      <li><strong>Write three sentences.</strong> For the three inputs closest to breaking your case, write "the case breaks if ... moves ... percent, from ... to ...", and send them to the owners.</li>
+      <li><strong>Find your own reference class.</strong> Ask your delivery or PMO team for the planned and actual cost of your organisation's last three to five comparable builds. That ratio is your optimism uplift, better than any generic table.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 4 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Which bar tops Keelson's tornado for CFT, and what does it tell you?</p>
+      <button class="qopt" type="button">A · The discount rate, so finance should settle the hurdle first</button>
+      <button class="qopt" type="button">B · The build cost, so the data team should tighten its estimate</button>
+      <button class="qopt" type="button">C · The saving per fast-tracked claim, so the case rests on per-claim economics owned by claims operations</button>
+      <button class="qopt" type="button">D · Years of benefit, so the model should add a terminal value</button>
+      <p class="qwhy">The saving swings the NPV from -111.5k to +260.5k, the widest of the nine. The discount rate is the shortest bar, and the top three all belong to claims operations, not the data team.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · What is a switching value?</p>
+      <button class="qopt" type="button">A · The value a key input would need to change to, with the rest at base, for the option to stop being value for money</button>
+      <button class="qopt" type="button">B · The input's high end in the agreed range</button>
+      <button class="qopt" type="button">C · The discount rate at which two options swap rank</button>
+      <button class="qopt" type="button">D · The average of the low and high NPV for one input</button>
+      <p class="qwhy">That is the Green Book (2026) definition. For CFT's NPV, it is the point where it reaches zero: a saving of 12.50, 10.7 percent below base.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Why are the input ranges agreed with their owners before anyone sees a result?</p>
+      <button class="qopt" type="button">A · Because the widget cannot run without them</button>
+      <button class="qopt" type="button">B · Because ranges must be symmetric around base</button>
+      <button class="qopt" type="button">C · Because finance sets every range</button>
+      <button class="qopt" type="button">D · Because once people see which way a range moves the answer, the bounds drift toward the result they want</button>
+      <p class="qwhy">A range is evidence only if it was written before the answer was known. Afterwards, every bound has a motive.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Sensitivity analysis and switching values, at a minimum for the preferred option; optimism bias adjusted explicitly, own history first</span><span class="note">HM Treasury, The Green Book (2026), paras 6.78-6.80 and 6.101-6.104; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Generic optimism bias values: equipment and development capex upper bound 200 percent, lower 10 percent</span><span class="note">HM Treasury, Supplementary Green Book Guidance, Optimism Bias, values from Mott MacDonald (2002); read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">IT cost overruns: 1,471 projects, 27 percent average, one in six a black swan near 200 percent</span><span class="note">Flyvbjerg and Budzier, "Why Your IT Project May Be Riskier than You Think", Harvard Business Review, September 2011; read at source (authors' manuscript)</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's CFT tornado, switching values and the 25 percent uplift (NPV +21.7k)</span><span class="note">Constructed and labelled; computed by the engine in your browser and checked against an independent Python run</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Ranges first</b><span>Low, base, high per input, signed by its owner before any result is shown.</span></div>
+      <div class="cheat-item"><b>Skew from history</b><span>Builds overrun more than they underrun. Keelson's build: 330 / 360 / 460.</span></div>
+      <div class="cheat-item"><b>One at a time</b><span>Move one input, pin the rest. The NPV at each end is that input's effect.</span></div>
+      <div class="cheat-item"><b>Read the tornado</b><span>Top three for evidence, the zero line for danger, the bottom for arguments to drop.</span></div>
+      <div class="cheat-item"><b>Switching value</b><span>"The case breaks if the saving per claim falls 10.7 percent, from 14 to 12.50."</span></div>
+      <div class="cheat-item"><b>Uplift the build</b><span>Own history first, generic table second. +25% takes CFT from +111.7k to +21.7k.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>The tornado moved one input at a time. Analyst session 5 moves all nine at once: a triangle for every range, 5,000 seeded draws, the P10, P50 and P90 of the NPV and the chance it falls below zero. Then it prices the option to wait: commit to CFT now, or pilot it in one region first and decide once the saving per claim is known.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 4 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a3-npv-irr-and-payback.html">← Prev: NPV, IRR and payback</a> &nbsp;·&nbsp; <a href="a5-the-range-and-the-option-to-wait.html">Next: The range and the option to wait →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Leader session 1 of 4. What a business case is for: a decision document, not a sales document. The counterfactual that every benefit is measured against, the option ladder from business as usual to pilot then scale, and the five questions every funder asks. Keelson Mutual, a constructed insurer, needs its CFO to release the money for claims fast-track triage.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="What a business case is for - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Leader session 1 of 4. A case is a decision document: the counterfactual, the option ladder and the five questions a funder asks.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/b1-what-a-case-is-for.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What a business case is for - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Leader session 1 of 4. The counterfactual, the option ladder, the five questions.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Leader session 1 · What a business case is for - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Leader session 1 of 4</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Leader session 1 of 4</div>
+    <h1>What a business case <span class="accent">is for</span></h1>
+    <p class="sub">Most business cases are written to win. They show one option, one number and every benefit, and the finance team spends its time finding what was left out. A case that gets signed is written to decide: it names the decision, compares real options against what happens if you do nothing, counts the costs a sponsor would rather forget, and says how sure it is. Tonight, the three ideas that make a case a decision document: the counterfactual, the option ladder and the five questions every funder asks. Keelson Mutual and its people are constructed for teaching.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Leader</span>
+      <span class="chip audience">Data and AI leaders who need an investment signed, and the analysts who model it</span>
+      <span class="chip audience">No code</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Decision, counterfactual, options</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: Keelson's one-page case</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The Leader track is for the person who has to get the money: the chief data officer, the head of analytics, the product lead with an AI idea and a budget holder to convince. Four sessions: tonight, what a case is for; then how a CFO reads the numbers; then which assumption is doing the work; then what happens after the yes. No code. The Analyst track builds the same numbers in a working engine, and every number on these pages is one that engine prints. The running case is Keelson Mutual, a constructed mid-size insurer. Maya Okafor, its chief data officer, chose three data bets last quarter; one of them, claims fast-track triage (CFT), routes simple claims past a full adjuster review. Ines Carvalho, the CFO, will release the 360 thousand only against a case her team will sign. Every Keelson person and number is invented.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone works it through</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A one-page case skeleton for a real decision of your own: one sentence naming the decision, the counterfactual written down, four options from business as usual to pilot then scale, and a one-line answer to each of the five questions a funder asks. It is the page Leader session 2 puts numbers on.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the case as a decision document</span>
+      <h2>A case is written to decide, not to win</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A finance team reads a case looking for what it hides. A sales document hides the alternatives, the costs that land on someone else and the chance it goes wrong. A decision document puts all three on the first page, because the reader will find them anyway, and a case that found them first is a case the reader can trust.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn pages side by side. Left, a sales document in a red panel: one option, one NPV of 606 thousand from the sponsor's numbers, benefits only, no counterfactual. Right, a decision document: the decision asked for, four options against business as usual, the counterfactual, costs and the leakage dis-benefit, and a range from minus 141 to plus 190 thousand with the chance of loss. The range line on the right is filled in brass.">
+        <defs>
+          <filter id="b1aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b1aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b1aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b1aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b1aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b1aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b1aR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .b1aW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .b1aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b1aH" x="30" y="28">THE SAME PROJECT, WRITTEN TWO WAYS</text>
+        <text class="b1aS" x="300" y="28">left: written to win · right: written so the reader can decide</text>
+
+        <g filter="url(#b1aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="290" height="244" rx="12" transform="rotate(-0.4 175 170)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="360" y="52" width="490" height="44" rx="10" transform="rotate(0.4 605 74)" fill="#FFFFFF"/>
+          <rect x="360" y="102" width="490" height="44" rx="10" transform="rotate(-0.3 605 124)" fill="#FFFFFF"/>
+          <rect x="360" y="152" width="490" height="44" rx="10" transform="rotate(0.3 605 174)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="360" y="202" width="490" height="44" rx="10" transform="rotate(-0.3 605 224)" fill="#FFFFFF"/>
+          <rect x="360" y="252" width="490" height="44" rx="10" transform="rotate(0.3 605 274)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <path d="M326 170 L352 170" marker-end="url(#b1aAr)"/>
+          <!-- doodle: a pen on the decision page -->
+          <path d="M806 112 L836 136 L830 140 L800 116 Z" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="b1aR" x="48" y="74">WRITTEN TO WIN</text>
+        <text class="b1aL" x="48" y="106">One option: build CFT</text>
+        <text class="b1aS" x="48" y="124">no alternative to compare</text>
+        <text class="b1aL" x="48" y="158">NPV +606.4k</text>
+        <text class="b1aS" x="48" y="176">every input at the top of its range</text>
+        <text class="b1aL" x="48" y="210">Savings only</text>
+        <text class="b1aS" x="48" y="228">no run cost, no leakage</text>
+        <text class="b1aR" x="48" y="270">the reader has to find the rest</text>
+
+        <text class="b1aL" x="378" y="72">1 · The decision: release 360k for CFT, or not</text>
+        <text class="b1aS" x="378" y="88">one sentence, a yes or no someone can give</text>
+        <text class="b1aL" x="378" y="122">2 · Four options against business as usual</text>
+        <text class="b1aS" x="378" y="138">do nothing, quick win, full build, pilot first</text>
+        <text class="b1aL" x="378" y="172">3 · The counterfactual, written down</text>
+        <text class="b1aS" x="378" y="188">what handling costs do if Keelson builds nothing</text>
+        <text class="b1aL" x="378" y="222">4 · Costs and the dis-benefit</text>
+        <text class="b1aS" x="378" y="238">run cost 70k a year; leakage on unchecked claims</text>
+        <text class="b1aW" x="378" y="272">5 · A range: -141.5k to +189.9k, 44.1% chance of loss</text>
+        <text class="b1aW" x="378" y="288">base case +111.7k, and the assumption doing the work</text>
+
+        <text class="b1aN" x="30" y="318">Both pages describe the same constructed Keelson project. Only one tells the CFO what she is deciding.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the brass line is the one most cases leave out: how sure the numbers are</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Five things the first page of a case carries<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The decision.</strong> One sentence a funder can answer yes or no: "Release 360 thousand to build claims fast-track triage in the next financial year." A case with no decision sentence is a briefing, and briefings do not get money.</p>
+        <p><strong>The options.</strong> At least business as usual and a cheaper way to get part of the benefit, alongside the proposal. Without them nobody can tell whether the proposal is good or merely possible.</p>
+        <p><strong>The counterfactual.</strong> What happens if you build nothing. Every benefit is the difference from that line, which Part 2 draws.</p>
+        <p><strong>Costs and dis-benefits.</strong> The run cost after go-live and the harm the project does somewhere else. At Keelson the harm is leakage: a fast-tracked claim nobody checked is sometimes overpaid.</p>
+        <p><strong>The range.</strong> Leader session 3 is about this one: the honest headline is a range and the one assumption that would break the case.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why sponsors write sales documents anyway<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A sponsor is rewarded for getting approval, not for the accuracy of the forecast, and the forecast is usually checked long after the sponsor has moved on. The incentive pushes every assumption to the optimistic end of its range, one small step at a time, with no single step that looks dishonest. The left page in the figure is not a lie: each of its inputs is inside the range Keelson's own teams gave. It just took the top of every range at once. The defence is structural, not moral: ask for the options, the counterfactual and the range as standard sections, so leaving them out is visible. Leader session 3 covers the evidence on how far optimism moves project estimates.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The case that came back.</strong> Maya's first draft for CFT was one page with a single NPV of 606 thousand. Ines sent it back with three questions in the margin: compared with what, what does it cost to run, and what if the saving per claim is lower? None of the questions was hostile; each was a section the draft did not have. The second draft had the five parts above and a base case of 111.7 thousand, and it was the one her team could check. Constructed Keelson Mutual example; the numbers are printed by the bench in Analyst session 6.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the counterfactual</span>
+      <h2>Every benefit is measured against doing nothing</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The most common error in a benefits claim is comparing after with before. The right comparison is with and without: what happens with the project against what would have happened without it over the same years. When costs were already falling, before-and-after hands the project credit for a trend it did not cause.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn chart of handling cost per simple claim over five years. A flat dashed line marks last year's level, the before line. A gently falling line shows what costs do without CFT because the claims data fix is already cutting rework. A lower line shows costs with CFT. The gap between the without line and the with line is shaded brass and labelled the benefit. The bigger gap between the before line and the with line is marked in red as what before-and-after would claim.">
+        <defs>
+          <filter id="b1bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="13" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b1bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#7D5A0E" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b1bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b1bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b1bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b1bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b1bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .b1bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .b1bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .b1bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b1bH" x="30" y="28">HANDLING COST PER SIMPLE CLAIM, FIVE YEARS</text>
+        <text class="b1bS" x="360" y="28">shape only, constructed · the benefit is the gap to the without line</text>
+
+        <g filter="url(#b1bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M80 60 L80 250 L700 250"/>
+          <path d="M80 90 L680 90" stroke="#5B5160" stroke-dasharray="6 6"/>
+          <path d="M80 90 L200 102 L320 114 L440 126 L560 138 L680 150" stroke="#4A1A5C" stroke-width="2.6"/>
+          <path d="M80 90 L200 150 L320 186 L440 200 L560 210 L680 218" stroke="#7D5A0E" stroke-width="2.6"/>
+          <path d="M440 126 L560 138 L680 150 L680 218 L560 210 L440 200 Z" fill="url(#b1bHc)" stroke="none"/>
+          <path d="M720 92 L720 216" stroke="#991B1B" marker-end="url(#b1bAr)"/>
+          <path d="M790 152 L790 216" stroke="#7D5A0E" marker-end="url(#b1bAr)"/>
+          <!-- doodle: a claim form -->
+          <rect x="96" y="196" width="34" height="42" rx="4" transform="rotate(-4 113 217)" stroke="#4A1A5C"/>
+          <path d="M104 210 L122 210 M104 220 L120 220" stroke="#4A1A5C"/>
+        </g>
+
+        <rect x="444" y="160" width="190" height="22" rx="6" fill="#FFFFFF"/>
+        <text class="b1bB" x="452" y="175">the benefit: with vs without</text>
+
+        <text class="b1bS" x="86" y="84">before: last year's level, held flat</text>
+        <text class="b1bA" x="560" y="128">without CFT</text>
+        <text class="b1bB" x="560" y="232">with CFT</text>
+        <text class="b1bR" x="732" y="110">before vs after</text>
+        <text class="b1bR" x="732" y="126">overclaims</text>
+        <text class="b1bB" x="800" y="176">the real</text>
+        <text class="b1bB" x="800" y="192">gap</text>
+        <text class="b1bS" x="80" y="270">year 0</text>
+        <text class="b1bS" x="660" y="270">year 5</text>
+
+        <text class="b1bN" x="30" y="298">Without CFT, costs still fall: the claims data fix (CDQ) cuts rework. Claim only the gap CFT itself causes.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the red arrow is what before-and-after claims; the brass arrow is what CFT can honestly take credit for</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Writing the counterfactual in one paragraph<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Say what continues anyway.</strong> At Keelson, the claims data quality fix (CDQ) is already funded and already cutting rework. Handling cost per claim would fall without CFT. That trend belongs to CDQ, so CFT's benefit starts from the falling line, not the flat one.</p>
+        <p><strong>Say what would get worse.</strong> Doing nothing is rarely free. If claim volumes grow and headcount does not, waiting times rise. A counterfactual that holds everything flat hides that cost of doing nothing, which is often the strongest argument a case has.</p>
+        <p><strong>Say who agrees with it.</strong> The counterfactual belongs to the business, not to the data team. Ask the claims operations lead to sign the paragraph before any number goes on top of it; Leader session 4 makes the same person the owner of the benefit.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why "business as usual" is an option, not a background<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Public-sector appraisal guidance in the UK, HM Treasury's Green Book (2026 edition), requires business as usual to be carried onto every shortlist, whether or not it meets the objectives, and says plainly that business as usual does not mean doing nothing. It adds that a shortlist should typically include a do-minimum option too, which exposes gold plating, so each proposal is judged by what it adds. Private companies rarely require that formally, and it is worth copying: putting "do nothing" in the table forces somebody to describe it, and describing it is where the counterfactual gets written. The Analyst track turns the same idea into arithmetic: Analyst session 1 counts only the cash that changes between with and without.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the option ladder and the five questions</span>
+      <h2>Four options and five questions</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A case with one option asks the funder to approve. A case with four asks the funder to choose, which is the job they are there to do. The ladder runs from doing nothing to the full proposal, with a cheaper partial option and a staged one in between. Then five questions turn the ladder into a case.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn ladder with four rungs for Keelson. Rung 1, business as usual: NPV zero by definition, the benchmark. Rung 2, a rules-based quick win: costs 60 thousand, NPV plus 41.3 thousand at 9 percent. Rung 3, pilot one region first: expected NPV plus 84.1 thousand, worst case minus 79.8 thousand. Rung 4, full build of CFT: NPV plus 111.7 thousand in the base case, worst case minus 111.5 thousand. Rung 4 is filled in brass. To the right, five tags list the five questions: why change, which option is best value, can it be bought or built, can we afford it, can we deliver it.">
+        <defs>
+          <filter id="b1cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="19" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b1cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b1cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b1cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b1cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b1cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b1cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .b1cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .b1cX { font: 800 16px Inter, sans-serif; fill: #FFFFFF; }
+          .b1cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="b1cH" x="30" y="28">KEELSON'S OPTION LADDER FOR CLAIMS TRIAGE</text>
+        <text class="b1cS" x="380" y="28">NPV at the 9% hurdle, thousands · constructed, computed by the engine</text>
+
+        <g filter="url(#b1cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M50 300 L50 52 M500 300 L500 52"/>
+          <rect x="62" y="240" width="426" height="50" rx="10" transform="rotate(0.4 275 265)" fill="#FFFFFF"/>
+          <rect x="62" y="178" width="426" height="50" rx="10" transform="rotate(-0.4 275 203)" fill="#FFFFFF"/>
+          <rect x="62" y="116" width="426" height="50" rx="10" transform="rotate(0.4 275 141)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="62" y="54" width="426" height="50" rx="10" transform="rotate(-0.4 275 79)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="560" y="54" width="290" height="40" rx="8" transform="rotate(0.6 705 74)" fill="#FFFFFF"/>
+          <rect x="560" y="102" width="290" height="40" rx="8" transform="rotate(-0.6 705 122)" fill="#FFFFFF"/>
+          <rect x="560" y="150" width="290" height="40" rx="8" transform="rotate(0.5 705 170)" fill="#FFFFFF"/>
+          <rect x="560" y="198" width="290" height="40" rx="8" transform="rotate(-0.5 705 218)" fill="#FFFFFF"/>
+          <rect x="560" y="246" width="290" height="40" rx="8" transform="rotate(0.5 705 266)" fill="#FFFFFF"/>
+          <path d="M508 170 L550 170" marker-end="url(#b1cAr)"/>
+        </g>
+
+        <text class="b1cL" x="78" y="262">1 · Business as usual</text>
+        <text class="b1cS" x="78" y="278">the benchmark every option is measured against</text>
+        <text class="b1cV" x="380" y="272">0</text>
+        <text class="b1cL" x="78" y="200">2 · Quick win: rules-based triage</text>
+        <text class="b1cS" x="78" y="216">60k, three years, part of the benefit</text>
+        <text class="b1cV" x="380" y="210">+41.3k</text>
+        <text class="b1cL" x="78" y="138">3 · Pilot one region, then decide</text>
+        <text class="b1cS" x="78" y="154">expected value; worst case -79.8k</text>
+        <text class="b1cV" x="380" y="148">+84.1k</text>
+        <text class="b1cW" x="78" y="76">4 · Full build of CFT</text>
+        <text class="b1cW" x="78" y="92">base case; worst case -111.5k</text>
+        <text class="b1cX" x="380" y="86">+111.7k</text>
+
+        <text class="b1cL" x="574" y="79">Why change at all?</text>
+        <text class="b1cL" x="574" y="127">Which option gives best value?</text>
+        <text class="b1cL" x="574" y="175">Can we buy or build it?</text>
+        <text class="b1cL" x="574" y="223">Can we afford it?</text>
+        <text class="b1cL" x="574" y="271">Can we deliver it?</text>
+
+        <text class="b1cN" x="30" y="326">The highest NPV is not automatically the answer: the full build also has the worst downside. That trade is the decision.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four rungs to choose between, five questions to answer about the one you choose</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The four rungs, and why each one is there<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Business as usual</strong> is the benchmark, with an NPV of zero by definition because every other option is measured as the difference from it.</p>
+        <p><strong>The quick win</strong> answers "could we get most of this for less?". At Keelson, simple rules route the most obvious claims for 60 thousand. It returns less (an NPV of 41.3 thousand against 111.7), but it pays back in 1.5 years instead of 3.3. Leader session 2 shows why its internal rate of return, 44.6 percent, makes it look better than it is.</p>
+        <p><strong>Pilot then scale</strong> buys information before the big spend. It gives up some value if the project works and limits the loss if it does not. Leader session 4 and Analyst session 5 put a price on that trade.</p>
+        <p><strong>The full build</strong> is the proposal. It has the highest base case and the worst downside, and a funder who sees both can make a choice about risk instead of a guess about honesty.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Five questions every funder asks<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>HM Treasury's Green Book (2026) organises public-sector business cases around five cases, developed together rather than as five separate documents: strategic, economic, commercial, financial and management. Stripped of the public-sector language they are five questions any CFO asks. <strong>Why change at all</strong> (the strategic case: what problem, against which goal)? <strong>Which option is best value</strong> (the economic case: the ladder and its numbers)? <strong>Can we buy or build it</strong> (the commercial case: vendor, contract, team)? <strong>Can we afford it</strong> (the financial case: which budget, which year, what it does to cash)? <strong>Can we deliver it</strong> (the management case: who runs it, how we will know it worked)? A one-line answer to each fits on the first page.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where the funding question was answered already<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Which budget pays (central, chargeback, or co-funded with the business) is a funding-model decision, and Keelson made it in <a href="https://phoebefu6.github.io/learn-data-strategy-with-phoebe/courses/05-funding-and-value-tracking.html">Data Strategy, session 5 ↗</a>, together with the early signals that show a bet is alive. This track takes one bet from that portfolio and builds the case for it. If you are choosing between many bets rather than making the case for one, the weighing belongs to <a href="https://phoebefu6.github.io/learn-decision-intelligence-with-phoebe/">Decision Intelligence ↗</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The rung nobody wanted to write.</strong> Maya's team did not want to write the quick-win rung, because it might win. Ines asked for it anyway, and it changed the conversation: with the quick win on the page, the question stopped being "is CFT worth 360 thousand?" and became "is the extra 70 thousand of value worth the extra 300 thousand of spend and risk?", which is a question the board could actually answer. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Keelson's one-page case, then yours</h2>
+      <span class="tag demo">★ 22 min · everyone works it through</span>
+    </div>
+    <p class="lede">No code, one page. Work Keelson's skeleton together in steps 1 and 2, then write your own decision in pairs for steps 3 to 5. No numbers yet beyond the ones given; Leader session 2 adds them. Your decision and options will differ from Keelson's, which is the point.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn one-page case form with five boxes stacked: the decision sentence, the counterfactual paragraph, the four options, the five questions with one line each, and the ask. The decision box is filled in for Keelson: release 360 thousand for claims fast-track triage next year. The other boxes have blank lines. A paperclip sits on the top right corner.">
+        <defs>
+          <filter id="b1dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="29" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="b1dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="b1dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .b1dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .b1dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .b1dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .b1dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .b1dA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+        </style>
+
+        <text class="b1dH" x="30" y="28">THE ONE-PAGE CASE</text>
+        <text class="b1dS" x="180" y="28">five boxes, top to bottom · Keelson's decision filled in · constructed</text>
+
+        <g filter="url(#b1dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="44" width="740" height="222" rx="10" transform="rotate(-0.3 400 155)" fill="#FFFFFF"/>
+          <rect x="44" y="54" width="712" height="34" rx="6" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M44 128 L756 128 M44 168 L756 168 M44 208 L756 208" stroke="#CDC5D1"/>
+          <!-- doodle: a paperclip -->
+          <path d="M800 50 L800 120 Q800 136 816 136 Q832 136 832 120 L832 62 Q832 52 822 52 Q812 52 812 62 L812 116" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="b1dA" x="56" y="76">1 · Decision: release 360k to build claims fast-track triage (CFT) next year</text>
+        <text class="b1dL" x="56" y="114">2 · Counterfactual: without CFT, handling cost per claim ...</text>
+        <text class="b1dL" x="56" y="154">3 · Options: BAU · quick win · pilot first · full build</text>
+        <text class="b1dL" x="56" y="194">4 · Why · best value · buy or build · afford · deliver: one line each</text>
+        <text class="b1dL" x="56" y="234">5 · The ask: which rung, how much, when, and who owns the benefit</text>
+        <text class="b1dB" x="30" y="290">If box 1 cannot be answered yes or no, rewrite it before writing anything else.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - five boxes on one page; the numbers come in Leader session 2</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Write the decision in one sentence.</strong> Keelson's is given. Check it against two tests: can a funder answer it yes or no, and does it say how much and when?</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · the decision</span>Keelson: Release 360k to build claims fast-track triage (CFT) next financial year.
+test 1 - answerable yes / no?   ____
+test 2 - says how much and when? ____</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Write Keelson's counterfactual.</strong> Three sentences: what continues anyway, what gets worse if nothing is built, and who signs the paragraph.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · without CFT</span>continues anyway: CDQ keeps cutting rework, so cost per claim falls a little each year
+gets worse if nothing is built: ______________________________________
+signed by: claims operations lead (not the data team)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Your decision.</strong> Pick a real investment you want, or one you have seen go to a funder. Write its decision sentence and run the two tests.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · your decision</span>Release ______ to ______________________________ in ______.
+yes / no answerable? ____    how much and when? ____</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Your ladder.</strong> Four rungs. The hard one is the quick win: the cheapest thing that would get part of the benefit. If you cannot think of one, ask what you would do with a tenth of the budget.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · four rungs</span>1 business as usual: _____________________________________
+2 quick win:         _____________________________________
+3 pilot first:       _____________________________________
+4 full proposal:     _____________________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Five lines.</strong> One line per question. Where you cannot write the line, write who in your organisation could; that name is your first meeting.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · the five questions</span>why change at all:     _______________________
+best value option:     _______________________
+buy or build:          _______________________
+afford it (budget):    _______________________
+deliver it (owner):    _______________________</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the page.</strong> Leader session 2 puts NPV, IRR and payback on rung 4 and the quick win, and shows which number answers which of the five questions. The decision sentence never changes after tonight; if it does, the case was about something else.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Leader session 2</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Find your hurdle rate.</strong> Ask your finance team what discount rate or required return they use to appraise projects, and whether it changes with the project's risk.</li>
+      <li><strong>Find one past case.</strong> Any approved business case in your organisation. Count how many of the five parts from Part 1 it has.</li>
+      <li><strong>Name your counterfactual signer.</strong> The business owner who would have to agree to what happens without your project, and ask them one question about it.</li>
+      <li><strong>Write the quick win properly.</strong> Give your rung 2 a rough cost and a rough share of the benefit. You will compare it with your proposal next session.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Leader session 1 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Handling cost per claim was already falling 2 percent a year before CFT. What is CFT's benefit?</p>
+      <button class="qopt" type="button">A · Everything handling costs fall after go-live, compared with last year</button>
+      <button class="qopt" type="button">B · Nothing, because costs were falling anyway</button>
+      <button class="qopt" type="button">C · The gap between costs with CFT and the falling line costs would have followed without it</button>
+      <button class="qopt" type="button">D · Whatever the vendor estimated</button>
+      <p class="qwhy">Benefits are with versus without, not after versus before. The existing trend belongs to whatever caused it.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Why put business as usual on the option ladder at all?</p>
+      <button class="qopt" type="button">A · It is the benchmark every option is measured against, and describing it forces the counterfactual to be written</button>
+      <button class="qopt" type="button">B · Because it usually wins</button>
+      <button class="qopt" type="button">C · To make the proposal look better</button>
+      <button class="qopt" type="button">D · It is only needed in the public sector</button>
+      <p class="qwhy">Its NPV is zero by definition. Its job is to make somebody say what happens if nothing is built.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · The full build has the highest base-case NPV and the worst downside. What should the case do?</p>
+      <button class="qopt" type="button">A · Drop the downside from the page</button>
+      <button class="qopt" type="button">B · Recommend the quick win, because it is safer</button>
+      <button class="qopt" type="button">C · Average the options</button>
+      <button class="qopt" type="button">D · Show both, so the funder makes a choice about risk with the numbers in front of them</button>
+      <p class="qwhy">The trade between value and downside is the decision. A case that hides one side makes the choice for the funder.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The five case model: strategic, economic, commercial, financial, management</span><span class="note">HM Treasury, The Green Book (2026), para 3.12; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Business as usual always on the shortlist; a do-minimum option typically included</span><span class="note">HM Treasury, The Green Book (2026), paras 2.16 and 5.18; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">With versus without, not before versus after</span><span class="note">A standard appraisal principle; Analyst session 1 applies it to cash flows</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's option ladder: +41.3k, +84.1k, +111.7k; worst cases -79.8k and -111.5k; the 606.4k sponsor's case</span><span class="note">Constructed and labelled; every value printed by the engine in Analyst sessions 3, 5 and 6</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Leader session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Write to decide</b><span>The reader will find what you hid. Put it on page one first.</span></div>
+      <div class="cheat-item"><b>One decision sentence</b><span>Answerable yes or no; says how much and when.</span></div>
+      <div class="cheat-item"><b>With versus without</b><span>Never after versus before. The trend belongs to whoever caused it.</span></div>
+      <div class="cheat-item"><b>Four rungs</b><span>Business as usual, quick win, pilot first, full proposal.</span></div>
+      <div class="cheat-item"><b>Five questions</b><span>Why change, best value, buy or build, afford it, deliver it.</span></div>
+      <div class="cheat-item"><b>Show the downside</b><span>Highest value and worst loss on the same rung is the decision.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>You have a decision, a counterfactual and four options. Leader session 2 reads the numbers the way a CFO does: which question NPV, IRR and payback each answer, why the quick win's 44.6 percent IRR flatters it, and why the hurdle rate is a policy, not a fact.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Leader session 1 of 4 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="../index.html">← Course home</a> &nbsp;·&nbsp; <a href="b2-reading-a-case-like-a-cfo.html">Next: Reading a case like a CFO →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

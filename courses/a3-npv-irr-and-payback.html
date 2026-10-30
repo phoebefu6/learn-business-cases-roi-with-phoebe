@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 3 of 6. NPV, IRR and payback: four verdicts on two projects that disagree. Keelson Mutual's claims fast-track triage against a rules-based quick win, the crossover at 15.4 percent, a project with two IRRs, what payback ignores, and equivalent annual value for unequal lives. Constructed, computed in your browser.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="NPV, IRR and payback - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 3 of 6. Two projects, four verdicts: NPV, IRR, payback and simple ROI side by side, computed live.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a3-npv-irr-and-payback.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NPV, IRR and payback - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 3 of 6. Two projects, four verdicts, computed live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 3 · NPV, IRR and payback - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 3 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 3 of 6</div>
+    <h1>NPV, IRR <span class="accent">and payback</span></h1>
+    <p class="sub">Put two projects side by side and the four numbers finance asks for will not always agree. Keelson's claims fast-track triage has the bigger NPV; a cheap rules-based quick win has the higher IRR, the faster payback and the better simple ROI. Neither side is lying. Each number answers a different question, and the analyst's job is to know which question the funder is actually asking. Tonight: the ranking clash, the project with two IRRs, what payback cannot see, and how to compare projects that run for different lengths of time. Keelson is constructed; the arithmetic runs in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · The ranking clash, two IRRs, payback</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: four verdicts</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Analyst session 2 turned CFT's six cash flows into one number, NPV +111.7k at Keelson's 9 percent hurdle. Tonight that number meets a rival. Claims operations has proposed a rules-based triage: a handful of hand-written rules that fast-track the most obvious simple claims, costing 60 thousand and paying 40 thousand a year for three years before the rules go stale. Ines Carvalho, the CFO, has room for one of the two this year, so they are mutually exclusive. The quick win wins on three of the four measures. The question is whether three out of four is the right way to count. Every Keelson figure is constructed, in thousands, before tax.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> All four verdicts (NPV, IRR, payback, simple ROI) for two of your own options, each one written next to the question it answers, a habit of counting sign changes before you trust an IRR, and the equivalent annual value formula for options that run for different lengths of time.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the ranking clash on scale and life</span>
+      <h2>Two projects, two winners</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">At 9 percent, CFT (cash flows -360, then +45.5k, +103.3k and +161.0k for three years) has NPV +111.7k, IRR 18.4%, payback 3.3 years and simple ROI 75.5%. The quick win (-60, then +40 for three years) has NPV +41.3k, IRR 44.6%, payback 1.5 years and simple ROI 100.0%. NPV picks CFT. IRR, payback and simple ROI pick the quick win. Draw both NPV profiles on one chart and you can see exactly where they disagree.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn NPV profiles against the discount rate from 0 to 46 percent. CFT starts high and falls steeply; at the 9 percent hurdle its NPV is plus 111.7 thousand and it reaches zero at its IRR, 18.4 percent. The quick win starts low and falls gently; at 9 percent its NPV is plus 41.3 thousand and it reaches zero at its IRR, 44.6 percent. The two lines cross at 15.4 percent, marked in brass: below it CFT has the higher NPV, above it the quick win does.">
+        <defs>
+          <filter id="a3aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a3aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a3aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a3aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a3aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a3aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a3aB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a3aV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a3aA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a3aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a3aH" x="30" y="28">NPV PROFILES: CFT AGAINST THE QUICK WIN</text>
+        <text class="a3aS" x="330" y="28">constructed Keelson cash flows · thousands · NPV at each discount rate</text>
+        <text class="a3aA" x="30" y="66">NPV</text>
+        <text class="a3aA" x="44" y="242">0</text>
+
+        <g filter="url(#a3aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M90 70 L90 340" stroke="#5B5160"/>
+          <path d="M90 238 L836 238" stroke="#5B5160"/>
+          <path d="M234 92 L234 330" stroke="#CDC5D1" stroke-dasharray="5 5"/>
+          <path d="M90 75 L122 100 L154 123 L186 143 L218 162 L250 179 L282 195 L314 210 L346 223 L378 236 L410 247 L442 257 L474 267 L506 276 L538 285 L570 293 L602 300 L634 307 L666 313 L698 319 L730 325 L762 330 L794 335 L826 339" stroke="#4A1A5C" stroke-width="2.6"/>
+          <path d="M90 202 L122 205 L154 207 L186 210 L218 212 L250 214 L282 216 L314 218 L346 220 L378 222 L410 223 L442 225 L474 226 L506 228 L538 229 L570 230 L602 232 L634 233 L666 234 L698 235 L730 236 L762 237 L794 238 L826 239" stroke="#211A25" stroke-dasharray="7 5"/>
+          <circle cx="234" cy="171" r="5" fill="#4A1A5C" stroke="#4A1A5C"/>
+          <circle cx="234" cy="213" r="5" fill="#FFFFFF"/>
+          <path d="M336 210 L336 132" stroke="#7D5A0E"/>
+          <circle cx="336" cy="219" r="8" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <circle cx="384" cy="238" r="5" fill="#4A1A5C" stroke="#4A1A5C"/>
+          <circle cx="804" cy="238" r="5" fill="#FFFFFF"/>
+          <!-- doodle: a pair of scales -->
+          <path d="M790 70 L790 104 M770 76 L810 76 M770 76 L764 92 L776 92 Z M810 76 L804 92 L816 92 Z M780 104 L800 104" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a3aA" x="240" y="86">9% hurdle</text>
+        <text class="a3aL" x="100" y="185">CFT +111.7k at 9%</text>
+        <text class="a3aS" x="100" y="232">quick win +41.3k</text>
+        <text class="a3aB" x="344" y="124">lines cross at 15.4%</text>
+        <text class="a3aS" x="344" y="108">above it the quick win adds more</text>
+        <text class="a3aL" x="392" y="300">CFT IRR 18.4%</text>
+        <text class="a3aS" x="392" y="316">where its line hits zero</text>
+        <text class="a3aL" x="826" y="222" text-anchor="end">quick win IRR 44.6%</text>
+
+        <text class="a3aA" x="90" y="362">0%</text>
+        <text class="a3aA" x="242" y="362">10%</text>
+        <text class="a3aA" x="402" y="362">20%</text>
+        <text class="a3aA" x="562" y="362">30%</text>
+        <text class="a3aA" x="722" y="362">40%</text>
+        <text class="a3aA" x="800" y="362">rate</text>
+
+        <text class="a3aN" x="30" y="388">Solid line CFT, dashed line quick win. Below 15.4% CFT has the higher NPV; above it the quick win does.</text>
+        <text class="a3aN" x="30" y="408">IRR ranks the quick win first at every rate, because IRR is a rate of return and ignores the size of the win.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the steep line is the big project; it wins at low rates and loses at high ones, and the crossover tells you where</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the bigger project loses on IRR<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>IRR is a rate; NPV is an amount.</strong> The quick win earns 44.6 percent on 60 thousand. CFT earns 18.4 percent on 360 thousand. A high rate on a small sum can be worth less than a lower rate on a large one, and at Keelson's 9 percent hurdle it is: +41.3k against +111.7k. If Ines can fund only one, the company is 70 thousand richer in today's money with CFT.</p>
+        <p><strong>Scale and life pull the same way.</strong> CFT is six times the size and runs five years instead of three. Both push IRR down relative to NPV: the long tail of CFT's cash is discounted hard at high rates, which is why its line falls so steeply. Aswath Damodaran makes the general point: NPV tends to be larger for large-scale projects and IRR higher for small ones, so two mutually exclusive projects can rank differently.</p>
+        <p><strong>The crossover is the useful number.</strong> If Keelson's true cost of capital for this risk is below 15.4 percent, CFT adds more value. Above it, the quick win does. That turns an argument about metrics into a question about the hurdle, which finance can answer.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The reinvestment assumption<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Damodaran's second reason the two rules diverge sits inside the arithmetic. NPV implicitly assumes that cash a project throws off can be reinvested at the hurdle rate. IRR implicitly assumes it can be reinvested at the IRR itself. For the quick win that means assuming Keelson can keep finding 44.6 percent returns for every 40 thousand that comes back. When IRR is high and the project is long, that assumption overstates the return.</p>
+        <p>The hurdle rate is the more defensible assumption, because it is what the company says its money is worth elsewhere. That is the core of why NPV is the safer tool for ranking mutually exclusive projects at a known hurdle. Damodaran describes NPV as much simpler to estimate and use once the multiple-IRR problem is in view; that is a judgement about the tools, not a rule to quote as his.</p>
+        <p>An IRR is still worth reporting. It tells a funder how much room there is between the return and the hurdle: CFT's 18.4 percent is roughly double Keelson's 9 percent, which Analyst session 4 shows is the switching value for the discount rate.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The slide that said 44.6 percent.</strong> The claims operations lead opened the review with one slide: quick win IRR 44.6 percent, CFT 18.4 percent, "the numbers speak for themselves". Ines asked one question back: "if I could only fund one, which leaves us richer?" Maya Okafor showed both NPV profiles on one chart and pointed at 15.4 percent. Nobody at Keelson thought its cost of capital for this work was that high, so the room agreed CFT was the bigger prize, and the quick win was kept as a fallback if CFT's pilot disappoints. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers multiple IRRs</span>
+      <h2>When a project has two IRRs</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">IRR is the rate at which NPV is zero. Most projects cross zero once, so there is one such rate. Some do not. Take a build that costs 100 thousand, earns 235 thousand the next year, then costs 136 thousand to unwind: decommissioning, migrating back, paying to exit a contract. The cash goes minus, plus, minus. It changes sign twice, and the NPV profile cuts zero twice, at 3.1% and 31.9%.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 404" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn NPV profile for cash flows minus 100 thousand, plus 235 thousand, minus 136 thousand. The line starts below zero at a 0 percent rate, rises through zero at 3.1 percent, humps above zero, and falls back through zero at 31.9 percent, ending below zero. Both roots are brass dots. The 9 percent hurdle sits inside the hump.">
+        <defs>
+          <filter id="a3bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a3bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a3bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a3bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a3bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a3bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a3bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a3bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a3bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a3bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a3bH" x="30" y="28">BUILD, EARN, THEN PAY TO UNWIND</text>
+        <text class="a3bL" x="30" y="52">year 0 -100.0k · year 1 +235.0k · year 2 -136.0k</text>
+        <text class="a3bS" x="30" y="70">signs: minus, plus, minus · two sign changes, so two IRRs</text>
+        <text class="a3bA" x="30" y="96">NPV</text>
+        <text class="a3bA" x="74" y="204">0</text>
+
+        <g filter="url(#a3bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M90 100 L90 322" stroke="#5B5160"/>
+          <path d="M90 200 L836 200" stroke="#5B5160"/>
+          <path d="M234 104 L234 318" stroke="#CDC5D1" stroke-dasharray="5 5"/>
+          <path d="M90 245 L106 229 L122 215 L138 202 L154 190 L170 180 L186 170 L202 162 L218 155 L234 149 L250 144 L266 140 L282 137 L298 134 L314 133 L330 132 L346 132 L362 132 L378 133 L394 135 L410 137 L426 140 L442 144 L458 148 L474 152 L490 157 L506 162 L522 168 L538 174 L554 180 L570 187 L586 194 L602 201 L618 209 L634 217 L650 225 L666 233 L682 242 L698 251 L714 260 L730 269 L746 278 L762 288 L778 298 L794 308 L810 318" stroke="#4A1A5C" stroke-width="2.6"/>
+          <circle cx="140" cy="200" r="7" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <circle cx="600" cy="200" r="7" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <circle cx="234" cy="149" r="4" fill="#FFFFFF"/>
+          <!-- doodle: a U-turn arrow for the unwind -->
+          <path d="M760 44 L800 44 Q818 44 818 60 Q818 76 800 76 L770 76" stroke="#4A1A5C" marker-end="url(#a3bAr)"/>
+        </g>
+
+        <text class="a3bA" x="240" y="114">9% hurdle</text>
+        <text class="a3bS" x="310" y="120">NPV above zero between the two IRRs</text>
+        <text class="a3bB" x="148" y="222">IRR 3.1%</text>
+        <text class="a3bB" x="608" y="190">IRR 31.9%</text>
+        <text class="a3bR" x="560" y="300">NPV below zero</text>
+        <text class="a3bR" x="100" y="300">NPV below zero</text>
+
+        <text class="a3bA" x="90" y="342">0%</text>
+        <text class="a3bA" x="242" y="342">10%</text>
+        <text class="a3bA" x="402" y="342">20%</text>
+        <text class="a3bA" x="562" y="342">30%</text>
+        <text class="a3bA" x="722" y="342">40%</text>
+
+        <text class="a3bN" x="30" y="370">"The IRR" has no single value here. Ask NPV at the hurdle instead: one rate in, one amount out.</text>
+        <text class="a3bN" x="30" y="390">The hump is shallow: this project barely clears zero anywhere. Engine example, not a Keelson project.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two sign changes, two places where the line cuts zero, and no way to say which one is the return</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Count the sign changes first<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The rule.</strong> Damodaran states it plainly: one sign change in the cash flows gives one IRR; more than one sign change can give more than one. CFT goes minus, then plus for five years: one change, one IRR, 18.4 percent. The unwind project goes minus, plus, minus: two changes, and the engine finds two IRRs, 3.1% and 31.9%.</p>
+        <p><strong>Neither is the answer.</strong> A spreadsheet's IRR function will return whichever root its starting guess happens to land near, and print it with the same confidence either way. Reporting 31.9 percent would make the project look excellent; 3.1 percent would make it look poor. NPV at the hurdle has no such ambiguity. By hand at 9%: -100 + 235 / 1.09 - 136 / 1.09<sup>2</sup> = -100 + 215.6 - 114.5 = about +1.1k. It clears the hurdle by a hair, which is the honest summary.</p>
+        <p><strong>The habit.</strong> Before you quote an IRR, read the sign of every year's cash. If it flips more than once, report NPV and say why there is no single IRR.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Where unwind costs show up in data projects<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Physical projects have obvious end costs: a mine is restored, a plant is decommissioned. Data and AI projects have quieter ones that often land after the benefits have peaked, which is exactly the shape that creates a second sign change.</p>
+        <ul>
+          <li><strong>Decommissioning.</strong> Retiring a model or a platform still costs money: archiving data under retention rules, shutting down pipelines safely, and keeping an audit trail for decisions the model made.</li>
+          <li><strong>Migrating back.</strong> A vendor tool that is dropped leaves its users and data to be moved somewhere else, usually under time pressure.</li>
+          <li><strong>Contract exit.</strong> Early-termination fees, minimum-commitment true-ups and the cost of running two systems in parallel during the switch.</li>
+          <li><strong>A planned rebuild.</strong> A model that must be rebuilt after a fixed number of years creates a large negative year in the middle of the cash flows.</li>
+        </ul>
+        <p>Leaving these out does not just flatter the NPV. It hides the sign change that would have told you the IRR cannot be trusted. Put the end cost in the year it happens, then count the signs.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>A rule from the textbook, not a corner case.</strong> Aswath Damodaran's treatment of IRR in Applied Corporate Finance puts the multiple-IRR problem alongside the scale problem as a core reason the rule can mislead: any project whose cash flows change sign more than once can have more than one IRR, and the same NPV computed at the hurdle rate gives a single, usable answer. Projects with a large cost at the end, such as a clean-up or a forced exit, are the usual source.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers payback, discounted payback, simple ROI and equivalent annual value</span>
+      <h2>Where payback stops reading</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Payback counts the years until the cash coming back equals the cash put in. CFT's is 3.3 years; discount the cash at 9 percent first and the discounted payback is 3.9 years. Both are easy to explain, and both stop reading the moment the money is recovered. Simple ROI goes further the other way: it reads every year, and ignores when the cash arrives.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn timeline of CFT's cumulative cash from year 0 to year 5. The solid line is cumulative cash, starting at minus 360 thousand and crossing zero at 3.3 years, the payback. The dashed line is cumulative discounted cash at 9 percent, crossing zero later at 3.9 years, the discounted payback, and ending at the NPV, plus 111.7 thousand. The cash after the payback point is hatched: payback never reads it. The payback mark is brass.">
+        <defs>
+          <filter id="a3cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a3cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a3cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a3cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a3cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a3cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a3cB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a3cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a3cA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a3cR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a3cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a3cH" x="30" y="28">CFT'S CUMULATIVE CASH, AND WHERE PAYBACK STOPS</text>
+        <text class="a3cS" x="30" y="48">solid: cumulative cash · dashed: cumulative cash discounted at 9% · constructed, thousands</text>
+
+        <text class="a3cS" x="236" y="76" text-anchor="middle">+45.5k</text>
+        <text class="a3cS" x="372" y="76" text-anchor="middle">+103.3k</text>
+        <text class="a3cS" x="508" y="76" text-anchor="middle">+161.0k</text>
+        <text class="a3cS" x="644" y="76" text-anchor="middle">+161.0k</text>
+        <text class="a3cS" x="780" y="76" text-anchor="middle">+161.0k</text>
+        <text class="a3cA" x="30" y="76">year's cash</text>
+
+        <g filter="url(#a3cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M549 200 L644 167 L780 118 L780 200 Z" fill="url(#a3cHc)" stroke="#CDC5D1"/>
+          <path d="M100 92 L100 322" stroke="#5B5160"/>
+          <path d="M100 200 L790 200" stroke="#5B5160"/>
+          <path d="M100 308 L236 294 L372 263 L508 215 L644 167 L780 118" stroke="#4A1A5C" stroke-width="2.6"/>
+          <path d="M100 308 L236 295 L372 269 L508 232 L644 198 L780 166" stroke="#211A25" stroke-dasharray="7 5"/>
+          <path d="M549 200 L549 324" stroke="#7D5A0E" stroke-width="2.6"/>
+          <path d="M630 200 L630 324" stroke="#63307A" stroke-dasharray="4 4"/>
+          <circle cx="549" cy="200" r="6" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <circle cx="780" cy="166" r="4" fill="#FFFFFF"/>
+          <!-- doodle: a stopwatch at the payback line -->
+          <circle cx="842" cy="276" r="16" stroke="#4A1A5C"/>
+          <path d="M842 276 L842 266 M842 276 L850 280 M836 256 L848 256" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a3cA" x="74" y="204">0</text>
+        <text class="a3cR" x="108" y="324">-360.0k</text>
+        <text class="a3cB" x="470" y="104">hatched: cash payback never reads</text>
+        <text class="a3cL" x="790" y="178">NPV +111.7k</text>
+        <text class="a3cB" x="543" y="342" text-anchor="end">payback 3.3 years</text>
+        <text class="a3cL" x="636" y="342">discounted 3.9 years</text>
+
+        <text class="a3cA" x="100" y="362" text-anchor="middle">yr 0</text>
+        <text class="a3cA" x="236" y="362" text-anchor="middle">yr 1</text>
+        <text class="a3cA" x="372" y="362" text-anchor="middle">yr 2</text>
+        <text class="a3cA" x="508" y="362" text-anchor="middle">yr 3</text>
+        <text class="a3cA" x="644" y="362" text-anchor="middle">yr 4</text>
+        <text class="a3cA" x="780" y="362" text-anchor="middle">yr 5</text>
+
+        <text class="a3cN" x="30" y="388">Payback by hand: after year 3, 50.2k is still owed; 50.2 / 161.0 = 0.3 of year 4, so 3.3 years.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two years of CFT's best cash sit in the hatched tail, and payback gives them no weight at all</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What payback is good for: how long the money is at risk<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The honest use.</strong> Payback answers one real question: how long is the money exposed before it comes back? For a sponsor worried that the model might be switched off after a regulatory change, or that the team might be reorganised, 1.5 years against 3.3 years is a genuine difference in risk. It is a good second number.</p>
+        <p><strong>What it ignores.</strong> Damodaran's two objections: payback ignores everything that happens after the investment is recouped, and it weights a pound in year 1 the same as a pound in year 3. CFT's years 4 and 5 are its best years, and payback reads half of year 4 and none of year 5. Discounted payback, which he presents as one simplistic fix, answers the second objection (CFT moves from 3.3 to 3.9 years) and still ignores the tail.</p>
+        <p><strong>Simple ROI ignores time entirely.</strong> It adds every year's cash, subtracts the cost and divides by the cost: CFT 75.5%, quick win 100.0%. A pound in year 5 counts the same as a pound today, and nothing tells you how long the money was tied up. Report it if finance asks, and never rank with it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Equivalent annual value when lives differ<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>CFT runs five years and the quick win three. One fair objection to comparing their NPVs directly: the quick win frees the money and the team two years earlier, and could be followed by something else. Damodaran's answer for projects with different lives is to turn each NPV into an equivalent annuity, the steady amount per year over its own life that has the same present value:</p>
+        <p><strong>EAV = NPV x r / (1 - (1 + r)<sup>-n</sup>)</strong></p>
+        <p>By hand at 9 percent, using the engine's unrounded NPVs (hand arithmetic, not a widget output):</p>
+        <ul>
+          <li><strong>CFT, 5 years.</strong> 1.09<sup>-5</sup> = 0.650, so the divisor is 1 - 0.650 = 0.350. 111.66 x 0.09 = 10.05. 10.05 / 0.350 = <strong>28.71k a year</strong>.</li>
+          <li><strong>Quick win, 3 years.</strong> 1.09<sup>-3</sup> = 0.772, so the divisor is 1 - 0.772 = 0.228. 41.25 x 0.09 = 3.71. 3.71 / 0.228 = <strong>16.30k a year</strong>.</li>
+        </ul>
+        <p>CFT still wins, now on a per-year basis that controls for its longer life. The method carries an assumption worth saying out loud: that each project could be repeated on similar terms when it ends. If nothing comparable would follow the quick win, plain NPV is the fairer comparison.</p>
+        <p><strong>A note on the formula.</strong> Damodaran's book states it with a divide, as above. His Spring 2026 NYU Stern slide prints a multiply in its place; work from the book version, and check any template you inherit with one line of arithmetic like the two above.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The two-year rule.</strong> Keelson's finance team had an informal habit of rejecting anything with a payback over two years, a rule left over from a period when cash was tight. On that rule CFT fails at 3.3 years and the quick win passes at 1.5. Ines kept the habit as a risk flag rather than a gate: the case now reports payback next to NPV, and a long payback triggers a question about what could switch the benefit off early, not an automatic no. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Four verdicts on two projects</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">The widget holds CFT's constructed cash flows and the quick win's, and computes all four measures for both at whatever hurdle you set. The "Picks" column tells you which project each measure prefers. Move the hurdle slider, watch which verdicts change and which never do, and write down what it prints. The inputs are invented, so the lesson is which question each number answers, not the totals.</p>
+
+    <div class="bcr-widget" data-mode="metrics"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the widget. The hurdle rate slider, from 0 to 30 percent, feeds the two cash flows, CFT and the quick win. Together they feed a table of five rows: upfront cost, NPV at the hurdle, IRR, payback and simple ROI, each with a Picks column. Under the table, two notes: where the NPV lines cross, and the two-IRR example. Only the NPV row moves with the slider. The table is filled in brass.">
+        <defs>
+          <filter id="a3dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a3dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a3dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a3dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a3dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a3dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a3dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a3dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a3dH" x="30" y="28">WHAT THE WIDGET COMPUTES</text>
+
+        <g filter="url(#a3dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="200" height="56" rx="10" transform="rotate(-0.8 130 76)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="30" y="126" width="200" height="72" rx="10" transform="rotate(0.8 130 162)" fill="url(#a3dHc)"/>
+          <path d="M234 76 L300 112 M234 162 L300 130" marker-end="url(#a3dAr)"/>
+          <rect x="306" y="48" width="290" height="150" rx="10" transform="rotate(-0.4 451 123)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <path d="M600 92 L650 82 M600 154 L650 164" marker-end="url(#a3dAr)"/>
+          <rect x="656" y="52" width="196" height="60" rx="10" transform="rotate(0.8 754 82)" fill="#FFFFFF"/>
+          <rect x="656" y="134" width="196" height="60" rx="10" transform="rotate(-0.8 754 164)" fill="#FFFFFF"/>
+        </g>
+
+        <rect x="40" y="138" width="180" height="48" rx="6" fill="#FFFFFF"/>
+
+        <text class="a3dL" x="44" y="72">Hurdle rate slider</text>
+        <text class="a3dS" x="44" y="90">0% to 30%, starts at 9%</text>
+        <text class="a3dL" x="50" y="158">two cash flows</text>
+        <text class="a3dS" x="50" y="176">CFT 5 years, quick win 3</text>
+
+        <text class="a3dW" x="322" y="74">Measure · CFT · Quick win · Picks</text>
+        <text class="a3dW" x="322" y="100">Upfront cost</text>
+        <text class="a3dW" x="322" y="122">NPV at the hurdle (moves)</text>
+        <text class="a3dW" x="322" y="144">IRR</text>
+        <text class="a3dW" x="322" y="166">Payback</text>
+        <text class="a3dW" x="322" y="188">Simple ROI (undiscounted)</text>
+
+        <text class="a3dL" x="668" y="78">note 1: the crossover</text>
+        <text class="a3dS" x="668" y="96">where the NPV lines cross</text>
+        <text class="a3dL" x="668" y="160">note 2: two IRRs</text>
+        <text class="a3dS" x="668" y="178">build, earn, then unwind</text>
+
+        <text class="a3dB" x="30" y="236">Only the NPV row reacts to the slider. IRR, payback and simple ROI do not use the hurdle at all.</text>
+        <text class="a3dS" x="30" y="256">That is the whole argument of tonight in one observation.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one slider, four measures, and only one of them listens to it</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the table at 9%.</strong> Leave the hurdle rate slider at 9%. Copy every row and the Picks column.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the widget prints</span>                CFT        Quick win   Picks
+Upfront cost    -360.0k    -60.0k
+NPV at 9.0%     +111.7k    +41.3k      CFT
+IRR             18.4%      44.6%       Quick win
+Payback         3.3 years  1.5 years   Quick win
+Simple ROI      75.5%      100.0%      Quick win</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Find the crossover.</strong> Slide the hurdle to 15%, then to 16%. Watch the Picks cell on the NPV row, and read the first note under the table.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · where NPV changes its mind</span>at 15%: NPV picks ________
+at 16%: NPV picks ________
+note: The NPV lines cross at 15.4%: below it CFT adds more value,
+      above it the quick win does.</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Try to move IRR.</strong> Slide the hurdle from 0% to 30%. Does the IRR row, or its Picks cell, ever change? Then say in one sentence why not.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the verdict that never moves</span>IRR ranks the quick win first at every rate.
+why the slider cannot move it: ____________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Read the two-IRR note.</strong> Find the second note under the table and count the sign changes yourself.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · two roots, no single answer</span>cash flows -100.0k, +235.0k, -136.0k
+sign changes: ___   IRRs the widget finds: 3.1% and 31.9%
+what to report instead: NPV at the hurdle rate</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own two options.</strong> Take two mutually exclusive options from your own work (a big build and a quick fix is the classic pair). Work out all four verdicts by hand or in a spreadsheet, and write which question each one answers. Your numbers will differ.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · four verdicts, four questions</span>measure      option A   option B   picks   the question it answers
+NPV @ ___%   ____       ____       ____    does it add value at our hurdle?
+IRR          ____       ____       ____    how much margin over the hurdle?
+payback      ____       ____       ____    how long is the money at risk?
+simple ROI   ____       ____       ____    (ignores time; report, never rank)
+sign changes A: ___  B: ___   &lt;- more than one? report NPV, not IRR
+lives differ? EAV = NPV x r / (1 - (1 + r)^-n)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the crossover rate.</strong> If your two options cross, the crossover is the sentence for the funder: "option A is the better use of money as long as our cost of capital for this risk is below X percent." Analyst session 4 asks the same kind of question of every input, one at a time.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Analyst session 4</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Find a ranking clash.</strong> Look through a past investment paper at your company. Was any option preferred on IRR or payback while another had the larger NPV? Write which one was chosen and which measure decided it.</li>
+      <li><strong>Count signs on your own case.</strong> Add every end-of-life cost you can think of (decommissioning, migrating back, contract exit) to your Analyst session 1 cash flow. How many sign changes does it now have?</li>
+      <li><strong>Ask finance where the hurdle comes from.</strong> Is there one rate for every project, or does it change with risk? Write the answer next to your crossover rate, if you have one.</li>
+      <li><strong>Compute one EAV.</strong> If your two options run for different lengths of time, convert both NPVs to equivalent annual value and see whether the ranking survives.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 3 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Keelson can fund only one of CFT and the quick win, and its hurdle is 9 percent. Which number should rank them?</p>
+      <button class="qopt" type="button">A · IRR, because 44.6 percent is the higher return</button>
+      <button class="qopt" type="button">B · Payback, because 1.5 years is safer</button>
+      <button class="qopt" type="button">C · NPV at the hurdle, because it measures how much value each adds in today's money</button>
+      <button class="qopt" type="button">D · Simple ROI, because it uses every year's cash</button>
+      <p class="qwhy">For mutually exclusive projects at a known hurdle, NPV ranks by the amount of value added. IRR favours small projects, payback ignores the tail, and simple ROI ignores time.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · A project's cash flows are -100.0k, +235.0k, -136.0k. A spreadsheet reports its IRR as 31.9 percent. What is the right response?</p>
+      <button class="qopt" type="button">A · Accept it: 31.9 percent is well above the hurdle</button>
+      <button class="qopt" type="button">B · Note that the cash changes sign twice, so there is a second IRR (3.1 percent), and report NPV at the hurdle instead</button>
+      <button class="qopt" type="button">C · Average the two IRRs</button>
+      <button class="qopt" type="button">D · Drop the final cost so there is only one IRR</button>
+      <p class="qwhy">More than one sign change can give more than one IRR, and neither root is the return. NPV at the hurdle gives one answer. Dropping a real cost would make the model wrong.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · CFT's payback is 3.3 years. What does that number leave out?</p>
+      <button class="qopt" type="button">A · The build cost in year 0</button>
+      <button class="qopt" type="button">B · The run cost in years 1 to 3</button>
+      <button class="qopt" type="button">C · The year 1 adoption level</button>
+      <button class="qopt" type="button">D · All the cash after the money is recovered, and the difference between early and late cash</button>
+      <p class="qwhy">Payback stops reading once the investment is recouped and weights every year's cash the same. Discounted payback fixes the second gap, not the first.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">NPV against IRR: scale, ranking of mutually exclusive projects, the reinvestment assumption, multiple IRRs when signs change more than once</span><span class="note">Aswath Damodaran, Applied Corporate Finance (chapter 5) and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Payback and discounted payback, and what they ignore</span><span class="note">Aswath Damodaran, Applied Corporate Finance (chapter 5) and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Equivalent annuity for projects with different lives, from the book formula</span><span class="note">Aswath Damodaran, Applied Corporate Finance (chapter 6); read at source. The Spring 2026 slide's version is not used</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's two projects: NPV +111.7k and +41.3k, IRR 18.4% and 44.6%, crossover 15.4%, the two-IRR example at 3.1% and 31.9%</span><span class="note">Constructed and labelled; computed by the engine in your browser and checked against an independent Python run. The EAV figures are hand arithmetic</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>NPV ranks</b><span>For mutually exclusive projects at a known hurdle: the amount of value added, today's money.</span></div>
+      <div class="cheat-item"><b>IRR is a rate</b><span>It favours small projects and assumes reinvestment at the IRR. Report it as margin over the hurdle.</span></div>
+      <div class="cheat-item"><b>Find the crossover</b><span>CFT against the quick win: 15.4%. Below it the big project wins.</span></div>
+      <div class="cheat-item"><b>Count the signs</b><span>More than one sign change can mean more than one IRR. Report NPV.</span></div>
+      <div class="cheat-item"><b>Payback is a risk number</b><span>How long the money is exposed. It ignores the tail; simple ROI ignores time.</span></div>
+      <div class="cheat-item"><b>Lives differ</b><span>EAV = NPV x r / (1 - (1 + r)^-n). Divide, never multiply.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Every number tonight rested on one set of inputs. Analyst session 4 swings every assumption one at a time: the tornado that ranks which input moves CFT's NPV most, and the switching value where each one breaks the case.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 3 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a2-time-value-and-the-hurdle-rate.html">← Prev: Time value and the hurdle rate</a> &nbsp;·&nbsp; <a href="a4-swing-every-assumption.html">Next: Swing every assumption →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

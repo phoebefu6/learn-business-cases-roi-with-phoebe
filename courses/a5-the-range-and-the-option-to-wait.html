@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 5 of 6. The range and the option to wait: every input drawn from a triangle, 5,000 seeded draws, P10 minus 141.5 thousand, P50 plus 20.5 thousand, P90 plus 189.9 thousand and a 44.1 percent chance the NPV falls below zero, then commit now against pilot first and the chance at which waiting pays. Keelson Mutual's claims fast-track triage, constructed, computed in your browser.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The range and the option to wait - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 5 of 6. Triangular inputs, a seeded simulation, P10, P50, P90, the break test, and the pilot tree, computed live.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a5-the-range-and-the-option-to-wait.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The range and the option to wait - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 5 of 6. A seeded simulation and the option to wait, computed live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 5 · The range and the option to wait - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 5 of 6</div>
+    <h1>The range and <span class="accent">the option to wait</span></h1>
+    <p class="sub">The tornado moved one input at a time and held the other eight still. Real projects do not behave that politely: the build runs over in the same year the saving disappoints. Tonight every input moves at once, drawn from a range its owner agreed, and the case stops being one number and becomes a spread with a chance of loss attached. Then the harder question a spread raises: if you are this unsure, should you commit now, or pay a little to find out first? Keelson Mutual's claims fast-track triage again. Keelson is constructed; the draws run in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Triangles, the range, the option to wait</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: Keelson's range and its pilot</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Analyst session 4 gave every one of CFT's nine inputs a low, a base and a high, each agreed with the person who owns it, and showed that the saving per fast-tracked claim does the most work. Tonight those same ranges become the shape of the whole answer. The engine draws all nine at once, 5,000 times, from a fixed seed, and reports where the NPV lands: the middle draw, the bad tenth, the good tenth, and the share of draws that lose money. The second half of the session uses that uncertainty instead of only reporting it, by pricing a pilot. Every Keelson input is constructed, in thousands, before tax.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A written range for Keelson's CFT (P10, P50, P90 and the chance of loss), the one sentence that explains why the base case is not the middle, a break test you can run on any simulation someone hands you, and a two-branch pilot tree for your own project with the chance at which waiting starts to pay. Analyst session 6 runs every rung of the bench at once.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers inputs as distributions</span>
+      <h2>Every input is a triangle, drawn many times</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A Monte Carlo simulation is less exotic than its name. Each input gets a distribution instead of a single value; the engine picks one value from every distribution, runs the same cash-flow formula you built in Analyst session 1, writes down the NPV, and repeats. Keelson's engine uses a triangle for each input, because a triangle needs only the three numbers an owner can actually give you: a low, a most likely and a high. It draws 5,000 times from a fixed seed, 20261030, so anyone who reruns it gets the same answer to the decimal.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three hand-drawn triangle distributions. Saving per fast-tracked claim: low 11, base 14, high 16. Leakage per fast-tracked claim: low 2.5, base 4, high 6. Build cost: low 330, base 360, high 460. Arrows carry them down into a row of draws, draw 1, draw 2, draw 3 up to draw 5,000, each picking one value from every triangle. The draws feed the same NPV formula, and the result, 5,000 NPVs from seed 20261030, is filled in brass. Six more inputs are drawn the same way.">
+        <defs>
+          <filter id="a5aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="51" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a5aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a5aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a5aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a5aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a5aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a5aA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a5aW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a5aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a5aH" x="30" y="28">THREE OF NINE TRIANGLES, DRAWN 5,000 TIMES</text>
+        <text class="a5aS" x="350" y="28">constructed Keelson inputs · low, base, high agreed with each owner</text>
+
+        <g filter="url(#a5aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="44" width="250" height="138" rx="10" transform="rotate(-0.6 155 113)" fill="#FFFFFF"/>
+          <rect x="315" y="44" width="250" height="138" rx="10" transform="rotate(0.5 440 113)" fill="#FFFFFF"/>
+          <rect x="600" y="44" width="250" height="138" rx="10" transform="rotate(-0.5 725 113)" fill="#FFFFFF"/>
+          <path d="M80 150 L170 100 L230 150 Z" fill="url(#a5aHc)" stroke="#4A1A5C"/>
+          <path d="M356 150 L419 100 L503 150 Z" fill="url(#a5aHc)" stroke="#4A1A5C"/>
+          <path d="M634 150 L676 100 L816 150 Z" fill="url(#a5aHc)" stroke="#4A1A5C"/>
+          <path d="M50 150 L260 150 M335 150 L545 150 M620 150 L830 150"/>
+          <path d="M155 186 L200 210" marker-end="url(#a5aAr)"/><path d="M440 186 L300 210" marker-end="url(#a5aAr)"/><path d="M725 186 L420 210" marker-end="url(#a5aAr)"/>
+          <rect x="30" y="216" width="76" height="44" rx="8" transform="rotate(-2 68 238)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="118" y="216" width="76" height="44" rx="8" transform="rotate(1.5 156 238)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="206" y="216" width="76" height="44" rx="8" transform="rotate(-1 244 238)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <rect x="336" y="216" width="104" height="44" rx="8" transform="rotate(2 388 238)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M446 238 L506 238" marker-end="url(#a5aAr)"/>
+          <rect x="512" y="210" width="150" height="56" rx="10" transform="rotate(0.6 587 238)" fill="#FFFFFF"/>
+          <path d="M666 238 L700 238" marker-end="url(#a5aAr)"/>
+          <rect x="706" y="206" width="144" height="64" rx="10" transform="rotate(-0.6 778 238)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: a seed with one sprout, for the fixed seed -->
+          <path d="M826 256 Q838 246 830 236 Q818 244 826 256 Z M828 246 L840 230" stroke="#FFFFFF"/>
+        </g>
+
+        <text class="a5aL" x="48" y="66">saving per claim</text>
+        <text class="a5aS" x="48" y="82">capped close to base</text>
+        <text class="a5aA" x="80" y="168" text-anchor="middle">11</text>
+        <text class="a5aA" x="170" y="168" text-anchor="middle">14</text>
+        <text class="a5aA" x="230" y="168" text-anchor="middle">16</text>
+
+        <text class="a5aL" x="333" y="66">leakage per claim</text>
+        <text class="a5aS" x="333" y="82">skewed up</text>
+        <text class="a5aA" x="356" y="168" text-anchor="middle">2.5</text>
+        <text class="a5aA" x="419" y="168" text-anchor="middle">4</text>
+        <text class="a5aA" x="503" y="168" text-anchor="middle">6</text>
+
+        <text class="a5aL" x="618" y="66">build cost, year 0</text>
+        <text class="a5aS" x="618" y="82">skewed up: optimism bias</text>
+        <text class="a5aA" x="634" y="168" text-anchor="middle">330</text>
+        <text class="a5aA" x="676" y="168" text-anchor="middle">360</text>
+        <text class="a5aA" x="816" y="168" text-anchor="middle">460</text>
+
+        <text class="a5aL" x="42" y="243">draw 1</text>
+        <text class="a5aL" x="130" y="243">draw 2</text>
+        <text class="a5aL" x="218" y="243">draw 3</text>
+        <text class="a5aA" x="296" y="243">...</text>
+        <text class="a5aL" x="348" y="243">draw 5,000</text>
+
+        <text class="a5aL" x="524" y="234">same NPV formula</text>
+        <text class="a5aS" x="524" y="252">one NPV per draw</text>
+
+        <text class="a5aW" x="718" y="232">5,000 NPVs</text>
+        <text class="a5aW" x="718" y="252">seed 20261030</text>
+
+        <text class="a5aN" x="30" y="296">Each draw takes one value from every triangle, independently. Years of benefit are rounded to whole years.</text>
+        <text class="a5aN" x="30" y="318">Run cost, claims, share, adoption, discount rate and years are drawn the same way: nine inputs per draw.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three numbers per input make a triangle, and 5,000 draws across nine triangles make the range</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why a triangle<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>It asks for what an owner can give.</strong> The claims operations lead cannot tell you the standard deviation of the saving per claim. She can tell you the value she expects (14), what would surprise her on the downside (11) and the most it could plausibly be (16). A triangle is exactly those three numbers, and nothing the owner did not say.</p>
+        <p><strong>It can lean.</strong> A normal curve is symmetric. A triangle can put its peak anywhere between its ends, so a build cost of 330, 360, 460 leans up, the way IT builds do, and a saving of 11, 14, 16 leans down. The lean carries real information into the result, as Part 2 shows.</p>
+        <p><strong>It reproduces.</strong> The draws are random in pattern but fixed by the seed. A reviewer who reruns Keelson's model with seed 20261030 gets the same 5,000 NPVs. If your simulation gives a different answer every time someone presses run, the reviewer cannot tell a changed assumption from a changed draw.</p>
+        <p>The Green Book (2026) names the technique: Monte Carlo analysis is suggested for proposals of high cost or high risk, and decision trees for decisions taken in sequence (HM Treasury, The Green Book (2026), paragraphs 6.73 to 6.76). CFT is not large by Treasury standards, but its sponsor has already asked how sure the team is, which is the same need at a smaller scale.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What independence assumes<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Keelson's engine draws every input independently: a high share fast-tracked says nothing about the leakage on the same draw. That is a modelling choice, and it is probably wrong in one important place. If the fast track takes a larger share of claims, it is reaching further into claims that are less simple, and those are the claims where an unchecked overpayment is more likely. Share and leakage probably move together.</p>
+        <p><strong>What correlation would do.</strong> When a benefit and its own dis-benefit rise and fall together, they partly cancel on every draw, so the net value per claim moves less than either input alone and the range narrows. When two costs rise together (a build that overruns and a run cost that overruns, because both depend on the same vendor), the opposite happens and the range widens. Independence is the middle assumption, not a safe one.</p>
+        <p><strong>What triangles leave out.</strong> A triangle stops dead at its low and high. Real outcomes have tails: Flyvbjerg and Budzier found that one IT project in six was a black swan, with an average cost overrun of 200 percent (Flyvbjerg and Budzier, "Why Your IT Project May Be Riskier than You Think", Harvard Business Review, September 2011). No Keelson draw can ever cost more than 460 to build, so the simulation understates the very bad outcomes. Say so on the page that reports the range.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"Where did these shapes come from?"</strong> The first question Ines's analyst asked about the simulation was not about the maths. It was whether the nine triangles were the same ones the owners initialled in the range meeting from Analyst session 4, or new ones the modelling team had tidied up. They were the same, and the table of owners went in the appendix with the seed. A simulation is only as credible as the people who signed its bounds. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers reading the range</span>
+      <h2>Four numbers, and the one the base case hides</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The engine prints Keelson's range as four numbers. P10 is -141.5k, P50 is +20.5k, P90 is +189.9k, and the chance the NPV falls below zero is 44.1%. The mean of the 5,000 draws is +23.1k. Now put the base case next to them: +111.7k, the number everyone has been quoting for four sessions. It sits well to the right of the middle draw. Nothing is broken; the ranges are skewed against the plan.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn histogram sketch of CFT's 5,000 simulated NPVs. The part of the hump left of zero is shaded red: 44.1 percent of draws are below zero. Marks show P10 at minus 141.5 thousand, P50 at plus 20.5 thousand and P90 at plus 189.9 thousand. The base case, plus 111.7 thousand, is marked in brass far to the right of the middle draw. The mean is plus 23.1 thousand.">
+        <defs>
+          <filter id="a5bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="57" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a5bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a5bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a5bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a5bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a5bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a5bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a5bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a5bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a5bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a5bH" x="30" y="28">5,000 NPVs FOR CFT, SKETCHED</text>
+        <text class="a5bS" x="260" y="28">shape drawn by hand · marks placed to scale · values printed by the widget</text>
+
+        <text class="a5bA" x="261" y="70" text-anchor="middle">P10 -141.5k</text>
+        <text class="a5bA" x="466" y="70" text-anchor="middle">P50 +20.5k</text>
+        <text class="a5bA" x="680" y="70" text-anchor="middle">P90 +189.9k</text>
+        <text class="a5bB" x="581" y="90" text-anchor="middle">base case +111.7k</text>
+
+        <g filter="url(#a5bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M120 250 C 240 246, 340 130, 440 116 C 520 106, 560 112, 600 150 C 660 205, 720 244, 790 250 Z" fill="url(#a5bHc)" stroke="#4A1A5C"/>
+          <path d="M120 250 C 240 246, 340 130, 440 116 L440 250 Z" fill="#FEF2F2" stroke="#991B1B"/>
+          <path d="M60 250 L840 250"/>
+          <path d="M440 244 L440 258"/>
+          <path d="M261 98 L261 250 M466 98 L466 250 M680 98 L680 250" stroke="#4A1A5C" stroke-dasharray="5 6"/>
+          <path d="M581 98 L581 250" stroke="#7D5A0E" stroke-width="3"/>
+          <!-- doodle: a die, for the draws -->
+          <rect x="808" y="40" width="34" height="34" rx="6" transform="rotate(8 825 57)" stroke="#4A1A5C"/>
+          <path d="M818 50 L819 51 M830 62 L831 63 M824 56 L825 57" stroke="#4A1A5C" stroke-width="3"/>
+        </g>
+
+        <text class="a5bA" x="440" y="272" text-anchor="middle">0</text>
+        <text class="a5bA" x="840" y="272" text-anchor="end">NPV, thousands</text>
+        <text class="a5bR" x="120" y="290">44.1% of draws below zero</text>
+
+        <text class="a5bN" x="30" y="316">The mean is +23.1k, close to the middle draw. The base case is not: build and leakage lean up, the saving leans down.</text>
+        <text class="a5bN" x="30" y="338">Hold every input certain and the hump collapses to one line at +111.7k. That is the break test.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the brass line is the number on the slide, and most of the draws sit to its left</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>P10, P50, P90 in plain words<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>P50, +20.5k, is the middle draw.</strong> Half the 5,000 NPVs are below it and half above. It is the most honest single number the simulation gives, and for CFT it is much smaller than the base case.</p>
+        <p><strong>P10, -141.5k, is the bad tenth.</strong> One draw in ten is worse than this. It is not the worst case; it is the case a careful funder plans to survive. P90, +189.9k, is the mirror: one draw in ten is better.</p>
+        <p><strong>44.1% is the chance of losing money</strong> at Keelson's 9 percent hurdle, on these ranges, with these inputs drawn independently. Every one of those qualifiers belongs in the sentence when you say it out loud. "There is a 44 percent chance CFT loses money" is a different claim from "on the ranges the owners signed, 44.1 percent of draws fall below zero".</p>
+        <p><strong>The sentence for Ines.</strong> "The base case says +111.7k. Drawing all nine inputs from their agreed ranges, the middle outcome is +20.5k, one draw in ten is worse than -141.5k, and 44.1 percent of draws lose money. The saving per claim is the input to pin down first."</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the base case is not the middle<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The base case runs the model once, with every input at its most likely value. The simulation runs it 5,000 times, with each input wandering across its whole triangle. If a triangle is symmetric, its average is its base, and the base case and the simulation agree about that input. If it leans, they do not. The average of a triangle is the sum of its three points divided by three:</p>
+        <p><strong>Build:</strong> (330 + 360 + 460) / 3 = 383.3, above the base of 360. <strong>Run:</strong> (60 + 70 + 100) / 3 = 76.7, above 70. <strong>Leakage:</strong> (2.5 + 4 + 6) / 3 = 4.17, above 4. <strong>Saving:</strong> (11 + 14 + 16) / 3 = 13.67, below 14. Claims, share, adoption, discount rate and years are symmetric, so their averages equal their bases.</p>
+        <p>Every lean points the same way: costs drift up, the dis-benefit drifts up, the saving drifts down. The base case quietly assumed the most likely value of each, and the most likely value of a leaning triangle is its peak, not its average. Add nine of those small optimisms together and the base case ends up near the good end of the spread. This is the arithmetic form of what the Green Book calls optimism bias, and the reason it asks appraisers to adjust for it explicitly at the outset (HM Treasury, The Green Book (2026), 6.78).</p>
+        <p>Two more effects sit on top. Saving and leakage multiply the volumes, so a low saving on a low share hurts more than a high saving on a high share helps. And the discount rate and the years of benefit enter the formula non-linearly. Neither changes the lesson: when the ranges lean against the plan, the base case flatters it.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The Treasury's own warning about precise-looking ranges.</strong> In the same paragraphs that recommend Monte Carlo and decision trees, the Green Book cautions that attaching probabilities to scenarios can lend an appraisal a precision it does not have; its phrase is "spurious accuracy" (HM Treasury, The Green Book (2026), 6.75). The practical reading: report the range, name the assumptions under it (triangles, independence, the seed), and never print 44.1 percent where 44 percent, on these ranges, carries the honest message.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the option to wait</span>
+      <h2>Commit now, or pay to find out first</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A 44 percent chance of loss invites an obvious question: can Keelson learn the saving per claim before it builds for everyone? The claims operations lead proposed a pilot: one region for a year, a quarter of the claims, a pilot build of 80k and a pilot run of 20k, with 50k of that build reused if Keelson scales. Keelson scales only if the saving comes in high (16); if it comes in low (11), it stops. The team's judgement is a 55% chance the saving comes in high. The widget prices both paths.</p>
+
+    <div class="bcr-widget" data-mode="wait"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 416" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn two-branch decision tree. Decide today: commit now or pilot first. Commit now: saving high, 55 percent, plus 260.5 thousand; saving low, 45 percent, minus 111.5 thousand; expected plus 93.1 thousand, worst case minus 111.5 thousand. Pilot first: saving high, scale, plus 218.3 thousand; saving low, stop, minus 79.8 thousand; expected plus 84.1 thousand, worst case minus 79.8 thousand. The stop arrow blocks scaling after a low result, which would give minus 136.2 thousand. At the bottom, in brass: value of waiting at 55 percent is minus 8.9 thousand, and below 42.9 percent the pilot wins.">
+        <defs>
+          <filter id="a5cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="63" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a5cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a5cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a5cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a5cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a5cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a5cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a5cX { font: 800 16px Inter, sans-serif; fill: #991B1B; }
+          .a5cR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a5cA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a5cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a5cH" x="30" y="28">TWO PATHS FOR CFT, PRICED AT A 55% CHANCE THE SAVING COMES IN HIGH</text>
+
+        <text class="a5cA" x="190" y="66">commit now: build for everyone</text>
+        <text class="a5cA" x="190" y="336">pilot first: one region, one year</text>
+
+        <g filter="url(#a5cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="170" width="140" height="56" rx="10" transform="rotate(-1 100 198)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M174 188 L282 114" marker-end="url(#a5cAr)"/>
+          <path d="M174 210 L282 278" marker-end="url(#a5cAr)"/>
+          <circle cx="300" cy="105" r="16" fill="#FFFFFF"/>
+          <circle cx="300" cy="285" r="16" fill="#FFFFFF"/>
+          <path d="M316 98 L414 74" marker-end="url(#a5cAr)"/><path d="M316 112 L414 140" marker-end="url(#a5cAr)"/>
+          <path d="M316 278 L414 254" marker-end="url(#a5cAr)"/><path d="M316 292 L414 320" marker-end="url(#a5cAr)"/>
+          <rect x="420" y="50" width="190" height="46" rx="8" transform="rotate(0.8 515 73)" fill="#FFFFFF"/>
+          <rect x="420" y="118" width="190" height="46" rx="8" transform="rotate(-0.8 515 141)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="420" y="230" width="190" height="46" rx="8" transform="rotate(-0.8 515 253)" fill="#FFFFFF"/>
+          <rect x="420" y="298" width="190" height="46" rx="8" transform="rotate(0.8 515 321)" fill="#FEF2F2" stroke="#FCA5A5"/>
+          <rect x="640" y="62" width="210" height="72" rx="10" transform="rotate(0.5 745 98)" fill="#FFFFFF"/>
+          <rect x="640" y="222" width="210" height="72" rx="10" transform="rotate(-0.5 745 258)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M614 321 L696 321" marker-end="url(#a5cAr)"/>
+          <path d="M704 307 L704 335" stroke="#991B1B" stroke-width="3"/>
+          <rect x="30" y="360" width="820" height="40" rx="10" transform="rotate(-0.3 440 380)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: an hourglass under the decision -->
+          <path d="M82 248 L118 248 L82 284 L118 284 Z" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a5cH" x="44" y="194">DECIDE TODAY</text>
+        <text class="a5cS" x="44" y="212">CFT, constructed</text>
+
+        <text class="a5cS" x="432" y="68">saving high (16), 55%</text>
+        <text class="a5cV" x="432" y="88">+260.5k</text>
+        <text class="a5cS" x="432" y="136">saving low (11), 45%</text>
+        <text class="a5cX" x="432" y="156">-111.5k</text>
+
+        <text class="a5cS" x="432" y="248">saving high, 55%: scale</text>
+        <text class="a5cV" x="432" y="268">+218.3k</text>
+        <text class="a5cS" x="432" y="316">saving low, 45%: stop</text>
+        <text class="a5cX" x="432" y="336">-79.8k</text>
+
+        <text class="a5cH" x="654" y="86">COMMIT NOW</text>
+        <text class="a5cL" x="654" y="106">expected +93.1k</text>
+        <text class="a5cR" x="654" y="124">worst case -111.5k</text>
+
+        <text class="a5cH" x="654" y="246">PILOT FIRST</text>
+        <text class="a5cL" x="654" y="266">expected +84.1k</text>
+        <text class="a5cL" x="654" y="284">worst case -79.8k</text>
+
+        <text class="a5cR" x="716" y="318">scale anyway:</text>
+        <text class="a5cR" x="716" y="334">-136.2k</text>
+
+        <text class="a5cW" x="48" y="385">Value of waiting at 55%: -8.9k (pilot minus commit). Below 42.9% the pilot wins.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the pilot gives up a little expected value to cap the worst case, and the stop bar is what makes it an option</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Pricing the wait<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Commit now.</strong> Keelson builds for everyone today. If the saving comes in at 16, the NPV is +260.5k; at 11, it is -111.5k. Weighted by the team's 55 percent: 0.55 x 260.5 + 0.45 x (-111.5) = 143.3 - 50.2 = +93.1k expected.</p>
+        <p><strong>Pilot first.</strong> Keelson spends on one region for a year, learns the saving, then decides. High: it scales, reuses 50k of the pilot build, and ends at +218.3k, less than committing now because the full benefit starts a year later and the pilot costs money. Low: it stops, and loses only the pilot, -79.8k. The widget prints an expected +84.1k.</p>
+        <p><strong>The value of waiting</strong> is the pilot's expected NPV minus committing now's: -8.9k at 55 percent. At Keelson's own odds, waiting costs a little. Where it turns depends on the two branch differences: the pilot loses 42.2 on the high branch (260.5 - 218.3) and saves 31.7 on the low branch (111.5 - 79.8), so the pilot wins when the chance of high is below 31.7 / (42.2 + 31.7) = 42.9 percent, the break-even the widget prints.</p>
+        <p><strong>Why the pilot stops.</strong> If Keelson scaled after a low result anyway, the pilot path would end at -136.2k, worse than committing now. The option has value only because the team will act on what it learns. "Value of waiting" is a general finance term, not a Green Book one; the Green Book (2026) describes real options analysis as asking whether flexibility can be built in and used later as information emerges, most useful when uncertainty is high or the investment is hard to reverse (HM Treasury, The Green Book (2026), 6.75).</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>When a pilot is just a delay<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>It must be able to tell the branches apart.</strong> Keelson's pilot is worth something only if a year in one region can distinguish a saving of 11 from a saving of 16. If the region is unusual, or the claims are too few to measure, the pilot ends with "somewhere between 11 and 16" and nobody can act on it. Designing a measurement that can tell the difference is a controlled-test problem; see <a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">Learn Experimentation with Phoebe ↗</a>.</p>
+        <p><strong>It must have a stop rule written before it starts.</strong> The -79.8k on the low branch exists only because Keelson stops. A pilot whose sponsor has already announced the full rollout is a delay with an extra cost, and it ends on the -136.2k path. Write the threshold (the saving at which Keelson scales) into the approval paper.</p>
+        <p><strong>It must be cheap relative to what it protects.</strong> A pilot that costs nearly as much as the build saves little on the low branch and loses a year on the high one.</p>
+        <p><strong>Waiting also caps the downside.</strong> At 55 percent the pilot gives up 8.9k of expected value, and in exchange the worst case improves from -111.5k to -79.8k. Whether that trade is worth it is not an arithmetic question; it is a question about how much loss Keelson is willing to carry on one bet, which Ines and Tom answer, not the model. Aswath Damodaran makes the related point that options embedded in a project, to delay, expand or abandon, are side benefits its returns should include (Aswath Damodaran, Applied Corporate Finance and NYU Stern corporate finance notes (Spring 2026)). Full option pricing (binomial lattices, Black-Scholes) is beyond these pages; the two-branch tree is the working version.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The pilot nobody costed.</strong> Tom's first reaction to the 44 percent was "let's pilot it", meaning start small and see. Maya asked two questions before anyone agreed: what saving per claim would make Keelson stop, and who decides. The claims operations lead wrote the rule down: scale only if the pilot region shows the high saving, stop if it shows the low one, and Ines's analyst signs the reading. Then the team priced the pilot properly and found that, at their own 55 percent, it cost a little in expected value and bought a smaller worst case. Ines took the decision to the investment committee as a risk-appetite question, with both numbers on one page. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Draw Keelson's range, then break it</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">The range widget runs the 5,000 seeded draws in your browser every time you tick or untick a box. Each box holds one input at its base value, so you can watch which certainty narrows the range most. The two buttons hold all nine, or release all nine. The wait widget sits in Part 3; step 4 sends you back to it. The inputs are invented, so the lesson is the reading, not the totals.</p>
+
+    <div class="bcr-widget" data-mode="range"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 262" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the range widget. Nine checkboxes, one per input, each holding that input certain at its base value, and two buttons, Break it: hold every input certain, and Release every input, feed 5,000 draws from seed 20261030, one triangle per input. The draws feed four metrics, P10, P50, P90 and the chance NPV is below zero, filled in brass, and a histogram with a note giving the base case, the middle draw, the mean and the seed.">
+        <defs>
+          <filter id="a5dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="69" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a5dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a5dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a5dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a5dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a5dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a5dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a5dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a5dH" x="30" y="28">WHAT THE RANGE WIDGET COMPUTES</text>
+
+        <g filter="url(#a5dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="48" width="210" height="60" rx="10" transform="rotate(-0.8 135 78)" fill="#FFFFFF"/>
+          <rect x="30" y="128" width="210" height="60" rx="10" transform="rotate(0.8 135 158)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M244 78 L300 110" marker-end="url(#a5dAr)"/><path d="M244 158 L300 126" marker-end="url(#a5dAr)"/>
+          <rect x="304" y="78" width="230" height="80" rx="10" transform="rotate(-0.4 419 118)" fill="url(#a5dHc)"/>
+          <path d="M538 108 L600 84" marker-end="url(#a5dAr)"/><path d="M538 128 L600 172" marker-end="url(#a5dAr)"/>
+          <rect x="606" y="42" width="244" height="94" rx="10" transform="rotate(0.4 728 89)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="606" y="152" width="244" height="56" rx="10" transform="rotate(-0.4 728 180)" fill="#FFFFFF"/>
+        </g>
+
+        <rect x="316" y="92" width="206" height="52" rx="6" fill="#FFFFFF"/>
+
+        <text class="a5dL" x="44" y="74">nine "hold certain" boxes</text>
+        <text class="a5dS" x="44" y="92">one input pinned at its base</text>
+        <text class="a5dL" x="44" y="154">two buttons</text>
+        <text class="a5dS" x="44" y="172">Break it · Release every input</text>
+        <text class="a5dL" x="328" y="112">5,000 draws, seed 20261030</text>
+        <text class="a5dS" x="328" y="130">a triangle for each free input</text>
+        <text class="a5dW" x="622" y="68">P10 · P50 · P90</text>
+        <text class="a5dW" x="622" y="92">chance NPV below zero</text>
+        <text class="a5dW" x="622" y="116">red when it is bad news</text>
+        <text class="a5dL" x="622" y="176">histogram and a note</text>
+        <text class="a5dS" x="622" y="194">base case, middle draw, mean, seed</text>
+
+        <text class="a5dB" x="30" y="240">Hold all nine and the histogram is replaced by one sentence: no uncertainty in, no range out.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - every box you tick removes one source of spread, and the four numbers tell you how much it was carrying</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the four metrics.</strong> Leave every box unticked. Write down the four numbers above the histogram, then the base case, middle draw and mean from the note under it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the widget prints</span>P10 -141.5k · P50 +20.5k · P90 +189.9k · chance NPV is below zero 44.1%
+Base case NPV +111.7k; middle draw +20.5k; mean +23.1k. Seed 20261030, 5,000 draws.</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Pin the biggest input.</strong> Tick "Hold saving per fast-tracked claim certain" and nothing else. Write what you see happen to P10, P90 and the chance of loss, and how much narrower the histogram looks. Write the numbers the widget shows you, not a guess, then untick it and try one other input for comparison.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · one input held certain</span>saving per claim held:   P10 ______   P50 ______   P90 ______   chance below zero ______
+one other input held:    which? __________   P10 ______   P90 ______
+which narrowed the range more, and does that match the tornado? ______________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Break it.</strong> Press "Break it: hold every input certain". Every box ticks, and the histogram is replaced by one sentence. Copy it, then say in your own words what it proves about the machinery.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · the break test</span>Every draw gives the same NPV, +111.7k. With no uncertainty in the inputs there is no range to report.
+what this proves: the spread comes from __________, not from __________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Price the wait.</strong> Press "Release every input". Then scroll up to the wait widget in Part 3 and move the slider "Chance the saving comes in high" to 40%, then to 70%. Write the value of waiting at each, and the break-even it prints.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the value of waiting</span>at 55% (start):  value of waiting -8.9k
+at 40%:          value of waiting +2.2k    (the pilot wins)
+at 70%:          value of waiting -20.0k   (commit now wins)
+below this chance, the pilot wins: 42.9%</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own pilot tree.</strong> For your own project, name the one input you would most like to learn before committing (your tornado's longest bar is a good start), the pilot that could measure it, and the two branches. Rough numbers are fine; your numbers will differ.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your option to wait</span>input to learn:                 ______________   high ____   low ____
+pilot: scope, length, cost:     ______________
+chance it comes in high:        ____%   (whose judgement? ______)
+commit now:   if high ______   if low ______
+pilot first:  if high, scale ______   if low, stop ______
+stop rule, written before the pilot starts: ______________</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the break test.</strong> Analyst session 6 puts it on the bench as its last rung, next to the sponsor's case and the optimism uplift. Any simulation you are handed, run it with every input held certain first: if it does not collapse to the base case, something other than your inputs is making the spread.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Analyst session 6</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Write your four numbers.</strong> For your own case, turn your three least certain inputs into triangles agreed with their owners, and state the P10, P50, P90 and chance of loss you would report, or the gap that stops you computing them.</li>
+      <li><strong>Find one correlation.</strong> Name two inputs in your model that probably move together, say which way, and whether that would widen or narrow your range.</li>
+      <li><strong>Write the sentence for your funder.</strong> One paragraph, in the shape of the sentence for Ines in Part 2, with every qualifier in it.</li>
+      <li><strong>Test the pilot.</strong> For the pilot in step 5, write how it would tell the high branch from the low one, and who signs the stop rule.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 5 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · CFT's P50 is +20.5k and its base case is +111.7k. What does P50 mean, and why is it lower?</p>
+      <button class="qopt" type="button">A · The worst plausible outcome; it is lower because it is pessimistic by design</button>
+      <button class="qopt" type="button">B · The average of the low and high cases; it is lower because the low case is very low</button>
+      <button class="qopt" type="button">C · The middle of the 5,000 draws; it is lower because the ranges lean against the plan, with build and leakage skewed up and the saving capped near base</button>
+      <button class="qopt" type="button">D · The base case after discounting; it is lower because of the 9 percent hurdle</button>
+      <p class="qwhy">Half the draws fall below P50. The base case uses each input's most likely value, and when the triangles lean, the most likely values add up to an outcome near the good end of the spread.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · You hold every input certain and every draw gives +111.7k. What does that prove?</p>
+      <button class="qopt" type="button">A · The spread comes from the input ranges, not from the simulation machinery</button>
+      <button class="qopt" type="button">B · The base case is the right answer and the range can be ignored</button>
+      <button class="qopt" type="button">C · The seed is broken</button>
+      <button class="qopt" type="button">D · CFT has no risk</button>
+      <p class="qwhy">With no uncertainty in, there is no range out. If a simulation still spread with every input fixed, something other than the stated assumptions would be driving it.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · When does Keelson's pilot beat committing now on expected value?</p>
+      <button class="qopt" type="button">A · Always, because learning is never wasted</button>
+      <button class="qopt" type="button">B · When the chance the saving comes in high is above 55 percent</button>
+      <button class="qopt" type="button">C · Only when the pilot is free</button>
+      <button class="qopt" type="button">D · When the chance the saving comes in high is below 42.9 percent, so the bad branch is likely enough for stopping early to pay, and only if Keelson really stops after a low result</button>
+      <p class="qwhy">At 55 percent the value of waiting is -8.9k; at 40 percent it is +2.2k. The pilot also caps the worst case at -79.8k, but that is a risk-appetite choice, not an expected-value one.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Monte Carlo for high cost or high risk, decision trees for sequential decisions, real options analysis, and the caution about spurious accuracy</span><span class="note">HM Treasury, The Green Book (2026), paragraphs 6.73 to 6.76; read at source. "Value of waiting" is a general finance term, not a Green Book one</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Embedded options (delay, expand, abandon) belong in a project's returns</span><span class="note">Aswath Damodaran, Applied Corporate Finance and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's range (P10 -141.5k, P50 +20.5k, P90 +189.9k, 44.1% below zero) and the pilot tree (value of waiting -8.9k, break-even 42.9%)</span><span class="note">Constructed and labelled; computed by the engine in your browser and matched by an independent Python run</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Triangle per input</b><span>Low, base, high, agreed with the owner. Fix the seed so anyone can rerun it.</span></div>
+      <div class="cheat-item"><b>Four numbers</b><span>P10, P50, P90 and the chance of loss, with the assumptions under them said aloud.</span></div>
+      <div class="cheat-item"><b>Base is not the middle</b><span>When ranges lean against the plan, the base case sits near the good end.</span></div>
+      <div class="cheat-item"><b>Break test</b><span>Hold every input certain: one value out. If not, the machinery is adding spread.</span></div>
+      <div class="cheat-item"><b>Independence is a choice</b><span>Benefit and dis-benefit moving together narrow the range; costs moving together widen it.</span></div>
+      <div class="cheat-item"><b>Option to wait</b><span>Worth it only when the bad branch is likely enough and the stop rule is real. It also caps the downside.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Analyst session 6 is the bench: five rungs on one screen, from the base case through the sponsor's case, the sunk and shared costs, and the optimism uplift, to the break test. Each rung prints its NPV, IRR and range side by side, and the session ends with the one sentence you would put in front of Ines.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 5 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a4-swing-every-assumption.html">← Prev: Swing every assumption</a> &nbsp;·&nbsp; <a href="a6-the-business-case-bench.html">Next: The business case bench →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Business cases and ROI for data and AI leaders and the analysts who model their investments. Four Leader sessions on what a case is for, reading a case like a CFO, the assumption doing the work and what happens after the yes; six Analyst sessions on incremental cash flows, discounting, NPV versus IRR versus payback, tornado and switching values, simulation and the option to wait, and a business case bench that computes everything in your browser. Free, by Phoebe Fu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Learn Business Cases &amp; ROI with Phoebe">
+<meta property="og:description" content="A case a finance team will sign: ranges not points, the assumption doing the work, payback and the option to wait, computed for real.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn Business Cases &amp; ROI with Phoebe">
+<meta name="twitter:description" content="Two tracks: the Leader makes the case; the Analyst builds the model behind it, live in the browser.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Learn Business Cases &amp; ROI with Phoebe</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: 1; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(var(--shadow-rgb),.16); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo-deep); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--muted); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,var(--indigo-50)); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+  .not-this { border: 1px solid var(--hairline); border-left: 4px solid var(--clay); border-radius: var(--radius); background: #fff; padding: 1.1rem 1.3rem; margin-top: 1.2rem; }
+  .not-this h3 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn with Phoebe · Business</div>
+    <h1>Learn <span class="accent">Business Cases &amp; ROI</span> with Phoebe</h1>
+    <p class="sub">A data or AI investment gets approved when a finance team believes the numbers, and most cases give them reasons not to: one option, one number, every benefit and no downside. These ten sessions build the other kind, a case a CFO will sign. Four Leader sessions are for the people who need the money: what a case is for, how a CFO reads NPV, IRR and payback, which assumption is doing the work, and what happens after the yes. Six Analyst sessions are for the people who build the model: only the cash that changes, time value and the hurdle rate, three verdicts side by side, swinging every assumption, the range and the option to wait, and a bench that computes all of it live in your browser. The running case, Keelson Mutual's claims fast-track triage, is constructed.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="10">10</b><span>sessions, two tracks</span></div>
+      <div class="stat"><b data-count="4">4</b><span>options on the ladder</span></div>
+      <div class="stat"><b data-count="9">9</b><span>assumptions swung</span></div>
+      <div class="stat"><b data-count="5000">5000</b><span>seeded draws</span></div>
+      <div class="stat"><b data-count="5">5</b><span>bench rungs</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Leader track 🧭 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· four sessions, no code</span></h2>
+      <p class="plede">For chief data officers, heads of analytics and product leads who have to get an investment signed. The case as a decision document, the counterfactual and the option ladder, which question each number answers, ranges and switching values, and the benefits register that makes the promise checkable.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/b1-what-a-case-is-for.html" style="--diff:#34D399"><span class="cicon">📄</span><span class="cnum">Leader session 1 · start here</span><h3>What a business case is for</h3><p>Written to decide, not to win; every benefit measured against doing nothing; four options and the five questions every funder asks.</p><span class="meta"><span class="pill amber">▶ Start here</span></span></a>
+      <a class="course-card" href="courses/b2-reading-a-case-like-a-cfo.html" style="--diff:#34D399"><span class="cicon">🧐</span><span class="cnum">Leader session 2</span><h3>Reading a case like a CFO</h3><p>Which question NPV, IRR and payback each answer, why a 44.6 percent IRR can flatter a small project, and why the hurdle rate is a policy.</p><span class="meta"><span class="pill">three numbers, three questions</span></span></a>
+      <a class="course-card" href="courses/b3-the-assumption-doing-the-work.html" style="--diff:#FBBF24"><span class="cicon">🎯</span><span class="cnum">Leader session 3</span><h3>The assumption doing the work</h3><p>Optimism bias and what IT projects really overrun by, reading a tornado, and the switching value as a sentence a board can hold.</p><span class="meta"><span class="pill">ranges, not points</span></span></a>
+      <a class="course-card" href="courses/b4-after-the-yes.html" style="--diff:#FB923C"><span class="cicon">🗓️</span><span class="cnum">Leader session 4</span><h3>After the yes</h3><p>Benefit owners, baselines and the benefits register, the dis-benefit nobody wants to track, stage gates and the price of waiting.</p><span class="meta"><span class="pill">the benefits register</span></span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Analyst track 🧮 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· six sessions, hands-on in the browser</span></h2>
+      <p class="plede">For analysts and finance partners who build the model behind a case. Every widget runs one engine in your browser: cash flows, discounting, NPV, IRR, paybacks, a tornado with switching values and 5,000 seeded draws, checked against an independent Python build.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/a1-only-the-cash-that-changes.html" style="--diff:#34D399"><span class="cicon">💵</span><span class="cnum">Analyst session 1 · start here</span><h3>Only the cash that changes</h3><p>With versus without; sunk costs out, opportunity costs and dis-benefits in; the shared cost that flips the case from +111.7k to -148.3k.</p><span class="meta"><span class="pill amber">▶ Start here</span></span></a>
+      <a class="course-card" href="courses/a2-time-value-and-the-hurdle-rate.html" style="--diff:#34D399"><span class="cicon">⏳</span><span class="cnum">Analyst session 2</span><h3>Time value and the hurdle rate</h3><p>Discount factors and present values, the NPV profile, nominal against real, and a public-sector social rate against a company hurdle.</p><span class="meta"><span class="pill">the NPV profile</span></span></a>
+      <a class="course-card" href="courses/a3-npv-irr-and-payback.html" style="--diff:#FBBF24"><span class="cicon">⚖️</span><span class="cnum">Analyst session 3</span><h3>NPV, IRR and payback</h3><p>Two projects, four verdicts; the crossover rate where the ranking flips; a project with two IRRs; equivalent annual value for unequal lives.</p><span class="meta"><span class="pill">when the verdicts disagree</span></span></a>
+      <a class="course-card" href="courses/a4-swing-every-assumption.html" style="--diff:#FBBF24"><span class="cicon">🌪️</span><span class="cnum">Analyst session 4</span><h3>Swing every assumption</h3><p>One-at-a-time sensitivity, the tornado, switching values, scenarios against sensitivities, and the optimism uplift on the build.</p><span class="meta"><span class="pill">the tornado</span></span></a>
+      <a class="course-card" href="courses/a5-the-range-and-the-option-to-wait.html" style="--diff:#FB923C"><span class="cicon">🎲</span><span class="cnum">Analyst session 5</span><h3>The range and the option to wait</h3><p>Triangular inputs and 5,000 seeded draws, P10 to P90 and the chance of loss, then commit now or pilot first, priced.</p><span class="meta"><span class="pill">P10, P50, P90</span></span></a>
+      <a class="course-card" href="courses/a6-the-business-case-bench.html" style="--diff:#F87171"><span class="cicon">🧪</span><span class="cnum">Analyst session 6 · bench night</span><h3>The business case bench</h3><p>Five rungs in one engine: the base case, the sponsor's case, the charged case, the optimism uplift and a break button. Then one sentence.</p><span class="meta"><span class="pill amber">★ the bench</span></span></a>
+    </div>
+    <div class="diff-legend">
+      <span><i style="background:#34D399"></i>foundations</span>
+      <span><i style="background:#FBBF24"></i>core</span>
+      <span><i style="background:#FB923C"></i>stretch</span>
+      <span><i style="background:#F87171"></i>bench night</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Your passport 🎫</h2>
+      <p class="plede">Clear all three quiz questions in a session and it gets stamped. Ten stamps means you can write a case to decide, build its incremental cash flow, read its three verdicts, say which assumption does the work and give the board a range instead of a promise. Stamps live in this browser only.</p>
+    </div>
+    <div class="pp-strip"></div>
+  </section>
+
+  <section class="section">
+    <div class="not-this">
+      <h3>What this is not, so you land in the right place 🧭</h3>
+      <table class="clean">
+        <tr><th>If your question is</th><th>Go here instead</th></tr>
+        <tr><td>Which data bets should we fund, and from which budget?</td><td><a href="https://phoebefu6.github.io/learn-data-strategy-with-phoebe/">Data Strategy ↗</a></td></tr>
+        <tr><td>What is a whole company worth, and is its share price cheap?</td><td><a href="https://phoebefu6.github.io/learn-value-investing-with-phoebe/">Value Investing ↗</a></td></tr>
+        <tr><td>How do I read the three financial statements and size a funding need?</td><td><a href="https://phoebefu6.github.io/learn-finance-with-phoebe/">Finance: Reading the Numbers ↗</a></td></tr>
+        <tr><td>How do we weigh many options against each other in general?</td><td><a href="https://phoebefu6.github.io/learn-decision-intelligence-with-phoebe/">Decision Intelligence ↗</a></td></tr>
+        <tr><td>How do we measure a benefit with a controlled test?</td><td><a href="https://phoebefu6.github.io/learn-experimentation-with-phoebe/">Experimentation ↗</a></td></tr>
+        <tr><td>How do we sell data to other companies?</td><td>Data Monetisation, planned on the shelf</td></tr>
+        <tr><td><strong>Will finance sign this investment, and what is it really worth?</strong></td><td><strong>you are in the right place</strong></td></tr>
+      </table>
+      <p style="margin-top:.7rem;font-size:.86rem;color:var(--muted)"><strong>One internal investment, valued honestly.</strong> Keelson Mutual is constructed; HM Treasury's Green Book (2026) and Aswath Damodaran's corporate finance notes are read at source; published AI failure-rate figures are taught as contested.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths">
+      <h2>Choose your path 🗺️</h2>
+      <p class="plede">Three doors into the same conviction: a case is a decision with a range, not a promise with a number.</p>
+      <div class="path"><b>🧭 I need the money</b>
+        <a class="pstep" href="courses/b1-what-a-case-is-for.html">B1</a><span class="parr">→</span><a class="pstep" href="courses/b2-reading-a-case-like-a-cfo.html">B2</a><span class="parr">→</span><a class="pstep" href="courses/b3-the-assumption-doing-the-work.html">B3</a><span class="parr">→</span><a class="pstep" href="courses/b4-after-the-yes.html">B4</a>
+        <span style="font-size:.82rem;color:var(--muted)">the decision, the verdicts, the range, the register</span>
+      </div>
+      <div class="path"><b>🧮 I build the model</b>
+        <a class="pstep" href="courses/a1-only-the-cash-that-changes.html">A1</a><span class="parr">→</span><a class="pstep" href="courses/a2-time-value-and-the-hurdle-rate.html">A2</a><span class="parr">→</span><a class="pstep" href="courses/a3-npv-irr-and-payback.html">A3</a><span class="parr">→</span><a class="pstep" href="courses/a4-swing-every-assumption.html">A4</a><span class="parr">→</span><a class="pstep" href="courses/a5-the-range-and-the-option-to-wait.html">A5</a><span class="parr">→</span><a class="pstep" href="courses/a6-the-business-case-bench.html">A6</a>
+        <span style="font-size:.82rem;color:var(--muted)">the cash, the rate, the verdicts, the bench</span>
+      </div>
+      <div class="path"><b>🏦 I sit on the funding side</b>
+        <a class="pstep" href="courses/b2-reading-a-case-like-a-cfo.html">B2</a><span class="parr">→</span><a class="pstep" href="courses/a1-only-the-cash-that-changes.html">A1</a><span class="parr">→</span><a class="pstep" href="courses/b3-the-assumption-doing-the-work.html">B3</a><span class="parr">→</span><a class="pstep" href="courses/a6-the-business-case-bench.html">A6</a><span class="parr">→</span><a class="pstep" href="courses/b4-after-the-yes.html">B4</a>
+        <span style="font-size:.82rem;color:var(--muted)">the questions to ask, the traps, the review</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>What is honest here 🧾</h2>
+      <p class="plede">The running case is constructed and says so on every page. The arithmetic is real. Where evidence is contested, the page teaches both sides.</p>
+    </div>
+    <table class="clean">
+      <tr><th>Claim</th><th>Status</th></tr>
+      <tr><td>Keelson Mutual, its people, its claims volumes, savings, leakage, costs and ranges</td><td><strong>Constructed,</strong> and labelled each time</td></tr>
+      <tr><td>Every NPV, IRR, payback, tornado bar, switching value and simulated range</td><td><strong>Computed in your browser;</strong> an independent Python build prints the same numbers, all 5,000 draws included</td></tr>
+      <tr><td>The five case model, options appraisal, optimism bias, switching values, the social discount rate</td><td><strong>Read at source</strong> in HM Treasury's Green Book (2026) and its supplementary guidance, dated</td></tr>
+      <tr><td>Incremental cash flows, decision rules, equivalent annuity, project hurdle rates</td><td><strong>Read at source</strong> in Aswath Damodaran's corporate finance book chapters and Spring 2026 notes</td></tr>
+      <tr><td>IT project overruns (1,471 projects) and reference class forecasting</td><td><strong>Read at source</strong> in Flyvbjerg and Budzier (2011) and Flyvbjerg (2006)</td></tr>
+      <tr><td>"Most AI projects fail" headlines</td><td><strong>Contested,</strong> taught with what each study actually measured</td></tr>
+    </table>
+  </section>
+
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">Both tracks at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span>Neighbours on the shelf: <a href="https://phoebefu6.github.io/learn-data-strategy-with-phoebe/">Data Strategy ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-finance-with-phoebe/">Finance ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-value-investing-with-phoebe/">Value Investing ↗</a></span>
+  </footer>
+
+</main>
+
+<script>
+window.MINDMAP_DATA = {
+  "title": "Business cases\n& ROI",
+  "centerColor": "#2F0F3B",
+  "sessions": [
+    {
+      "label": "What a business\ncase is for",
+      "href": "courses/b1-what-a-case-is-for.html",
+      "color": "#34D399",
+      "concepts": [
+        {
+          "label": "Written to decide",
+          "href": "courses/b1-what-a-case-is-for.html"
+        },
+        {
+          "label": "With versus without",
+          "href": "courses/b1-what-a-case-is-for.html"
+        },
+        {
+          "label": "The option ladder",
+          "href": "courses/b1-what-a-case-is-for.html"
+        }
+      ]
+    },
+    {
+      "label": "Reading a case\nlike a CFO",
+      "href": "courses/b2-reading-a-case-like-a-cfo.html",
+      "color": "#34D399",
+      "concepts": [
+        {
+          "label": "Three questions",
+          "href": "courses/b2-reading-a-case-like-a-cfo.html"
+        },
+        {
+          "label": "The IRR flatters",
+          "href": "courses/b2-reading-a-case-like-a-cfo.html"
+        },
+        {
+          "label": "Hurdle is a policy",
+          "href": "courses/b2-reading-a-case-like-a-cfo.html"
+        }
+      ]
+    },
+    {
+      "label": "The assumption\ndoing the work",
+      "href": "courses/b3-the-assumption-doing-the-work.html",
+      "color": "#FBBF24",
+      "concepts": [
+        {
+          "label": "Optimism bias",
+          "href": "courses/b3-the-assumption-doing-the-work.html"
+        },
+        {
+          "label": "Reading a tornado",
+          "href": "courses/b3-the-assumption-doing-the-work.html"
+        },
+        {
+          "label": "Switching values",
+          "href": "courses/b3-the-assumption-doing-the-work.html"
+        }
+      ]
+    },
+    {
+      "label": "After the yes",
+      "href": "courses/b4-after-the-yes.html",
+      "color": "#FB923C",
+      "concepts": [
+        {
+          "label": "Benefit owners",
+          "href": "courses/b4-after-the-yes.html"
+        },
+        {
+          "label": "The register",
+          "href": "courses/b4-after-the-yes.html"
+        },
+        {
+          "label": "Stage gates",
+          "href": "courses/b4-after-the-yes.html"
+        }
+      ]
+    },
+    {
+      "label": "Only the cash\nthat changes",
+      "href": "courses/a1-only-the-cash-that-changes.html",
+      "color": "#34D399",
+      "concepts": [
+        {
+          "label": "With minus without",
+          "href": "courses/a1-only-the-cash-that-changes.html"
+        },
+        {
+          "label": "Sunk and opportunity",
+          "href": "courses/a1-only-the-cash-that-changes.html"
+        },
+        {
+          "label": "Shared costs",
+          "href": "courses/a1-only-the-cash-that-changes.html"
+        }
+      ]
+    },
+    {
+      "label": "Time value and\nthe hurdle rate",
+      "href": "courses/a2-time-value-and-the-hurdle-rate.html",
+      "color": "#34D399",
+      "concepts": [
+        {
+          "label": "Discount factors",
+          "href": "courses/a2-time-value-and-the-hurdle-rate.html"
+        },
+        {
+          "label": "The NPV profile",
+          "href": "courses/a2-time-value-and-the-hurdle-rate.html"
+        },
+        {
+          "label": "Social vs company",
+          "href": "courses/a2-time-value-and-the-hurdle-rate.html"
+        }
+      ]
+    },
+    {
+      "label": "NPV, IRR\nand payback",
+      "href": "courses/a3-npv-irr-and-payback.html",
+      "color": "#FBBF24",
+      "concepts": [
+        {
+          "label": "The crossover rate",
+          "href": "courses/a3-npv-irr-and-payback.html"
+        },
+        {
+          "label": "Two IRRs",
+          "href": "courses/a3-npv-irr-and-payback.html"
+        },
+        {
+          "label": "Payback's blind spot",
+          "href": "courses/a3-npv-irr-and-payback.html"
+        }
+      ]
+    },
+    {
+      "label": "Swing every\nassumption",
+      "href": "courses/a4-swing-every-assumption.html",
+      "color": "#FBBF24",
+      "concepts": [
+        {
+          "label": "One at a time",
+          "href": "courses/a4-swing-every-assumption.html"
+        },
+        {
+          "label": "The tornado",
+          "href": "courses/a4-swing-every-assumption.html"
+        },
+        {
+          "label": "Switching values",
+          "href": "courses/a4-swing-every-assumption.html"
+        }
+      ]
+    },
+    {
+      "label": "The range and\nthe option to wait",
+      "href": "courses/a5-the-range-and-the-option-to-wait.html",
+      "color": "#FB923C",
+      "concepts": [
+        {
+          "label": "Seeded draws",
+          "href": "courses/a5-the-range-and-the-option-to-wait.html"
+        },
+        {
+          "label": "Chance of loss",
+          "href": "courses/a5-the-range-and-the-option-to-wait.html"
+        },
+        {
+          "label": "Pilot first",
+          "href": "courses/a5-the-range-and-the-option-to-wait.html"
+        }
+      ]
+    },
+    {
+      "label": "The business\ncase bench",
+      "href": "courses/a6-the-business-case-bench.html",
+      "color": "#F87171",
+      "concepts": [
+        {
+          "label": "Five rungs",
+          "href": "courses/a6-the-business-case-bench.html"
+        },
+        {
+          "label": "Break it",
+          "href": "courses/a6-the-business-case-bench.html"
+        },
+        {
+          "label": "One sentence",
+          "href": "courses/a6-the-business-case-bench.html"
+        }
+      ]
+    }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

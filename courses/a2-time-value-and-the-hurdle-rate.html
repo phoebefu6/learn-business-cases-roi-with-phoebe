@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Analyst session 2 of 6. Time value and the hurdle rate: discount factors, present values, the NPV profile that crosses zero at the IRR, and which rate answers which question, from the Green Book (2026) social rate of 3.0 percent real to a company's nominal hurdle and a project-specific rate. Keelson Mutual's claims fast-track triage, constructed, computed in your browser.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Time value and the hurdle rate - learn business cases and ROI with phoebe">
+<meta property="og:description" content="Analyst session 2 of 6. Discount factors, present value, the NPV profile and which rate to use, computed live.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/courses/a2-time-value-and-the-hurdle-rate.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Time value and the hurdle rate - learn business cases and ROI with phoebe">
+<meta name="twitter:description" content="Analyst session 2 of 6. Discounting and the NPV profile, computed live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-business-cases-roi-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Analyst session 2 · Time value and the hurdle rate - learn business cases and ROI with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-business-cases-roi-with-phoebe</a> / Analyst session 2 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Business Cases &amp; ROI with Phoebe · Analyst session 2 of 6</div>
+    <h1>Time value and <span class="accent">the hurdle rate</span></h1>
+    <p class="sub">Last session you built six numbers, one per year. Tonight you find out what they are worth today. Cash that arrives in year 5 is not worth the same as cash in hand, because the money could be earning something else in the meantime. The discount rate is the price of that wait, and choosing it is a judgement about risk and units, not a formality. Tonight: discount factors and present values for Keelson Mutual's claims fast-track triage, the NPV profile that shows where the case breaks, and which rate answers which question. Keelson is constructed; the arithmetic runs in your browser.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Analyst</span>
+      <span class="chip audience">Analysts and finance partners who build the model behind a case</span>
+      <span class="chip audience">Hands-on in the browser</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Present value, the NPV profile, which rate</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: discount Keelson's cash</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">You arrive with CFT's incremental cash flow from Analyst session 1: a build of 360 thousand in year 0, then +45.5k, +103.3k and three years of +161.0k. Added up without regard to time, the simple ROI is 75.5%, which sounds like an easy yes. Tonight turns those six numbers into one number that respects time, shows how that number moves as the rate moves, and settles which rate belongs on Keelson's case. Every Keelson input is invented, in thousands, nominal and before tax.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = everyone builds it</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> Your own project's cash flow discounted year by year at the rate your finance team actually uses, a written note of whether that rate is nominal or real and firm-wide or project-specific, and the rate at which your case stops adding value. Analyst session 3 uses that rate to put NPV, IRR and payback side by side.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers discounting and present value</span>
+      <h2>Why 161 thousand in year 5 is worth less today</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Keelson's finance team says any money it puts into CFT could instead earn 9 percent a year on something of similar risk. That is the hurdle: the return the money could earn elsewhere. So 161 thousand promised in year 3 is only worth the amount you would have to invest today at 9 percent to have 161 thousand in three years. Shrinking each year's cash that way is discounting, and the shrunk amount is its present value.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn bar chart of CFT's six cash flows at a 9 percent discount rate, with each year's cash drawn as an outline and its present value as a smaller filled bar inside it. Year 0: minus 360.0 thousand, factor 1.000, present value minus 360.0 thousand. Year 1: plus 45.5 thousand, factor 0.917, present value plus 41.7. Year 2: plus 103.3, factor 0.842, present value plus 86.9. Year 3: plus 161.0, factor 0.772, present value plus 124.3. Year 4: plus 161.0, factor 0.708, present value plus 114.1. Year 5: plus 161.0, factor 0.650, present value plus 104.6, filled in brass. The present values sum to an NPV of plus 111.7 thousand.">
+        <defs>
+          <filter id="a2aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a2aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a2aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a2aH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a2aL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a2aS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a2aB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a2aV { font: 800 18px Inter, sans-serif; fill: #2F0F3B; }
+          .a2aA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a2aR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a2aN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a2aH" x="30" y="28">EACH YEAR'S CASH, SHRUNK TO WHAT IT IS WORTH TODAY AT 9%</text>
+        <text class="a2aS" x="30" y="46">outline = cash in that year · filled bar = its present value · constructed Keelson inputs, thousands</text>
+
+        <g filter="url(#a2aSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M30 170 L860 170"/>
+          <!-- year 0: cash and PV are the same -->
+          <rect x="50" y="170" width="60" height="216" rx="3" transform="rotate(0.4 80 278)" fill="#FEF2F2" stroke="#991B1B"/>
+          <!-- year 1 -->
+          <rect x="220" y="142.7" width="60" height="27.3" rx="3" fill="#FFFFFF"/>
+          <rect x="232" y="145" width="36" height="25" rx="2" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- year 2 -->
+          <rect x="360" y="108" width="60" height="62" rx="3" transform="rotate(-0.6 390 139)" fill="#FFFFFF"/>
+          <rect x="372" y="117.9" width="36" height="52.1" rx="2" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- year 3 -->
+          <rect x="500" y="73.4" width="60" height="96.6" rx="3" transform="rotate(0.5 530 122)" fill="#FFFFFF"/>
+          <rect x="512" y="95.4" width="36" height="74.6" rx="2" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- year 4 -->
+          <rect x="640" y="73.4" width="60" height="96.6" rx="3" transform="rotate(-0.5 670 122)" fill="#FFFFFF"/>
+          <rect x="652" y="101.5" width="36" height="68.5" rx="2" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- year 5 -->
+          <rect x="780" y="73.4" width="60" height="96.6" rx="3" transform="rotate(0.5 810 122)" fill="#FFFFFF"/>
+          <rect x="792" y="107.2" width="36" height="62.8" rx="2" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: an hourglass, time doing the shrinking -->
+          <path d="M770 300 L830 300 L800 330 L830 360 L770 360 L800 330 Z" stroke="#4A1A5C"/>
+          <path d="M786 352 L814 352" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a2aS" x="250" y="134" text-anchor="middle">+45.5k</text>
+        <text class="a2aS" x="390" y="99" text-anchor="middle">+103.3k</text>
+        <text class="a2aS" x="530" y="65" text-anchor="middle">+161.0k</text>
+        <text class="a2aS" x="670" y="65" text-anchor="middle">+161.0k</text>
+        <text class="a2aS" x="810" y="65" text-anchor="middle">+161.0k</text>
+
+        <text class="a2aA" x="250" y="190" text-anchor="middle">x 0.917</text>
+        <text class="a2aA" x="390" y="190" text-anchor="middle">x 0.842</text>
+        <text class="a2aA" x="530" y="190" text-anchor="middle">x 0.772</text>
+        <text class="a2aA" x="670" y="190" text-anchor="middle">x 0.708</text>
+        <text class="a2aB" x="810" y="190" text-anchor="middle">x 0.650</text>
+
+        <text class="a2aL" x="250" y="208" text-anchor="middle">PV +41.7k</text>
+        <text class="a2aL" x="390" y="208" text-anchor="middle">PV +86.9k</text>
+        <text class="a2aL" x="530" y="208" text-anchor="middle">PV +124.3k</text>
+        <text class="a2aL" x="670" y="208" text-anchor="middle">PV +114.1k</text>
+        <text class="a2aB" x="810" y="208" text-anchor="middle">PV +104.6k</text>
+
+        <text class="a2aS" x="250" y="228" text-anchor="middle">year 1</text>
+        <text class="a2aS" x="390" y="228" text-anchor="middle">year 2</text>
+        <text class="a2aS" x="530" y="228" text-anchor="middle">year 3</text>
+        <text class="a2aS" x="670" y="228" text-anchor="middle">year 4</text>
+        <text class="a2aS" x="810" y="228" text-anchor="middle">year 5</text>
+
+        <text class="a2aS" x="122" y="190">year 0</text>
+        <text class="a2aA" x="122" y="208">x 1.000</text>
+        <text class="a2aR" x="122" y="226">PV -360.0k</text>
+        <text class="a2aS" x="122" y="244">today: no shrink</text>
+
+        <text class="a2aN" x="250" y="290">factor = 1 / (1 + 9%)^t, so it falls a little more each year</text>
+        <text class="a2aN" x="250" y="314">sum of the six present values:</text>
+        <text class="a2aV" x="250" y="342">NPV +111.7k</text>
+        <text class="a2aS" x="250" y="362">against a simple ROI of 75.5%, undiscounted</text>
+
+        <text class="a2aN" x="30" y="412">All bars at one scale. The brass bar is year 5: still worth 65 percent of its cash at 9 percent.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the cash is the same in years 3 to 5, and only the factor makes each one worth less</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Present value in three lines<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The factor.</strong> One unit of cash in year t is worth 1 / (1 + r)^t today, where r is the discount rate. At Keelson's 9 percent the factors for years 0 to 5 are 1.000, 0.917, 0.842, 0.772, 0.708 and 0.650.</p>
+        <p><strong>The present value.</strong> Multiply each year's cash by its factor. Year 3's 161.0 thousand becomes 161.0 / 1.09^3 = 161.0 / 1.295 = 124.3 thousand. The six present values are -360.0k, +41.7k, +86.9k, +124.3k, +114.1k and +104.6k.</p>
+        <p><strong>The NPV.</strong> Add them up: +111.7k. A positive NPV at the hurdle means the project earns more than the money would earn elsewhere at similar risk, by 111.7 thousand in today's money. The undiscounted view, a simple ROI of 75.5%, treats year-5 cash as if it were in hand today, which is why no funder reads it alone.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why year 5 still counts for 65 percent at 9%<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>People expect discounting to wipe out late years, and at modest rates over short horizons it does not. At 9 percent, 1.09^5 is about 1.539, so year 5's factor is 1 / 1.539 = 0.650: the last year of CFT's benefit still keeps 65 percent of its face value, 104.6 thousand of the 161.0. Discounting compounds, so the bite grows with time and with the rate, but in a five-year case it trims rather than erases.</p>
+        <p>Two consequences for your own model. First, the years of benefit you assume matter a lot: a sixth year would add another sizeable slice, which is why Analyst session 4 swings the years of benefit and finds it the fourth most powerful input. Second, the late years are also the least certain ones, and discounting is not the place to price that doubt; a range is. Analyst session 5 does that. Raising the rate to cover "it might not happen" mixes two jobs into one number nobody can audit.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The slide that added the years up.</strong> Tom Reyes's first sponsor slide said CFT "returns 75.5% on 360 thousand", from adding the years up. Ines Carvalho sent it back with one line: discount it at our hurdle, then tell me what is left. What was left was an NPV of 111.7 thousand, still a yes, but well short of the headline gain, and the number Ines's team would sign. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the NPV profile and IRR</span>
+      <h2>Slide the rate, watch the case bend</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">NPV is not one number; it is one number per discount rate. Compute it at several rates and plot them, and you get the NPV profile: a line that falls as the rate rises, because every future year shrinks harder. Where the line crosses zero is the internal rate of return, the rate at which the project exactly breaks even in today's money.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn NPV profile for CFT. The horizontal axis is the discount rate from 0 to 20 percent; the vertical axis is NPV in thousands. Points: 3.0 percent, plus 210.8 thousand; 6 percent, plus 157.8; 9 percent, Keelson's hurdle, plus 111.7; 12 percent, plus 71.2; 15 percent, plus 35.6. The line crosses zero at 18.4 percent, the IRR, marked in brass, and dips slightly below zero after it.">
+        <defs>
+          <filter id="a2bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a2bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a2bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a2bH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a2bL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a2bS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a2bB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a2bA { font: 700 11px Inter, sans-serif; fill: #2F0F3B; }
+          .a2bR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a2bN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a2bH" x="30" y="28">CFT'S NPV AT EVERY RATE: THE PROFILE</text>
+        <text class="a2bS" x="300" y="28">constructed Keelson inputs · thousands · the widget draws the same line as bars</text>
+
+        <g filter="url(#a2bSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- axes -->
+          <path d="M90 60 L90 300"/>
+          <path d="M90 270 L830 270"/>
+          <!-- tick marks -->
+          <path d="M198 266 L198 274 M306 266 L306 274 M414 266 L414 274 M522 266 L522 274 M630 266 L630 274 M810 266 L810 274"/>
+          <!-- the profile -->
+          <path d="M198 101.4 L306 143.8 L414 180.6 L522 213 L630 241.5 L752 270 L810 282" stroke="#4A1A5C" stroke-width="2.6"/>
+          <!-- hurdle marker -->
+          <path d="M414 186 L414 264" stroke="#63307A" stroke-dasharray="4 5"/>
+          <!-- points -->
+          <circle cx="198" cy="101.4" r="5" fill="#FFFFFF"/>
+          <circle cx="306" cy="143.8" r="5" fill="#FFFFFF"/>
+          <circle cx="414" cy="180.6" r="6" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <circle cx="522" cy="213" r="5" fill="#FFFFFF"/>
+          <circle cx="630" cy="241.5" r="5" fill="#FFFFFF"/>
+          <circle cx="752" cy="270" r="8" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <!-- doodle: a slider knob on the rate axis -->
+          <path d="M90 322 L320 322" stroke="#4A1A5C"/>
+          <rect x="196" y="314" width="16" height="16" rx="4" fill="#F5EEF8" stroke="#4A1A5C"/>
+        </g>
+
+        <text class="a2bA" x="80" y="74" text-anchor="end">NPV</text>
+        <text class="a2bS" x="80" y="274" text-anchor="end">0</text>
+
+        <text class="a2bS" x="198" y="290" text-anchor="middle">3%</text>
+        <text class="a2bS" x="306" y="290" text-anchor="middle">6%</text>
+        <text class="a2bS" x="414" y="290" text-anchor="middle">9%</text>
+        <text class="a2bS" x="522" y="290" text-anchor="middle">12%</text>
+        <text class="a2bS" x="630" y="290" text-anchor="middle">15%</text>
+        <text class="a2bS" x="810" y="296" text-anchor="middle">20%</text>
+
+        <text class="a2bL" x="208" y="90">+210.8k at 3.0%</text>
+        <text class="a2bL" x="316" y="132">+157.8k at 6%</text>
+        <text class="a2bL" x="426" y="168">+111.7k at 9%</text>
+        <text class="a2bA" x="426" y="226">Keelson's hurdle</text>
+        <text class="a2bL" x="532" y="202">+71.2k at 12%</text>
+        <text class="a2bL" x="640" y="230">+35.6k at 15%</text>
+
+        <text class="a2bB" x="700" y="252">IRR 18.4%</text>
+        <text class="a2bR" x="770" y="310">below zero</text>
+
+        <text class="a2bS" x="340" y="326">discount rate, 0% to 20%</text>
+        <text class="a2bN" x="30" y="352">The gap between the hurdle and the crossing, 9% to 18.4%, is how much the rate could rise before the case breaks.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one case, five NPVs, and the brass point where the line cuts zero is the IRR</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Reading the profile: the rate at which the case breaks<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>It slopes down.</strong> CFT spends first and earns later, so a higher rate punishes it: +210.8k at 3.0 percent, +157.8k at 6, +111.7k at 9, +71.2k at 12, +35.6k at 15. The steeper the line, the more the case depends on the rate, and late-paying projects are always steeper than early-paying ones.</p>
+        <p><strong>It crosses zero once.</strong> At 18.4 percent CFT's present values sum to nothing. That is the IRR. Above it the project destroys value; below it, value is created. Because CFT has one sign change (cash out, then cash in), there is exactly one crossing.</p>
+        <p><strong>Read the distance, not just the point.</strong> Keelson's hurdle sits at 9 percent and the line crosses at 18.4, so the rate would have to roughly double before CFT stopped paying. That distance is what makes the discount rate the least worrying input in CFT's model, as Analyst session 4's tornado will show.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The IRR is the discount rate's switching value<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A switching value is the value an input would have to reach for the case to stop adding value. Do that for the discount rate and you get the IRR: 18.4 percent, the rate at which NPV is exactly zero. So the IRR is not a separate kind of truth about a project; it is one switching value among many, the one for the rate. Analyst session 4 computes the switching value for every input and finds the discount rate needs to rise by 104.7 percent from its base to break the case, which is the same fact as the IRR seen from the other side.</p>
+        <p>Two cautions carry over. A profile that crosses zero more than once, which happens when the cash flow changes sign more than once, has more than one IRR, and Analyst session 3 builds one. And when two projects compete, their profiles can cross each other, so the one with the higher IRR is not always the one with the higher NPV at your hurdle. Aswath Damodaran makes both points; Analyst session 3 works them through.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"What if our cost of money goes up?"</strong> At the funding meeting Tom Reyes asked what happens to CFT if Keelson's borrowing gets dearer. Maya Okafor did not rerun the model; she pointed at the profile. At 12 percent the case still shows +71.2k, at 15 percent +35.6k, and it only breaks at 18.4. The board stopped arguing about the rate and started asking about the saving per claim, which was the right question. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers which rate to use</span>
+      <h2>Social rate, company hurdle, project hurdle</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The NPV is only as meaningful as the rate behind it, and there is no single correct rate, only a rate that matches the question being asked. A government asking whether society gains from spending today uses one kind of rate. A company asking whether this project beats what its money could earn elsewhere uses another. And the honest company rate depends on how risky this particular project is, not on the firm's average.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two hand-drawn ladders of rates side by side. Left, public spending under The Green Book (2026), a real social time preference rate: 3.00 percent for years 1 to 30, 2.50 percent for years 31 to 75, 2.25 percent from year 76, built as 2 percent risk-free plus a 1 percent systematic risk premium. Right, Keelson's company hurdle: 9 percent nominal, set by finance and constructed, filled in brass, with two arrows for a project-risk adjustment: a riskier project gets a higher rate, a safer one a lower rate. A red panel at the bottom marks the wrong pairing: the 3.0 percent real social rate applied to Keelson's nominal private cash.">
+        <defs>
+          <filter id="a2cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a2cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a2cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a2cH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a2cL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a2cS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a2cV { font: 800 16px Inter, sans-serif; fill: #2F0F3B; }
+          .a2cW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .a2cX { font: 800 20px Inter, sans-serif; fill: #FFFFFF; }
+          .a2cR { font: 700 11px Inter, sans-serif; fill: #991B1B; }
+          .a2cN { font: 400 12px Inter, sans-serif; fill: #5B5160; }
+        </style>
+
+        <text class="a2cH" x="30" y="28">TWO LADDERS OF RATES, TWO DIFFERENT QUESTIONS</text>
+
+        <g filter="url(#a2cSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="44" width="400" height="258" rx="12" transform="rotate(-0.4 230 173)" fill="#FFFFFF"/>
+          <rect x="460" y="44" width="390" height="258" rx="12" transform="rotate(0.4 655 173)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <!-- left ladder rungs -->
+          <rect x="50" y="104" width="360" height="42" rx="8" transform="rotate(0.6 230 125)" fill="#FFFFFF"/>
+          <rect x="50" y="156" width="360" height="42" rx="8" transform="rotate(-0.6 230 177)" fill="#FFFFFF"/>
+          <rect x="50" y="208" width="360" height="42" rx="8" transform="rotate(0.5 230 229)" fill="#FFFFFF"/>
+          <!-- right: the firm hurdle -->
+          <rect x="480" y="104" width="150" height="94" rx="10" transform="rotate(-1 555 151)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="668" y="104" width="166" height="42" rx="8" transform="rotate(1 751 125)" fill="#FFFFFF"/>
+          <rect x="668" y="156" width="166" height="42" rx="8" transform="rotate(-1 751 177)" fill="#FFFFFF"/>
+          <path d="M634 140 L662 128" marker-end="url(#a2cAr)"/>
+          <path d="M634 162 L662 174" marker-end="url(#a2cAr)"/>
+          <!-- doodle: a little public building on the left panel -->
+          <path d="M374 72 L392 60 L410 72 M378 72 L378 88 M406 72 L406 88 M372 88 L412 88 M392 72 L392 88" stroke="#4A1A5C"/>
+          <!-- wrong-way panel -->
+          <rect x="30" y="322" width="820" height="56" rx="10" transform="rotate(-0.2 440 350)" fill="#FEF2F2" stroke="#FCA5A5"/>
+        </g>
+
+        <text class="a2cH" x="50" y="70">PUBLIC SPENDING · THE GREEN BOOK (2026)</text>
+        <text class="a2cS" x="50" y="88">social time preference rate, real terms</text>
+
+        <text class="a2cL" x="66" y="130">years 1 to 30</text>
+        <text class="a2cV" x="330" y="131">3.00%</text>
+        <text class="a2cL" x="66" y="182">years 31 to 75</text>
+        <text class="a2cV" x="330" y="183">2.50%</text>
+        <text class="a2cL" x="66" y="234">from year 76</text>
+        <text class="a2cV" x="330" y="235">2.25%</text>
+
+        <text class="a2cS" x="50" y="272">built as 2% risk-free plus a 1% systematic risk premium</text>
+        <text class="a2cS" x="50" y="290">it was 3.5% until 28 October 2026</text>
+
+        <text class="a2cH" x="480" y="70">KEELSON · A COMPANY HURDLE</text>
+        <text class="a2cS" x="480" y="88">nominal terms, set by finance, constructed</text>
+
+        <text class="a2cX" x="496" y="144">9%</text>
+        <text class="a2cW" x="496" y="168">firm hurdle</text>
+        <text class="a2cW" x="496" y="186">for average risk</text>
+
+        <text class="a2cL" x="682" y="130">riskier: rate up</text>
+        <text class="a2cL" x="682" y="182">safer: rate down</text>
+
+        <text class="a2cL" x="480" y="232">Damodaran: the hurdle should carry</text>
+        <text class="a2cL" x="480" y="250">this project's risk, not the firm's</text>
+        <text class="a2cS" x="480" y="272">one firm rate for all projects over-invests</text>
+        <text class="a2cS" x="480" y="290">in risky ones and under-invests in safe ones</text>
+
+        <text class="a2cR" x="48" y="345">WRONG PAIRING: the 3.0% real social rate on Keelson's nominal private cash</text>
+        <text class="a2cS" x="48" y="365">a different question (society's time preference) and different units (real against nominal)</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - both ladders are right for their own question, and the red panel is what happens when they are swapped</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Social rate, company hurdle, project hurdle<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The social rate.</strong> HM Treasury, The Green Book (2026) sets the social time preference rate for UK public appraisal at 3.00 percent in real terms for years 1 to 30, 2.50 percent for years 31 to 75 and 2.25 percent from year 76 (para 6.54). Its supplementary Discounting guidance of October 2026 builds it from a 2 percent risk-free rate plus a 1 percent systematic risk premium. It answers a public question: how much society prefers value now over value later.</p>
+        <p><strong>The company hurdle.</strong> Keelson's 9 percent is set by its finance team, in nominal terms, as the return its money must beat. It is a constructed policy number on these pages, not an estimate of Keelson's cost of capital from market data. It answers a private question: does this project beat what the money would earn elsewhere?</p>
+        <p><strong>The project hurdle.</strong> Aswath Damodaran's rule is that the hurdle should reflect the risk of the project, not of the firm: a riskier project needs a higher rate. A firm that uses one rate for everything ends up over-investing in its risky projects, which look better than they are, and under-investing in its safe ones, which look worse. A CFT built on proven rules and a few years of claims history may well deserve a different rate from an untested generative model, even inside the same insurer.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Real and nominal, never mixed<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A nominal figure includes inflation; a real figure has it taken out. Keelson's cash flows are nominal: the 14 saved per claim is in the money of the year it is saved, wage rises and all. So the rate on them must be nominal too. Discount nominal cash at a real rate and you count inflation as growth in the numerator without charging for it in the denominator, which flatters every late year. Discount real cash at a nominal rate and you punish the project twice for inflation.</p>
+        <p>The Green Book's 3.0 percent is a real rate because public appraisal works in real prices. Putting it on Keelson's nominal cash commits the first error, on top of asking the wrong question. The rule fits on a sticky note: nominal rate on nominal cash, real rate on real cash, and write which one you used on the front page of the case. Estimating a company's cost of capital from market data (beta, CAPM) is a separate skill and is not covered here; for valuing a whole company rather than one project, see <a href="https://phoebefu6.github.io/learn-value-investing-with-phoebe/courses/p4-a-dcf-by-hand.html">Learn Value Investing, session 4 ↗</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The Treasury changed its rate in October 2026.</strong> HM Treasury updated the discounting in The Green Book (2026) on 28 October 2026: the social time preference rate for years 1 to 30 moved from 3.5 percent to 3.00 percent real, with the new supplementary Discounting guidance setting out its make-up. Every UK public case appraised after that date discounts its future a little less, which favours long-lived investments. The change tells you something general: a discount rate is a published policy choice that can move, so a case should name its rate, its source and its date.</p>
+    </div>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>"That rate is for hospitals and roads."</strong> A vendor's slide deck for Keelson discounted CFT at 3.0 percent, "the government rate", and showed an NPV near double the finance team's. Ines Carvalho rejected it in two sentences: that is a real social rate for public spending, and Keelson is a private insurer with nominal cash and shareholders who could put the money elsewhere. Keelson's case stays at its 9 percent nominal hurdle, with a note on whether CFT's risk is close to the firm's average. Constructed Keelson Mutual example.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Discount Keelson's cash, then find where it breaks</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">The widget holds CFT's constructed cash flow from Analyst session 1 and discounts it at whatever rate you set, from 0 to 20 percent in half-point steps. It prints the factor and present value for every year, the NPV at your rate, the IRR, and the whole NPV profile as a row of bars. Work the five steps, write down what it prints, and check one year by hand.</p>
+
+    <div class="bcr-widget" data-mode="discount"></div>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A hand-drawn map of the widget. The discount rate slider, 0 to 20 percent, feeds a table with one row per year: year, cash, discount factor, present value. The table feeds two results, NPV at the chosen rate and the IRR, and a row of profile bars from 0 to 20 percent with the current rate highlighted. Bars below zero turn red.">
+        <defs>
+          <filter id="a2dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="a2dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#4A1A5C" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="a2dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#211A25" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .a2dH { font: 800 12px Inter, sans-serif; fill: #211A25; }
+          .a2dL { font: 600 12px Inter, sans-serif; fill: #211A25; }
+          .a2dS { font: 400 11px Inter, sans-serif; fill: #5B5160; }
+          .a2dB { font: 800 11px Inter, sans-serif; fill: #4F3807; }
+          .a2dW { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="a2dH" x="30" y="28">WHAT THE WIDGET COMPUTES</text>
+
+        <g filter="url(#a2dSk)" fill="none" stroke="#211A25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="74" width="190" height="64" rx="10" transform="rotate(-0.8 125 106)" fill="#F5EEF8" stroke="#4A1A5C"/>
+          <path d="M224 106 L290 106" marker-end="url(#a2dAr)"/>
+          <rect x="296" y="60" width="250" height="92" rx="10" transform="rotate(0.4 421 106)" fill="url(#a2dHc)"/>
+          <path d="M550 92 L604 74" marker-end="url(#a2dAr)"/>
+          <path d="M550 122 L604 150" marker-end="url(#a2dAr)"/>
+          <rect x="610" y="44" width="240" height="62" rx="10" transform="rotate(-0.4 730 75)" fill="#7D5A0E" stroke="#7D5A0E"/>
+          <rect x="610" y="124" width="240" height="70" rx="10" transform="rotate(0.4 730 159)" fill="#FFFFFF"/>
+          <!-- profile bars doodle inside the lower result box -->
+          <path d="M630 178 L630 160 M646 178 L646 163 M662 178 L662 166 M678 178 L678 169 M694 178 L694 172" stroke="#4A1A5C"/>
+          <path d="M710 178 L710 184" stroke="#991B1B"/>
+        </g>
+
+        <rect x="308" y="74" width="226" height="64" rx="6" fill="#FFFFFF"/>
+
+        <text class="a2dL" x="44" y="100">rate slider, 0% to 20%</text>
+        <text class="a2dS" x="44" y="118">half-point steps, starts at 9.0%</text>
+        <text class="a2dL" x="320" y="96">table, years 0 to 5</text>
+        <text class="a2dS" x="320" y="114">cash · discount factor</text>
+        <text class="a2dS" x="320" y="130">· present value</text>
+        <text class="a2dW" x="626" y="70">NPV at your rate</text>
+        <text class="a2dW" x="626" y="92">IRR: where NPV is zero</text>
+        <text class="a2dL" x="730" y="150">NPV profile</text>
+        <text class="a2dS" x="730" y="168">0% to 20%</text>
+
+        <text class="a2dB" x="30" y="232">The highlighted bar is your current rate. A red bar is a rate at which the case loses value.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - one slider moves every factor at once, and the profile shows all the rates you have not tried yet</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Step 1 · Read the 9% table.</strong> Leave the slider at 9.0%. Write down the six discount factors, the six present values and the NPV.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · what the widget prints at 9.0%</span>factors:        1.000 · 0.917 · 0.842 · 0.772 · 0.708 · 0.650
+present values: -360.0k · +41.7k · +86.9k · +124.3k · +114.1k · +104.6k
+NPV +111.7k at 9.0% · IRR 18.4%</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 2 · Check year 3 by hand.</strong> Compute the year 3 factor yourself and confirm the widget's present value.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · year 3 by hand</span>1.09 x 1.09 x 1.09 = 1.295
+factor = 1 / 1.295 = 0.772
+161.0k x 0.772 = 124.3k   (161.0 / 1.09^3 = 124.32, the widget's year 3)</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 3 · Slide to 3.0%, then to 15%.</strong> Write both NPVs. Notice which years' present values moved most, and say why in one sentence.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · two rates</span>at 3.0%:  NPV +210.8k
+at 15%:   NPV +35.6k
+the years that moved most, and why: ______________________________</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 4 · Find where NPV reaches zero.</strong> Keep sliding up. The slider moves in half-point steps, so NPV changes sign between 18.0% and 18.5%; the profile bars turn red from there. Read the exact crossing from the IRR result.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · the rate at which the case breaks</span>NPV turns negative between 18.0% and 18.5% on the slider
+IRR: the rate where NPV is zero   18.4%
+distance from the 9% hurdle: ____ points</div>
+      </div>
+      <div class="step">
+        <p><strong>Step 5 · Your own project.</strong> Take the incremental cash flow you built in Analyst session 1 and discount it at the rate your finance team uses. Your numbers will differ.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · your rate and your NPV</span>our rate: ____%   source: ______________   date: ________
+nominal or real? ____    my cash flow is: nominal / real (must match)
+firm-wide or project-specific? ____   is my project riskier than average? ____
+year   cash   factor   present value
+0      ____   1.000    ____
+1      ____   ____     ____
+...
+NPV at our rate: ____    rate at which NPV reaches zero: ____%</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Keep the rate and its source.</strong> Analyst session 3 uses the same rate to compare CFT with a quick win, and Analyst session 4 swings it alongside every other input. If your finance team could not tell you whether the rate is nominal or real, that is the first question on your list.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before Analyst session 3</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Get the rate in writing.</strong> Ask finance for the hurdle your company uses, whether it is nominal or real, and when it was last changed. Write all three on the front of your case.</li>
+      <li><strong>Ask about project risk.</strong> Does your company use one rate for every project, or adjust it for risk? If one rate, write one sentence on whether your project is riskier or safer than the average.</li>
+      <li><strong>Draw your profile.</strong> Compute your NPV at four rates, including your hurdle, and sketch the line. Mark where it crosses zero.</li>
+      <li><strong>Find one mixed-units error.</strong> Look at one past case or vendor proposal in your organisation and check whether the rate and the cash were in the same terms. Note what you found.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and Analyst session 2 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Why discount future cash at all?</p>
+      <button class="qopt" type="button">A · Because accountants require it for capitalised projects</button>
+      <button class="qopt" type="button">B · To make the case look more conservative to the board</button>
+      <button class="qopt" type="button">C · Because money tied up in the project could be earning a return elsewhere at similar risk, so later cash is worth less today</button>
+      <button class="qopt" type="button">D · To remove the effect of inflation from the cash flows</button>
+      <p class="qwhy">The discount rate is the return the money gives up by waiting. At 9 percent, 161 thousand in year 3 is worth 124.3 thousand today.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · The Green Book (2026) social rate is 3.0 percent real; Keelson's hurdle is 9 percent nominal. Which belongs on Keelson's CFT case, and why?</p>
+      <button class="qopt" type="button">A · The 9 percent nominal hurdle: Keelson is a private firm asking whether CFT beats what its money earns elsewhere, and its cash flows are nominal</button>
+      <button class="qopt" type="button">B · The 3.0 percent, because it is the official UK rate</button>
+      <button class="qopt" type="button">C · An average of the two, to be fair to both views</button>
+      <button class="qopt" type="button">D · Whichever gives the higher NPV, since the rate is a matter of opinion</button>
+      <p class="qwhy">The social rate answers a public question in real terms. Keelson's question is private and its cash is nominal, so the rate must be too.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · On CFT's NPV profile, what is the IRR?</p>
+      <button class="qopt" type="button">A · The highest point on the line</button>
+      <button class="qopt" type="button">B · The NPV at Keelson's 9 percent hurdle</button>
+      <button class="qopt" type="button">C · The slope of the line between 3 and 15 percent</button>
+      <button class="qopt" type="button">D · The rate where the line crosses zero, 18.4 percent: the rate at which the case stops adding value</button>
+      <p class="qwhy">The IRR is the discount rate at which NPV is exactly zero, which makes it the switching value for the rate.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The social time preference rate: 3.00% real for years 1-30, 2.50% for 31-75, 2.25% from 76; 3.5% until 28 October 2026</span><span class="note">HM Treasury, The Green Book (2026), para 6.54, and supplementary guidance Discounting (October 2026), 2% risk-free plus 1% systematic risk premium; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The hurdle should reflect the project's risk; one firm rate over-invests in risky projects and under-invests in safe ones</span><span class="note">Aswath Damodaran, Applied Corporate Finance and NYU Stern corporate finance notes (Spring 2026); read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Keelson's discount factors, present values, NPV +111.7k at 9.0%, the profile from +210.8k at 3.0% to +35.6k at 15%, IRR 18.4%</span><span class="note">Constructed and labelled; computed by the engine in your browser and checked against an independent Python run</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Analyst session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The factor</b><span>1 / (1 + r)^t. At 9%: 1.000, 0.917, 0.842, 0.772, 0.708, 0.650.</span></div>
+      <div class="cheat-item"><b>NPV</b><span>The sum of present values. CFT: +111.7k at 9%. Simple ROI (75.5%) ignores time.</span></div>
+      <div class="cheat-item"><b>The profile</b><span>NPV at every rate. It falls as the rate rises; late-paying cases fall faster.</span></div>
+      <div class="cheat-item"><b>IRR</b><span>Where the profile crosses zero: 18.4% for CFT. The rate's switching value.</span></div>
+      <div class="cheat-item"><b>Which rate</b><span>Social rate for public questions, company hurdle for private ones, adjusted to the project's risk.</span></div>
+      <div class="cheat-item"><b>Units</b><span>Nominal rate on nominal cash, real on real. Name the rate, its source and its date.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>You can now put one number on a case at any rate. Analyst session 3 puts two cases side by side, CFT and a quick rules-based win, and gets four verdicts from NPV, IRR, payback and simple ROI. Their NPV profiles cross at 15.4 percent, and that crossing decides which project a funder should pick.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Analyst session 2 of 6 · learn-business-cases-roi-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="a1-only-the-cash-that-changes.html">← Prev: Only the cash that changes</a> &nbsp;·&nbsp; <a href="a3-npv-irr-and-payback.html">Next: NPV, IRR and payback →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/bcr-live.js?v=1"></script>
+<script src="../assets/bcr-bench.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
